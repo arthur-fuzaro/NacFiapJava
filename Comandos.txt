@@ -10,4 +10,4 @@ git push origin master - envia todos arquivos que voce mudou pro nosso repositor
 //off
 git status (mostra quais arquivos foram alterados)
 
-finished
+finisheddd
