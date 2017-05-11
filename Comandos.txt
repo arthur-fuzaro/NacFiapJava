@@ -1,7 +1,7 @@
 botão direito no projeto e "clique em Show in local terminal" -> "Terminal"
 
 
-SALVAR ANTES DE TUDO!!
+SALVAR ANTES DE TUDO!
 
 
 git pull (Vai pegar tudo que tem no repositorio - atual, sempre fazer isso vai que alguem mudou algo)
