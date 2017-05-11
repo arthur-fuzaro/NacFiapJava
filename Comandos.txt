@@ -1,6 +1,7 @@
 botão direito no projeto e "clique em Show in local terminal" -> "Terminal"
 
 git pull (Vai pegar tudo que tem no repositorio - atual, sempre fazer isso vai que alguem mudou algo)
+git add . (Adciona os arquivos que não existem no repositorio)
 git commit -m "Mensagem do que fez/mudou" (Este comando)
 git push origin master - envia todos arquivos que voce mudou pro nosso repositorio
 
