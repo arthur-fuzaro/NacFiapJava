@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/_templateADM.xhtml">
+	<ui:define name="content">
+	
+	<div class="cadastros container">
+         <div>        
+             <p class="titulo_Rosa">Cadastro de Livros</p>
+             
+             <form action="#" method="post">
+                <fieldset>
+                     <div class="campo">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" style="width: 95%" value="" />
+                     </div>
+                     <fieldset class="grupo">                        
+                        <div class="campo">
+                            <label for="snome">Código ISBN</label>
+                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                        </div>
+                        <div class="campo">
+                            <label for="snome">Qtd. Páginas</label>
+                            <input type="text" id="snome" name="snome" style="width: 22em" value="" />
+                        </div>
+                        <div class="campo">
+                            <label for="snome">Edição</label>
+                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                        </div>
+                     </fieldset>
+               </fieldset>
+               
+                                    <fieldset class="grupo">                        
+                       <div class="campo">
+                            <label for="estado">Autores</label>
+                            <select name="estado" style="width: 22em" id="estado">
+                                <option value="">--</option>
+                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
+                                <option value="Souza">Souza Alisson Alisson Alisson</option>
+                            </select>
+                        </div>  
+                        <div class="campo">
+                            <label for="estado">Gêneros</label>
+                            <select name="estado" style="width: 19em" id="estado">
+                                <option value="">--</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Romance">Romance</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="estado">Editoras</label>
+                            <select name="estado" style="width: 27em" id="estado">
+                                <option value="">--</option>
+                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
+                                <option value="Souza">Souza Alisson Alisson Alisson</option>
+                            </select>
+                        </div>
+                        
+                     </fieldset>                   
+                                   
+                                
+                    <button class="botao" type="submit" name="submit">Enviar</button>
+               
+             </form>        
+             
+         </div>
+    </div>         
+	
+	</ui:define>	
+</ui:composition>
+</html>

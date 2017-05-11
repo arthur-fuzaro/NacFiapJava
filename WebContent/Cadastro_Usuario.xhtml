@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/_templateADM.xhtml">
+	<ui:define name="content">
+	
+	<div class="cadastros container">
+         <div>        
+             <p class="titulo_Rosa">Cadastro de Usuário</p>
+
+             <form action="#" method="post">
+                <fieldset>
+                     
+                     <fieldset class="grupo">                        
+                        <div class="campo">
+                            <label for="nomeAutor">Login </label>
+                            <input type="text" id="nomeAutor" name="nomeAutor" style="width: 35em" value="" />
+                        </div>
+                        <div class="campo">
+                            <label for="sobrenomeAutor">Senha</label>
+                            <input type="text" id="sobrenomeAutor" name="sobrenomeAutor" style="width: 35em" value="" />
+                        </div>
+                        
+                     </fieldset>
+                                   
+                                      
+                              
+                    <button class="botao" type="submit" name="submit">Enviar</button>
+             
+                </fieldset>
+            </form>             
+                                                
+         </div>
+      </div>  	
+	
+	</ui:define>	
+</ui:composition>
+</html>

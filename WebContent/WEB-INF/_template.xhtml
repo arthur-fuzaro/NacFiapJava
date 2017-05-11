@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">GUIROAR</ui:insert></title>
+
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style_cadastros.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+    
+</h:head>
+
+<h:body>
+	
+		<div class="cabecalho container">
+		<h1 class="logo">
+			<h:form>
+				<h:commandLink action="Index">Meu site</h:commandLink>
+			</h:form>
+		</h1>
+		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
+		
+
+		<p class="carrinho">
+		  <p:commandButton  action="Index" class="fa-shopping-cart">
+		  				(0)</p:commandButton >
+			
+		</p>
+		<div class="menu">
+			<p:commandButton  Class="btn-close" action="Index" class="fa-times">
+					(0)</p:commandButton >
+			
+			<ul>
+				<li>
+					<h:form id="demo-2">
+						<p:inputText type="search" placeholder="Search" /> 
+					</h:form>
+				</li>
+				<h:form>
+					<li><h:commandLink action="Index">Minha conta</h:commandLink></li>
+					<li><h:commandLink action="Index">Sair</h:commandLink></li>
+				</h:form>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<div id="content">
+	  <ui:insert name="content">    	
+	  </ui:insert>
+	</div>
+	
+	<div class="rodape container bg-gradient">
+       <div class="social-icons">
+         <h:form>
+            <h:commandLink href="#" class="fa fa-facebook"></h:commandLink><!-- Tags -->
+            <h:commandLink href="#" class="fa fa-twitter"></h:commandLink><!-- Tags -->
+            <h:commandLink href="#" class="fa fa-google"></h:commandLink><!-- Tags -->
+            <h:commandLink href="#" class="fa fa-instagram"></h:commandLink><!-- Tags -->
+            <h:commandLink href="#" class="fa fa-envelope"></h:commandLink><!-- Tags -->
+          </h:form>
+          </div>
+          <p class="copyright">
+            Copyright © Guiroar 2017. Todos os direitos reservados.
+		  </p>
+	</div>  
+
+
+<script src="http://code.jquery.com/jquery-1.12.0.min.js" />
+<script>
+$(".btn-menu").click(function(){
+		$(".menu").show();
+});
+$(".btn-close").click(function(){
+		$(".menu").hide();
+});
+</script>	
+	
+</h:body>
+
+</html>

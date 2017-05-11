@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="content">
+	    
+	<div class="banner container">
+		<div class="title">
+			<h2>Guiroar</h2>
+			<h3>A sua livraria virtual!</h3>
+		</div>
+		<div class="buttons">
+		<h:form class="btn btn-cadastrar">			
+			<p:commandButton   icon="fa-arrow-circle-right">Cadastre-se	</p:commandButton>
+		</h:form>
+		<h:form class="btn btn-busca">			
+			<p:commandButton   icon="fa-search">Busca avançada	</p:commandButton>
+		</h:form>
+			
+		</div>
+	</div>
+	
+	
+		<div Class="servicos container">
+		<div Class="servico"> 
+			<h:form>
+				<h:commandLink action="Index">
+					<img src="img/banner-mini_beijo.jpg" alt="campanhas" />
+				</h:commandLink>
+			</h:form> 
+		</div>
+		
+		<div class="servico"> 
+			<h:form>
+				<h:commandLink action="Index">
+					<img src="img/1702_banner-mini_leia-mais-sobre.jpg" alt="Marketing Digital" />
+				</h:commandLink>
+			</h:form> 
+		</div>
+		<div class="servico"> 
+			<h:form>
+				<h:commandLink action="Index">
+					<img src="img/banner_mini_24102016_ler-faz-bem.jpg" alt="Marketing Digital" />
+				</h:commandLink>
+			</h:form> 
+		</div>
+	</div>
+
+
+	</ui:define>	
+</ui:composition>
+</html>
