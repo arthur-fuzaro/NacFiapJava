@@ -15,5 +15,8 @@ git push origin master - envia todos arquivos que voce mudou pro nosso repositor
 git status (mostra quais arquivos foram alterados)
 
 
+//Merge
+
+
 
 finished
