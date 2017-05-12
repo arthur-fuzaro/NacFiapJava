@@ -24,10 +24,10 @@
 		</h1>
 		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
 		
-
-		<p class="carrinho">
-		   <img src="img/cart.svg" alt="Kiwi standing on oval" /> (0)			
-		</p>			
+		<p class="mensagem_login"> Olá, Minha conta </p>
+		<h:form class="carrinho">			
+			<h:commandLink action="Index"><img src="img/cart.svg" alt="Carrinho" /> (0)</h:commandLink>
+		</h:form>		
 		
 		<div class="menu">
 			<p:commandButton  Class="btn-close" action="Index" class="fa-times">
@@ -40,7 +40,7 @@
 					</h:form>
 				</li>
 				<h:form>
-					<li><h:commandLink action="Index">Minha conta</h:commandLink></li>
+					<li><h:commandLink action="Index">Lista de Desejos</h:commandLink></li>
 					<li><h:commandLink action="Index">Sair</h:commandLink></li>
 				</h:form>
 			</ul>
