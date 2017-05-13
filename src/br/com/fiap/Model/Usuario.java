@@ -2,15 +2,23 @@ package br.com.fiap.Model;
 
 public class Usuario {
 
-	private String login;
-	
-	private String password;
+	private String login, password, nome;
 
-	public Usuario(String login, String password) {
+	public Usuario(String nome, String login, String password) {
 		super();
 		this.login = login;
 		this.password = password;
+		this.nome = nome;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 
 	public String getLogin() {
 		return login;
@@ -27,6 +35,8 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 	
 	
 	
