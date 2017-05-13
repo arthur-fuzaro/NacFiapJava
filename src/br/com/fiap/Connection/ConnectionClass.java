@@ -13,8 +13,8 @@ public class ConnectionClass {
 	  } 
 	  catch (ClassNotFoundException ex){ }
 	  
-	  String server = "gui.servermine.com.br";
-	  String database = "FIAP";
+	  String server = "ts.servermine.com.br";
+	  String database = "fiap";
 	    
 	  String url = "jdbc:mysql://" + server + "/" + database;
 	  String user = "fiap";

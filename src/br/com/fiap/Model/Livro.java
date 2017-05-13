@@ -18,8 +18,7 @@ public class Livro {
 	
 	private int editoraId;
 
-	public Livro(int id, int codIsbn, int paginas, int edicao, String nome, int autorId, int generoId,
-			int editoraId) {
+	public Livro(int id, int codIsbn, int paginas, int edicao, String nome, int autorId, int generoId, int editoraId) {
 		super();
 		this.id = id;
 		this.codIsbn = codIsbn;
