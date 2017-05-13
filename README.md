@@ -1,14 +1,13 @@
-
-bot√£o direito no projeto e "clique em Show in local terminal" -> "Terminal"
+bot„o direito no projeto e "clique em Show in local terminal" -> "Terminal"
 
 
 SALVAR ANTES DE TUDO!
 
 
 git pull (Vai pegar tudo que tem no repositorio - atual, sempre fazer isso vai que alguem mudou algo)
-git add . (Adciona os arquivos que n√£o existem no repositorio)
-git commit -am "Mensagem do que fez/mudou" (Este comando sempre deve ser executado antes ele funciona como um add tamb√©m)
-git push origin master - envia todos arquivos que voce mudou pro nosso repositorio
+git add . (Adciona os arquivos que n„o existem no repositorio)
+git commit -am "Mensagem do que fez/mudou" (Este comando sempre deve ser executado antes ele funciona como um add tambÈm)
+git push  - envia todos arquivos que voce mudou pro nosso repositorio
 
 
 
@@ -16,5 +15,10 @@ git push origin master - envia todos arquivos que voce mudou pro nosso repositor
 git status (mostra quais arquivos foram alterados)
 
 
+//Merge
 
-finished
+
+
+finishedd
+
+Merge test!!
