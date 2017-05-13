@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.com.fiap.Model.Livro;
 
+@SuppressWarnings("unused")
 public class tests {
 
 	public static void main(String[] args) {
