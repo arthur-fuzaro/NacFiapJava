@@ -2,41 +2,41 @@ package br.com.fiap.Model;
 
 public class Autor {
 
-	private int id;
+	private int Id;
 	
-	private String firstName;
+	private String FirstName;
 	
-	private String lastName;
+	private String LastName;
 
 	public Autor(int id, String firstName, String lastName) {
 		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.Id = id;
+		this.FirstName = firstName;
+		this.LastName = lastName;
 	}
 
 	public int getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.Id = id;
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return FirstName;
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.FirstName = firstName;
 	}
 
 	public String getLastName() {
-		return lastName;
+		return LastName;
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.LastName = lastName;
 	}
 	
 }

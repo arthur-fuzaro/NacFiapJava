@@ -17,14 +17,12 @@ public class GeneroDAO {
 
 	public GeneroDAO() {
 		try {
-
 			conn = ConnectionClass.getConnection();
 			System.out.println("sucesso");
 		} catch (SQLException ex) {
 		}
 
 	}
-	public ArrayList<Genero> ListarGeneros() {
 
 	public ArrayList<Genero> getTodosGeneros(){
 		try{

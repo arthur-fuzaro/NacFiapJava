@@ -14,10 +14,10 @@ public class GeneroMB {
 	
 	
 	
-	 private List<Genero> itemsList;
-	   public GeneroMB(){
+		private List<Genero> itemsList;
+		public GeneroMB(){
 	      itemsList = new ArrayList<Genero>();
-	   }
+		}
 
 	   public List<Genero> getItems(){
 	       GeneroDAO g = new GeneroDAO();
