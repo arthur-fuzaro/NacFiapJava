@@ -18,20 +18,20 @@
                 <fieldset>
                      <div class="campo">
                             <label for="nome">Nome</label>
-                            <h:inputText style="width: 95%" value="#{livroMB.livro.nome}" />
+                            <h:inputText style="width: 95%" value="#{livroMB.livro.nomeLivro}" />
                      </div>
                      <fieldset class="grupo">                        
                         <div class="campo">
                             <label for="snome">Código ISBN</label>
-                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{livroMB.livro.codIsbn}" />
                         </div>
                         <div class="campo">
                             <label for="snome">Qtd. Páginas</label>
-                            <input type="text" id="snome" name="snome" style="width: 22em" value="" />
+                            <h:inputText style="width: 22em" value="#{livroMB.livro.paginas}" />
                         </div>
                         <div class="campo">
                             <label for="snome">Edição</label>
-                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{livroMB.livro.edicao}" />
                         </div>
                      </fieldset>
                </fieldset>
@@ -47,6 +47,12 @@
                         </div>  
                         <div class="campo">
                             <label for="estado">Gêneros</label>
+                            
+                            <h:selectManyMenu>
+                            <f:selectItems value="#{generoMB.ListaGeneros}" />
+                            </h:selectManyMenu>
+                            
+                            
                             <select name="estado" style="width: 19em" id="estado">
                                 <option value="">--</option>
                                 <option value="Drama">Drama</option>
@@ -65,7 +71,7 @@
                      </fieldset>                   
                                    
                                 
-                    <button class="botao" type="submit" name="submit">Enviar</button>
+                    <h:commandButton value="Incluir" action="#{livroMB.cadastrarLivro}"/>
                
              </h:form>        
              

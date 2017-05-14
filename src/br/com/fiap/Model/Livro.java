@@ -10,7 +10,7 @@ public class Livro {
 	
 	private int edicao;
 	
-	private String nome;
+	private String nomeLivro;
 	
 	private int autorId;
 	
@@ -18,13 +18,13 @@ public class Livro {
 	
 	private int editoraId;
 
-	public Livro(int id, int codIsbn, int paginas, int edicao, String nome, int autorId, int generoId, int editoraId) {
+	public Livro(int id, int codIsbn, int paginas, int edicao, String nomeLivro, int autorId, int generoId, int editoraId) {
 		super();
 		this.id = id;
 		this.codIsbn = codIsbn;
 		this.paginas = paginas;
 		this.edicao = edicao;
-		this.nome = nome;
+		this.nomeLivro = nomeLivro;
 		this.autorId = autorId;
 		this.generoId = generoId;
 		this.editoraId = editoraId;
@@ -63,11 +63,11 @@ public class Livro {
 	}
 
 	public String getNomeLivro() {
-		return nome;
+		return nomeLivro;
 	}
 
-	public void setNomeLivro(String nome) {
-		this.nome = nome;
+	public void setNomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
 	}
 
 	public int getAutorId() {
