@@ -17,9 +17,16 @@ import br.com.fiap.Model.Genero;
 public class AutorMB {
 	
 
+	
 	private List<Autor> itemsList;
+
+	private Autor autor;
+	private String erro;
+	
+	
 	public AutorMB(){
       itemsList = new ArrayList<Autor>();
+      autor = new Autor();
 	}
 
    public List<Autor> getItems(){
@@ -27,8 +34,7 @@ public class AutorMB {
        return a.getTodosAutores();
    }
    
-	private Autor autor = new Autor(0, null, null);
-	private String erro;
+	
 	
 	public Autor getAutor() {
 		return autor;

@@ -81,7 +81,13 @@ public class AutorDAO {
 				id = rs.getInt("AutorId");
 				nome = rs.getString("First_Name");
 				sobrenome = rs.getString("First_Name");
-				Autores.add(new Autor(id, nome, sobrenome));
+				//Autores.add(new Autor(id, nome, sobrenome));
+				
+				Autor autor = new Autor();
+				autor.setFirstName(nome);
+				autor.setLastName(sobrenome);
+				autor.setId(id);
+				Autores.add(autor);
 			}
 		} catch (SQLException ex) {
 			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Autores)");

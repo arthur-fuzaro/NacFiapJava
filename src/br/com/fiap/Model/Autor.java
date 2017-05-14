@@ -8,12 +8,12 @@ public class Autor {
 	
 	private String LastName;
 
-	public Autor(int id, String firstName, String lastName) {
+	/*public Autor(int id, String firstName, String lastName) {
 		super();
 		this.Id = id;
 		this.FirstName = firstName;
 		this.LastName = lastName;
-	}
+	}*/
 
 	public int getId() {
 		return Id;
