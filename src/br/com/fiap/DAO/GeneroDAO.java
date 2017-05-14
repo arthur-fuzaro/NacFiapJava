@@ -24,8 +24,6 @@ Connection conn = null;
 		
 	}
 	
-	public List<String> GenerosNomes;
-	
 	public ArrayList<Genero> ListarGeneros(){
 		ArrayList<Genero> Generos = new ArrayList<Genero>();
 		int id;
@@ -38,7 +36,6 @@ Connection conn = null;
 			id= rs.getInt("GeneroId");
 			nome = rs.getString("Nome");
 			Generos.add(new Genero(id, nome));
-			GenerosNomes.add(nome);
 			}
 		}
 		catch(SQLException ex){ 
