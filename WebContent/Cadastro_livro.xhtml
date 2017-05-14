@@ -14,24 +14,24 @@
          <div>        
              <p class="titulo_Rosa">Cadastro de Livros</p>
              
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      <div class="campo">
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" style="width: 95%" value="" />
+                            <h:inputText style="width: 95%" value="#{livroMB.livro.nomeLivro}" />
                      </div>
                      <fieldset class="grupo">                        
                         <div class="campo">
                             <label for="snome">Código ISBN</label>
-                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{livroMB.livro.codIsbn}" />
                         </div>
                         <div class="campo">
                             <label for="snome">Qtd. Páginas</label>
-                            <input type="text" id="snome" name="snome" style="width: 22em" value="" />
+                            <h:inputText style="width: 22em" value="#{livroMB.livro.paginas}" />
                         </div>
                         <div class="campo">
                             <label for="snome">Edição</label>
-                            <input type="text" id="snome" name="snome" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{livroMB.livro.edicao}" />
                         </div>
                      </fieldset>
                </fieldset>
@@ -39,35 +39,30 @@
                                     <fieldset class="grupo">                        
                        <div class="campo">
                             <label for="estado">Autores</label>
-                            <select name="estado" style="width: 22em" id="estado">
-                                <option value="">--</option>
-                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
-                                <option value="Souza">Souza Alisson Alisson Alisson</option>
-                            </select>
+							<h:selectOneMenu value="#{autoresMB.livro.autorId}" styleClass="width: 27em">  
+							      <f:selectItems value="#{autorMB.items}" var="a" itemLabel="#{a.nome}" itemValue="#{a.id}"/>
+							 </h:selectOneMenu>
                         </div>  
                         <div class="campo">
                             <label for="estado">Gêneros</label>
-                            <select name="estado" style="width: 19em" id="estado">
-                                <option value="">--</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Romance">Romance</option>
-                            </select>
+                            
+							<h:selectOneMenu value="#{livroMB.livro.generoId}">  
+							      <f:selectItems value="#{generoMB.items}" var="g" itemLabel="#{g.nome}" itemValue="#{g.id}"/>
+							 </h:selectOneMenu>
                         </div>
                         <div class="campo">
                             <label for="estado">Editoras</label>
-                            <select name="estado" style="width: 27em" id="estado">
-                                <option value="">--</option>
-                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
-                                <option value="Souza">Souza Alisson Alisson Alisson</option>
-                            </select>
+							<h:selectOneMenu value="#{livroMB.livro.editoraId}" styleClass="width: 27em">  
+							      <f:selectItems value="#{editoraMB.items}" var="e" itemLabel="#{e.nome}" itemValue="#{e.id}"/>
+							 </h:selectOneMenu>
                         </div>
                         
                      </fieldset>                   
                                    
                                 
-                    <button class="botao" type="submit" name="submit">Enviar</button>
+                    <h:commandButton value="Incluir" action="#{livroMB.cadastrarLivro}" styleClass="botao"/>
                
-             </form>        
+             </h:form>        
              
          </div>
     </div>         
