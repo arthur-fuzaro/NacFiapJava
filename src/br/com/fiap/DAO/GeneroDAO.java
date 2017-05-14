@@ -13,18 +13,19 @@ import br.com.fiap.Model.Livro;
 
 public class GeneroDAO {
 
-Connection conn = null;
-	private long id;
-	
-	public GeneroDAO(){
-		try{
+	Connection conn = null;
+
+	public GeneroDAO() {
+		try {
+
 			conn = ConnectionClass.getConnection();
 			System.out.println("sucesso");
+		} catch (SQLException ex) {
 		}
-		catch(SQLException ex){}
-		
+
 	}
-	
+	public ArrayList<Genero> ListarGeneros() {
+
 	public ArrayList<Genero> getTodosGeneros(){
 		try{
 			conn = ConnectionClass.getConnection();
@@ -35,20 +36,20 @@ Connection conn = null;
 		int id;
 		String nome;
 		String sql = "SELECT * FROM Generos";
-		try{
+		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();			
-			while(rs.next()){
-				id= rs.getInt("GeneroId");
+
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt("GeneroId");
+
 				nome = rs.getString("Nome");
 				Generos.add(new Genero(id, nome));
 			}
+		} catch (SQLException ex) {
+			System.out.println("Ocorreu um erro de execuÃ§Ã£o: " + ex.getMessage() + " (Generos)");
 		}
-		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Generos)");
-		}	
 		return Generos;
 	}
-	
-	
+
 }
