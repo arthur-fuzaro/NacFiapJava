@@ -15,27 +15,22 @@
          <div>        
              <p class="titulo_Rosa">Cadastro de Autor</p>
 
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      
                      <fieldset class="grupo">                        
                         <div class="campo">
                             <label for="nomeAutor">Nome </label>
-                            <input type="text" id="nomeAutor" name="nomeAutor" style="width: 35em" value="" />
+                            <h:inputText style="width: 35em" value="#{autorMB.autor.firstName}" />
                         </div>
                         <div class="campo">
                             <label for="sobrenomeAutor">Sobrenome</label>
-                            <input type="text" id="sobrenomeAutor" name="sobrenomeAutor" style="width: 35em" value="" />
+                            <h:inputText style="width: 35em" value="#{autorMB.autor.lastName}" />
                         </div>
-                        
                      </fieldset>
-                                   
-                                      
-                              
-                    <button class="botao" type="submit" name="submit">Enviar</button>
-             
+             		<h:commandButton value="Enviar" action="#{autorMB.cadastrarAutor}" styleClass="botao"/>
                 </fieldset>
-            </form>             
+            </h:form>             
                                                 
          </div>
       </div>  	

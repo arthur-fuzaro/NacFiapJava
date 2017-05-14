@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Erro</title>
+</head>
+<body>
+<ui:composition template="/WEB-INF/_templateADM.xhtml">
+	<ui:define name="content">
+	
+	<div class="cadastros container">
+         <div>        
+             <p class="titulo_Rosa">Sucesso</p>
+             <h:form>
+             	<center><h1>#{geralMB.sucesso}</h1></center>
+				<h:commandLink value="Voltar" action="index"/>
+            </h:form>             
+                                                
+         </div>
+      </div>  	
+	
+	</ui:define>	
+</ui:composition>
+</body>
+</html>
