@@ -14,7 +14,8 @@ import br.com.fiap.Model.Livro;
 public class GeneroDAO {
 
 Connection conn = null;
-
+	private long id;
+	
 	public GeneroDAO(){
 		try{
 			conn = ConnectionClass.getConnection();
@@ -24,7 +25,12 @@ Connection conn = null;
 		
 	}
 	
-	public ArrayList<Genero> ListarGeneros(){
+	public ArrayList<Genero> getTodosGeneros(){
+		try{
+			conn = ConnectionClass.getConnection();
+			System.out.println("sucesso");
+		}
+		catch(SQLException ex){}
 		ArrayList<Genero> Generos = new ArrayList<Genero>();
 		int id;
 		String nome;
@@ -33,9 +39,9 @@ Connection conn = null;
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();			
 			while(rs.next()){
-			id= rs.getInt("GeneroId");
-			nome = rs.getString("Nome");
-			Generos.add(new Genero(id, nome));
+				id= rs.getInt("GeneroId");
+				nome = rs.getString("Nome");
+				Generos.add(new Genero(id, nome));
 			}
 		}
 		catch(SQLException ex){ 

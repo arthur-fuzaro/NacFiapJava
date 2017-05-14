@@ -2,30 +2,30 @@ package br.com.fiap.Model;
 
 public class Genero {
 
-	private int id;
+	private int Id;
 	
-	private String nome;
+	private String Nome;
 
 	public Genero(int id, String nome) {
 		super();
-		this.id = id;
-		this.nome = nome;
+		this.Id = id;
+		this.Nome = nome;
 	}
 
 	public int getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.Id = id;
 	}
 
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.Nome = nome;
 	}
 	
 	
