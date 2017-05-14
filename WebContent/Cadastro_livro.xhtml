@@ -14,11 +14,11 @@
          <div>        
              <p class="titulo_Rosa">Cadastro de Livros</p>
              
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      <div class="campo">
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" style="width: 95%" value="" />
+                            <h:inputText style="width: 95%" value="#{livroMB.livro.nome}" />
                      </div>
                      <fieldset class="grupo">                        
                         <div class="campo">
@@ -67,7 +67,7 @@
                                 
                     <button class="botao" type="submit" name="submit">Enviar</button>
                
-             </form>        
+             </h:form>        
              
          </div>
     </div>         
