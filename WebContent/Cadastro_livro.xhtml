@@ -39,33 +39,28 @@
                                     <fieldset class="grupo">                        
                        <div class="campo">
                             <label for="estado">Autores</label>
-                            <select name="estado" style="width: 22em" id="estado">
-                                <option value="">--</option>
-                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
-                                <option value="Souza">Souza Alisson Alisson Alisson</option>
-                            </select>
+							<h:selectOneMenu value="#{autoresMB.livro.autorId}" styleClass="width: 27em">  
+							      <f:selectItems value="#{autorMB.items}" var="a" itemLabel="#{a.nome}" itemValue="#{a.id}"/>
+							 </h:selectOneMenu>
                         </div>  
                         <div class="campo">
                             <label for="estado">Gêneros</label>
-                            <select name="estado" style="width: 19em" id="estado">
-                                <option value="">--</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Romance">Romance</option>
-                            </select>
+                            
+							<h:selectOneMenu value="#{livroMB.livro.generoId}">  
+							      <f:selectItems value="#{generoMB.items}" var="g" itemLabel="#{g.nome}" itemValue="#{g.id}"/>
+							 </h:selectOneMenu>
                         </div>
                         <div class="campo">
                             <label for="estado">Editoras</label>
-                            <select name="estado" style="width: 27em" id="estado">
-                                <option value="">--</option>
-                                <option value="Alisson">Alisson Alisson Alisson Alisson</option>
-                                <option value="Souza">Souza Alisson Alisson Alisson</option>
-                            </select>
+							<h:selectOneMenu value="#{livroMB.livro.editoraId}" styleClass="width: 27em">  
+							      <f:selectItems value="#{editoraMB.items}" var="e" itemLabel="#{e.nome}" itemValue="#{e.id}"/>
+							 </h:selectOneMenu>
                         </div>
                         
                      </fieldset>                   
                                    
                                 
-                    <h:commandButton value="Incluir" action="#{livroMB.cadastrarLivro}"/>
+                    <h:commandButton value="Incluir" action="#{livroMB.cadastrarLivro}" styleClass="botao"/>
                
              </h:form>        
              

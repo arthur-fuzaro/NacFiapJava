@@ -17,28 +17,37 @@ public class GeneroDAO {
 
 	public GeneroDAO() {
 		try {
+
 			conn = ConnectionClass.getConnection();
 			System.out.println("sucesso");
 		} catch (SQLException ex) {
 		}
 
 	}
-
 	public ArrayList<Genero> ListarGeneros() {
+
+	public ArrayList<Genero> getTodosGeneros(){
+		try{
+			conn = ConnectionClass.getConnection();
+			System.out.println("sucesso");
+		}
+		catch(SQLException ex){}
 		ArrayList<Genero> Generos = new ArrayList<Genero>();
 		int id;
 		String nome;
 		String sql = "SELECT * FROM Generos";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
+
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("GeneroId");
+
 				nome = rs.getString("Nome");
 				Generos.add(new Genero(id, nome));
 			}
 		} catch (SQLException ex) {
-			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Generos)");
+			System.out.println("Ocorreu um erro de execuÃ§Ã£o: " + ex.getMessage() + " (Generos)");
 		}
 		return Generos;
 	}
