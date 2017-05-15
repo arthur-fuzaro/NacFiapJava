@@ -189,13 +189,13 @@ font-size:11px;
 color:#464646;
 overflow:hidden;
 float:left;
-width:752px;
+width:100%;
 }
 
 #items{
 float:left;
 padding:22px 0 0 0;
-width:770px;
+width:100%;
 }
 .item{
 width:241px;
@@ -206,6 +206,7 @@ background-position:top left;
 background-repeat:no-repeat;
 padding:0 12px 15px 0;
 display:inline;
+margin-left: 40px;
 }
 .item img{
 margin:26px 0 0 25px;
@@ -219,11 +220,18 @@ color:#E9410E;
 width:70px;
 padding:0 0 0 20px;
 }
+.item p{
+	    position: relative;
+    font-size: 20px;
+    margin: 5px 5px 5px 20px;
+    font-weight: bold;
+}
+
 .view{
 display:block;
 float:left;
 line-height:18px;
-margin:3px 3px 0 0;
+margin:3px 3px 0 15px;
 width:41px;
 text-align:center;
 background-image:url(../img/view_bg.gif);
