@@ -12,13 +12,6 @@ import br.com.fiap.Model.Genero;
 @RequestScoped
 public class GeneroMB {
 	
-	
-	
-		private List<Genero> itemsList;
-		public GeneroMB(){
-	      itemsList = new ArrayList<Genero>();
-		}
-
 	   public List<Genero> getItems(){
 	       GeneroDAO g = new GeneroDAO();
 	       	 

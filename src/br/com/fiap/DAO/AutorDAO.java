@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import br.com.fiap.Connection.ConnectionClass;
 import br.com.fiap.Model.Autor;
-import br.com.fiap.Model.Genero;
 
 public class AutorDAO {
 

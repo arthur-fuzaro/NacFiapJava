@@ -14,37 +14,36 @@
          <div>        
              <p class="titulo_Rosa">Cadastro de Editora</p>
 
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      <div class="campo">
                             <label for="nomeEditora">Nome</label>
-                            <input type="text" id="nomeEditora" name="nomeEditora" style="width: 95%" value="" />
+                            <h:inputText style="width: 95%" value="#{editoraMB.editora.nome}" />
                      </div>
                      <fieldset class="grupo">                        
                         <div class="campo">
                             <label for="nomefantasia">Nome fantasia</label>
-                            <input type="text" id="nomefantasia" name="nomefantasia" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{editoraMB.editora.nomeFantasia}" />
                         </div>
                         <div class="campo">
-                            <label for="cnpj">CNJP</label>
-                            <input type="text" id="cnpj" name="cnpj" style="width: 22em" value="" />
+                            <label for="cnpj">CNPJ</label>
+                            <h:inputText style="width: 22em" value="#{editoraMB.editora.cnpj}" />
                         </div>
                         <div class="campo">
                             <label for="email">Email</label>
-                            <input type="text" id="email" name="email" style="width: 23em" value="" />
+                            <h:inputText style="width: 23em" value="#{editoraMB.editora.email}" />
                         </div>
                      </fieldset>
 
                      <div class="campo">
                             <label for="endereco">Endereço</label>
-                            <input type="text" id="endereco" name="endereco" style="width: 95%" value="" />
+                            <h:inputText style="width: 95%" value="#{editoraMB.editora.endereco}" />
                       </div>                  
                                       
                               
-                    <button class="botao" type="submit" name="submit">Enviar</button>
-             
+                   	<h:commandButton styleClass="botao" value="Cadastrar" action="#{editoraMB.cadastrarEditora}"></h:commandButton>
                 </fieldset>
-            </form>             
+            </h:form>             
                                                 
          </div>
       </div>  	

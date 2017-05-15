@@ -8,21 +8,11 @@ public class Editora {
 	
 	private String NomeFantasia;
 	
-	private String Cpnj;
+	private String Cnpj;
 	
-	private String Endereço;
+	private String Endereco;
 	
 	private String Email;
-
-	public Editora(int id, String nome, String nomeFantasia, String cpnj, String endereço, String email) {
-		super();
-		this.Id = id;
-		Nome = nome;
-		NomeFantasia = nomeFantasia;
-		Cpnj = cpnj;
-		Endereço = endereço;
-		Email = email;
-	}
 
 	public int getId() {
 		return Id;
@@ -48,20 +38,20 @@ public class Editora {
 		NomeFantasia = nomeFantasia;
 	}
 
-	public String getCpnj() {
-		return Cpnj;
+	public String getCnpj() {
+		return Cnpj;
 	}
 
-	public void setCpnj(String cpnj) {
-		Cpnj = cpnj;
+	public void setCnpj(String cnpj) {
+		Cnpj = cnpj;
 	}
 
-	public String getEndereço() {
-		return Endereço;
+	public String getEndereco() {
+		return Endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		Endereço = endereço;
+	public void setEndereco(String endereco) {
+		Endereco = endereco;
 	}
 
 	public String getEmail() {

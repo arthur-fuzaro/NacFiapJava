@@ -9,6 +9,7 @@ import br.com.fiap.Model.Livro;
 public class LivroMB {
 	
 	private Livro livro;
+	private GeralMB mb = new GeralMB();
 	
 	public Livro getLivro() {
 		return livro;
@@ -22,32 +23,17 @@ public class LivroMB {
 		livro = new Livro();
 	}
 	
-	public String abrirCadastroLivros(){
-		return "Cadastro_livro";
-	}
-	
-	public String abrirCadastroGeneros(){
-		return "Cadastro_Genero";
-	}
-	
-	public String abrirCadastroEditoras(){
-		return "Cadastro_editora";
-	}
-	
-	public String abrirCadastroAtuores(){
-		return "Cadastro_Autor";
-	}
-	
-	public String abrirCadastroUsuarios(){
-		return "Cadastro_Usuario";
-	}
-
-	public void cadastrarLivro(){
+	public String cadastrarLivro(){
+		try{
 		LivroDAO dao = new LivroDAO();
-		//System.out.println(livro.getNomeLivro() + " - " + livro.getGeneroId());
-		//livro = new Livro(livro.getId(), livro.getCodIsbn(), livro.getPaginas(), livro.getEdicao(), livro.getNomeLivro(), livro.getAutorId(), livro.getGeneroId(), livro.getEditoraId());
-		
 		dao.inserirLivro(livro);
+		mb.setSucesso("Livro cadastrado com sucesso");
+		return "Erro";
+		}
+		catch(Exception ex){
+			mb.setErro(ex.getMessage());
+			return "Erro";
+		}
 	}
 	
 }
