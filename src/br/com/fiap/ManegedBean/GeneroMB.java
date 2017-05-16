@@ -12,16 +12,24 @@ import br.com.fiap.Model.Genero;
 @RequestScoped
 public class GeneroMB {
 		
-		private Genero genero;
+		private Genero Gen;
 		private GeneroDAO dao;
 		private GeralMB mb;
 	
 		public GeneroMB(){
-			genero = new Genero();
+			Gen = new Genero();
 			dao = new GeneroDAO();
 			mb = new GeralMB();
 		}
 	
+		public Genero getGen() {
+			return Gen;
+		}
+
+		public void setGen(Genero gen) {
+			Gen = gen;
+		}
+
 		public List<Genero> getItems(){
 			GeneroDAO g = new GeneroDAO();
 	       	 
@@ -37,13 +45,17 @@ public class GeneroMB {
 			}
 	       	return nomes;
 		}
-	   
+		
 		public String cadastrarGenero(){
 			try{
-				
+				dao.inserirGenero(Gen);
+				mb.setSucesso("Livro cadastrado com Sucesso");
+				return "Sucesso";
 			}
-			
+			catch(Exception ex){
+				mb.setErro(ex.getMessage());
+				return "Erro";
+			}
 		}
-		
 		
 }

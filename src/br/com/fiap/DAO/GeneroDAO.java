@@ -52,4 +52,22 @@ public class GeneroDAO {
 		return Generos;
 	}
 
+	public void inserirGenero(Genero g){
+		String sql = "INSERT INTO Generos (Nome) VALUES(?)";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setString(1, g.getNome());
+				
+			if(stmt.executeUpdate()==1){
+				System.out.println("Inserido com sucesso");
+			}else{
+				System.out.println("Ocorreu um erro");
+			}
+
+		}
+		catch(SQLException ex){ 
+			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Genero)");
+		}
+	}
 }
