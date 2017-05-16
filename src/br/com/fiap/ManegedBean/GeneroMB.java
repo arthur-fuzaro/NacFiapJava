@@ -38,12 +38,6 @@ public class GeneroMB {
 	       	return nomes;
 		}
 	   
-		public String cadastrarGenero(){
-			try{
-				
-			}
-			
-		}
 		
 		
 }
