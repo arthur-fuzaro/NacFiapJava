@@ -6,12 +6,6 @@ public class Genero {
 	
 	private String Nome;
 
-	public Genero(int id, String nome) {
-		super();
-		this.Id = id;
-		this.Nome = nome;
-	}
-
 	public int getId() {
 		return Id;
 	}
