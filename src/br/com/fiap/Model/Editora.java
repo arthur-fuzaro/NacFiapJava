@@ -2,76 +2,65 @@ package br.com.fiap.Model;
 
 public class Editora {
 
-	private int id;
+	private int Id;
 	
-	private String nome;
+	private String Nome;
 	
-	private String nomeFantasia;
+	private String NomeFantasia;
 	
-	private String cpnj;
+	private String Cnpj;
 	
-	private String endereço;
+	private String Endereco;
 	
-	private String email;
-
-	public Editora(int id, String nome, String nomeFantasia, String cpnj, String endereço, String email) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.nomeFantasia = nomeFantasia;
-		this.cpnj = cpnj;
-		this.endereço = endereço;
-		this.email = email;
-	}
+	private String Email;
 
 	public int getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.Id = id;
 	}
 
 	public String getNome() {
-		return nome;
+		return Nome;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		Nome = nome;
 	}
 
 	public String getNomeFantasia() {
-		return nomeFantasia;
+		return NomeFantasia;
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
+		NomeFantasia = nomeFantasia;
 	}
 
-	public String getCpnj() {
-		return cpnj;
+	public String getCnpj() {
+		return Cnpj;
 	}
 
-	public void setCpnj(String cpnj) {
-		this.cpnj = cpnj;
+	public void setCnpj(String cnpj) {
+		Cnpj = cnpj;
 	}
 
-	public String getEndereço() {
-		return endereço;
+	public String getEndereco() {
+		return Endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+	public void setEndereco(String endereco) {
+		Endereco = endereco;
 	}
 
 	public String getEmail() {
-		return email;
+		return Email;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		Email = email;
 	}
-	
 	
 	
 }

@@ -14,23 +14,24 @@
          <div>        
              <p class="titulo_Rosa">Cadastro de Gênero</p>
 
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      
                      <fieldset class="grupo">                        
                         <div class="campo">
                             <label for="nomeGenero">Nome </label>
-                            <input type="text" id="nomeGenero" name="nomeGenero" style="width: 73em" value="" />
+                            <h:inputText style="width: 73em" value="#{generoMB.genero.nome}" />
                         </div>                       
                         
                      </fieldset>
                                    
                                       
-                              
+                          
+                    <h:commandButton styleClass="botao" value="Enviar" action="#{generoMB.cadastrarGenero}"></h:commandButton>          
                     <button class="botao" type="submit" name="submit">Enviar</button>
              
                 </fieldset>
-            </form>             
+            </h:form>             
                                                 
          </div>
       </div>  	

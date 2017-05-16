@@ -66,7 +66,19 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
-				livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				//livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				
+				Livro livro = new Livro();
+				livro.setId(id);
+				livro.setCodIsbn(codIsbn);
+				livro.setPaginas(paginas);
+				livro.setAutorId(autorId);
+				livro.setEdicao(edicao);
+				livro.setNomeLivro(nome);
+				livro.setGeneroId(generoId);
+				livro.setEditoraId(editoraId);
+				livros.add(livro);
+				
 			}
 		}
 		catch(SQLException ex){ 
@@ -138,7 +150,16 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
-				livro = (new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				//livro = (new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				livro.setId(id);
+				livro.setCodIsbn(codIsbn);
+				livro.setPaginas(paginas);
+				livro.setAutorId(autorId);
+				livro.setEdicao(edicao);
+				livro.setNomeLivro(nome);
+				livro.setGeneroId(generoId);
+				livro.setEditoraId(editoraId);
+				
 			}
 		}
 		catch(SQLException ex){ 
@@ -166,7 +187,17 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
-				livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				//livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
+				Livro livro = new Livro();
+				livro.setId(id);
+				livro.setCodIsbn(codIsbn);
+				livro.setPaginas(paginas);
+				livro.setAutorId(autorId);
+				livro.setEdicao(edicao);
+				livro.setNomeLivro(nome);
+				livro.setGeneroId(generoId);
+				livro.setEditoraId(editoraId);
+				livros.add(livro);
 			}
 		}
 		catch(SQLException ex){ 

@@ -2,6 +2,7 @@ package br.com.fiap.DAO;
 
 import java.util.ArrayList;
 
+import br.com.fiap.Model.Editora;
 import br.com.fiap.Model.Livro;
 
 @SuppressWarnings("unused")
@@ -33,6 +34,12 @@ public class tests {
 		for (Livro livro2 : livroArray) {
 			System.out.println("Nome:"+livro2.getNomeLivro()+"\n");
 		}*/
+		
+		EditoraDAO e = new EditoraDAO();
+		ArrayList<Editora> editoraArray = e.getTodasEditoras();
+		for (Editora editora : editoraArray) {
+			System.out.println("Nome:"+editora.getNome()+"\n");
+		}
 	}
 
 }

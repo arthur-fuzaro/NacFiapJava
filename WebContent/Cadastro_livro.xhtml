@@ -38,20 +38,20 @@
                
                                     <fieldset class="grupo">                        
                        <div class="campo">
-                            <label for="estado">Autores</label>
-							<h:selectOneMenu value="#{autoresMB.livro.autorId}" styleClass="width: 27em">  
-							      <f:selectItems value="#{autorMB.items}" var="a" itemLabel="#{a.nome}" itemValue="#{a.id}"/>
+                            <label for="estado">Autor</label>
+							<h:selectOneMenu value="#{livroMB.livro.autorId}" styleClass="width: 27em">  
+							      <f:selectItems value="#{autorMB.items}" var="a" itemLabel="#{a.firstName}" itemValue="#{a.id}"/>
 							 </h:selectOneMenu>
                         </div>  
                         <div class="campo">
-                            <label for="estado">Gêneros</label>
+                            <label for="estado">Gêner</label>
                             
 							<h:selectOneMenu value="#{livroMB.livro.generoId}">  
 							      <f:selectItems value="#{generoMB.items}" var="g" itemLabel="#{g.nome}" itemValue="#{g.id}"/>
 							 </h:selectOneMenu>
                         </div>
                         <div class="campo">
-                            <label for="estado">Editoras</label>
+                            <label for="estado">Editor</label>
 							<h:selectOneMenu value="#{livroMB.livro.editoraId}" styleClass="width: 27em">  
 							      <f:selectItems value="#{editoraMB.items}" var="e" itemLabel="#{e.nome}" itemValue="#{e.id}"/>
 							 </h:selectOneMenu>

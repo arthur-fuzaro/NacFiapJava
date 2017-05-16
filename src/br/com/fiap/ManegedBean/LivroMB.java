@@ -8,53 +8,32 @@ import br.com.fiap.Model.Livro;
 @ManagedBean
 public class LivroMB {
 	
-	private Livro livro = new Livro(0, 0, 0, 0, null, 0, 0, 0);
-	private int id;
+	private Livro livro;
+	private GeralMB mb = new GeralMB();
 	
 	public Livro getLivro() {
 		return livro;
 	}
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
 	public void setLivro(Livro livro) {
 		this.livro = livro;
 	}
 
-	public String abrirCadastroLivros(){
-		return "Cadastro_livro";
+	public LivroMB(){
+		livro = new Livro();
 	}
 	
-	public String abrirCadastroGeneros(){
-		return "Cadastro_Genero";
-	}
-	
-	public String abrirCadastroEditoras(){
-		return "Cadastro_editora";
-	}
-	
-	public String abrirCadastroAtuores(){
-		return "Cadastro_Autor";
-	}
-	
-	public String abrirCadastroUsuarios(){
-		return "Cadastro_Usuario";
-	}
-
-	public void cadastrarLivro(){
+	public String cadastrarLivro(){
+		try{
 		LivroDAO dao = new LivroDAO();
-		System.out.println(getId() + " - " + livro.getNomeLivro() + " - " + livro.getGeneroId());
-		livro = new Livro(livro.getId(), livro.getCodIsbn(), livro.getPaginas(), livro.getEdicao(), livro.getNomeLivro(), livro.getAutorId(), livro.getGeneroId(), livro.getEditoraId());
-		
 		dao.inserirLivro(livro);
+		mb.setSucesso("Livro cadastrado com sucesso");
+		return "Erro";
+		}
+		catch(Exception ex){
+			mb.setErro(ex.getMessage());
+			return "Erro";
+		}
 	}
 	
 }
