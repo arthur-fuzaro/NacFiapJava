@@ -1,7 +1,9 @@
 package br.com.fiap.DAO;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import br.com.fiap.ManegedBean.LivroMB;
 import br.com.fiap.Model.Editora;
 import br.com.fiap.Model.Livro;
 
@@ -35,11 +37,18 @@ public class tests {
 			System.out.println("Nome:"+livro2.getNomeLivro()+"\n");
 		}*/
 		
-		EditoraDAO e = new EditoraDAO();
+		/*EditoraDAO e = new EditoraDAO();
 		ArrayList<Editora> editoraArray = e.getTodasEditoras();
 		for (Editora editora : editoraArray) {
 			System.out.println("Nome:"+editora.getNome()+"\n");
+		}*/
+		
+		LivroMB l1 = new LivroMB();
+		List<Livro> a = l1.getLivros();
+		for (Livro livro : a) {
+			System.out.println(livro.getNomeLivro() + "\n");
 		}
+		
 	}
 
 }

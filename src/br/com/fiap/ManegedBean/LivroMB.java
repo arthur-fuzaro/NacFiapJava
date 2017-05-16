@@ -1,5 +1,8 @@
 package br.com.fiap.ManegedBean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 import br.com.fiap.DAO.LivroDAO;
@@ -10,6 +13,7 @@ public class LivroMB {
 	
 	private Livro livro;
 	private GeralMB mb = new GeralMB();
+	private List<Livro> livros;
 	
 	public Livro getLivro() {
 		return livro;
@@ -21,6 +25,8 @@ public class LivroMB {
 
 	public LivroMB(){
 		livro = new Livro();
+		//ListarLivros = new ArrayList<Livro>();
+
 	}
 	
 	public String cadastrarLivro(){
@@ -35,5 +41,15 @@ public class LivroMB {
 			return "Erro";
 		}
 	}
+	public List<Livro> getLivros(){
+		LivroDAO l = new LivroDAO();
+		livros = l.listarLivros();
+		return livros;
+	}
+
+	public void setLivros(ArrayList<Livro> listarLivros) {
+		this.livros = listarLivros;
+	}
+	
 	
 }
