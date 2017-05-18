@@ -45,10 +45,6 @@ public class GeneroMB {
 			}
 	       	return nomes;
 		}
-<<<<<<< HEAD
-	   
-=======
-		
 		public String cadastrarGenero(){
 			try{
 				dao.inserirGenero(Gen);
@@ -60,6 +56,4 @@ public class GeneroMB {
 				return "Erro";
 			}
 		}
->>>>>>> Dev
-		
 }
