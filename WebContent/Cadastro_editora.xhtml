@@ -12,36 +12,36 @@
 	
 	<div class="cadastros container">
          <div>        
-             <p class="titulo_Rosa">Cadastro de Editora</p>
+             <p class="titulo_Rosa">#{res.registerPublisher}</p>
 
              <h:form>
                 <fieldset>
                      <div class="campo">
-                            <label for="nomeEditora">Nome</label>
+                            <label for="nomeEditora">#{res.name}</label>
                             <h:inputText style="width: 95%" value="#{editoraMB.editora.nome}" />
                      </div>
                      <fieldset class="grupo">                        
                         <div class="campo">
-                            <label for="nomefantasia">Nome fantasia</label>
+                            <label for="nomefantasia">#{res.nameF}</label>
                             <h:inputText style="width: 23em" value="#{editoraMB.editora.nomeFantasia}" />
                         </div>
                         <div class="campo">
-                            <label for="cnpj">CNPJ</label>
+                            <label for="cnpj">#{res.cnpj}</label>
                             <h:inputText style="width: 22em" value="#{editoraMB.editora.cnpj}" />
                         </div>
                         <div class="campo">
-                            <label for="email">Email</label>
+                            <label for="email">#{res.email}</label>
                             <h:inputText style="width: 23em" value="#{editoraMB.editora.email}" />
                         </div>
                      </fieldset>
 
                      <div class="campo">
-                            <label for="endereco">Endereço</label>
+                            <label for="endereco">#{res.address}</label>
                             <h:inputText style="width: 95%" value="#{editoraMB.editora.endereco}" />
                       </div>                  
                                       
                               
-                   	<h:commandButton styleClass="botao" value="Cadastrar" action="#{editoraMB.cadastrarEditora}"></h:commandButton>
+                   	<h:commandButton styleClass="botao" value="#{res.submit}" action="#{editoraMB.cadastrarEditora}"></h:commandButton>
                 </fieldset>
             </h:form>             
                                                 

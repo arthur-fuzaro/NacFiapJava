@@ -13,22 +13,22 @@
 	
 	<div class="cadastros container">
          <div>        
-             <p class="titulo_Rosa">Cadastro de Autor</p>
+             <p class="titulo_Rosa">#{res.registerAuthor}</p>
 
              <h:form>
                 <fieldset>
                      
                      <fieldset class="grupo">                        
                         <div class="campo">
-                            <label for="nomeAutor">Nome </label>
+                            <label for="nomeAutor">#{res.firstName}</label>
                             <h:inputText style="width: 35em" value="#{autorMB.autor.firstName}" />
                         </div>
                         <div class="campo">
-                            <label for="sobrenomeAutor">Sobrenome</label>
+                            <label for="sobrenomeAutor">#{res.lastName}</label>
                             <h:inputText style="width: 35em" value="#{autorMB.autor.lastName}" />
                         </div>
                      </fieldset>
-             		<h:commandButton value="Enviar" action="#{autorMB.cadastrarAutor}" styleClass="botao"/>
+             		<h:commandButton value="#{res.submit}" action="#{autorMB.cadastrarAutor}" styleClass="botao"/>
                 </fieldset>
             </h:form>             
                                                 

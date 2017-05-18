@@ -37,7 +37,7 @@ public class GeralMB {
 		return "Cadastro_editora";
 	}
 	
-	public String abrirCadastroAtuores(){
+	public String abrirCadastroAutores(){
 		return "Cadastro_Autor";
 	}
 	
