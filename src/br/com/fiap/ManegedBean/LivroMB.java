@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.DAO.LivroDAO;
 import br.com.fiap.Model.Livro;
 
 @ManagedBean
+@SessionScoped
 public class LivroMB {
 	
 	private Livro livro;
@@ -51,5 +53,19 @@ public class LivroMB {
 		this.livros = listarLivros;
 	}
 	
+	public String abrirCadastroEditar(){
+
+		System.out.println("OSIDASOIDHASIUDHAOSIUDAHSD ----> " + livro.getNomeLivro());
+		try{
+			LivroDAO dao = new LivroDAO();
+			livro = dao.pesquisarLivro(livro.getId());
+			System.out.println("OSIDASOIDHASIUDHAOSIUDAHSD ----> " + livro.getNomeLivro());
+			return "Cadastro_livro";
+		}
+		catch(Exception e){
+			String erro = e.getMessage();
+			return "erro";
+		}
+	}
 	
 }

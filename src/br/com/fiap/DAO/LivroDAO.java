@@ -51,10 +51,10 @@ public class LivroDAO {
 	
 	public ArrayList<Livro> listarLivros(){
 		ArrayList<Livro> livros = new ArrayList<Livro>();
-		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
+		Integer id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		Double preco;
 		String nome;
-		//(int id, int codIsbn, int paginas, int edicao, String nome, int autorId, int generoId, int editoraId)
+		//(Integer id, Integer codIsbn, Integer paginas, Integer edicao, String nome, Integer autorId, Integer generoId, Integer editoraId)
 		String sql = "SELECT * FROM Livros";
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -91,7 +91,7 @@ public class LivroDAO {
 		return livros;
 	}
 	
-	public void removerLivro(int livroId){
+	public void removerLivro(Integer livroId){
 		String sql = "DELETE FROM Livros WHERE LivroId = ?";
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -109,7 +109,7 @@ public class LivroDAO {
 		
 	}
 	
-	public void alterarLivro(Livro l, int livroId){
+	public void alterarLivro(Livro l, Integer livroId){
 		String sql = "UPDATE Livros SET "
 				+ "CodIsbn = ?, QtdPaginas = ?, Edicao = ?, AutoresId = ?, GenerosId = ?, EditorasId = ?, Nome_Livro = ?, Preco = ?"
 				+ "WHERE LivroId = ?";
@@ -136,7 +136,7 @@ public class LivroDAO {
 		
 	}
 	
-	public Livro pesquisarLivro(int livroId){
+	public Livro pesquisarLivro(Integer livroId){
 		Livro livro = null;
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
@@ -179,7 +179,7 @@ public class LivroDAO {
 	
 	public ArrayList<Livro> pesquisarLivro(String livroNome){
 		ArrayList<Livro> livros = new ArrayList<Livro>();
-		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
+		Integer id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
 		Double preco;
 		

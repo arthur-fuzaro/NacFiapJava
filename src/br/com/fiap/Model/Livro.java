@@ -2,57 +2,45 @@ package br.com.fiap.Model;
 
 public class Livro {
 
-	private int id;
-	private int codIsbn;
-	private int paginas;
-	private int edicao;
+	private Integer id;
+	private Integer codIsbn;
+	private Integer paginas;
+	private Integer edicao;
 	private String nomeLivro;
-	private int autorId;
-	private int generoId;
-	private int editoraId;
+	private Integer autorId;
+	private Integer generoId;
+	private Integer editoraId;
 	private Double preco;
 
-	/*public Livro(int id, int codIsbn, int paginas, int edicao, String nomeLivro, int autorId, int generoId, int editoraId) {
-		super();
-		this.id = id;
-		this.codIsbn = codIsbn;
-		this.paginas = paginas;
-		this.edicao = edicao;
-		this.nomeLivro = nomeLivro;
-		this.autorId = autorId;
-		this.generoId = generoId;
-		this.editoraId = editoraId;
-	}
-*/
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getCodIsbn() {
+	public Integer getCodIsbn() {
 		return codIsbn;
 	}
 
-	public void setCodIsbn(int codIsbn) {
+	public void setCodIsbn(Integer codIsbn) {
 		this.codIsbn = codIsbn;
 	}
 
-	public int getPaginas() {
+	public Integer getPaginas() {
 		return paginas;
 	}
 
-	public void setPaginas(int paginas) {
+	public void setPaginas(Integer paginas) {
 		this.paginas = paginas;
 	}
 
-	public int getEdicao() {
+	public Integer getEdicao() {
 		return edicao;
 	}
 
-	public void setEdicao(int edicao) {
+	public void setEdicao(Integer edicao) {
 		this.edicao = edicao;
 	}
 
@@ -64,27 +52,27 @@ public class Livro {
 		this.nomeLivro = nomeLivro;
 	}
 
-	public int getAutorId() {
+	public Integer getAutorId() {
 		return autorId;
 	}
 
-	public void setAutorId(int autorId) {
+	public void setAutorId(Integer autorId) {
 		this.autorId = autorId;
 	}
 
-	public int getGeneroId() {
+	public Integer getGeneroId() {
 		return generoId;
 	}
 
-	public void setGeneroId(int generoId) {
+	public void setGeneroId(Integer generoId) {
 		this.generoId = generoId;
 	}
 
-	public int getEditoraId() {
+	public Integer getEditoraId() {
 		return editoraId;
 	}
 
-	public void setEditoraId(int editoraId) {
+	public void setEditoraId(Integer editoraId) {
 		this.editoraId = editoraId;
 	}
 
