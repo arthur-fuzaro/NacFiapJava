@@ -1,4 +1,4 @@
-------------------------------------ADMIN------------------------------------
+# ADMIN
 
 Cadastro de Livros	(CRUD)
 Cadastro de Editoras	(CRUD)
@@ -6,7 +6,7 @@ Cadastro de Atuores	(CRUD)
 Cadastro de Generos	(CRUD)
 Controle de preço / oferta de livros
 
----------------------------------AREA PUBLICA--------------------------------
+# AREA PUBLICA
 
 Pagina inicial mostrando os produtos que estão em oferta:
 	-Nome
@@ -22,10 +22,10 @@ Livros de suspense do autor jõao da silva);
 
 Sempre que Mostrar os livros, colocar o link para adcionar ao carrinho com
 as informações basica:
-	-Nome
-	-Preço Orignal
-	-Desconto
-	-Preço atual
+	- Nome
+	- Preço Orignal
+	- Desconto
+	- Preço atual
 	
 Permitir adcionar e remover itens de uma lista de desejos. A partir da lista
 deve ser possivel adcionar o livro ao carrinho;
@@ -37,8 +37,7 @@ Checkout(Finalização de compra) - ecolher entre dois tipos de fretes, com valo
 Apresentar o total que será cobrado do cliente. Entrar com um número de cartão de crédito
 hipotético e fanalizar compra;
 
----------------------------------Criterios importante--------------------------------
-A aplicação deve ser intercionalizada;
+---------------------------------#A aplicação deve ser intercionalizada;
 
 Validação do JSF sempre que fizer sentido;
 
