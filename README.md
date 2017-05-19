@@ -1,9 +1,13 @@
 ## ADMIN
 
 Cadastro de Livros	(CRUD)
+
 Cadastro de Editoras	(CRUD)
+
 Cadastro de Atuores	(CRUD)
+
 Cadastro de Generos	(CRUD)
+
 Controle de preço / oferta de livros
 
 ## AREA PUBLICA
@@ -37,7 +41,9 @@ Checkout(Finalização de compra) - ecolher entre dois tipos de fretes, com valo
 Apresentar o total que será cobrado do cliente. Entrar com um número de cartão de crédito
 hipotético e fanalizar compra;
 
-## A aplicação deve ser intercionalizada;
+## Criterios importantes
+
+A aplicação deve ser intercionalizada;
 
 Validação do JSF sempre que fizer sentido;
 
