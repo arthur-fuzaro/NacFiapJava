@@ -265,6 +265,57 @@ padding:0px;
 font-size:11px
 }
 
+/* carrinho */
+.carrinho_final{
+	position: relative;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+}
+
+.carrinho_final td{
+	position: relative;
+	padding: 5px;
+	margin: 0px;
+	width: 7%;
+}
+
+.carrinho_final th{
+	position: relative;
+	font-weight: bold;
+	background: #ce2e3c;
+	padding: 5px;
+	margin: 0px;
+	color: #fff;	
+	width: 7%;
+}	
+
+.carrinho_c{
+	position: relative;
+	width: 100%;
+	margin: 50px 0px 0px 0px;
+	height: 200px;
+	padding: 0px;
+	display: table;
+	border:1px solid;
+}
+
+.cep{
+	position: relative;
+	width: 65%;
+	float: left;
+	height: 200px;
+	border:1px solid;
+	padding: 30px;
+}
+.produtos_total{
+	position: relative;
+	width: 30%;
+	float: right;
+	height: 200px;
+	background: #f0f0f0;
+}
+
 /* telas de cadastro */
 .cadastros{
 	background: #fff;
