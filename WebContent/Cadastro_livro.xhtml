@@ -10,56 +10,72 @@
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
 
+				<h:form>
 		<div class="cadastros container">
 			<div>
 				<p class="titulo_Rosa">#{res.registerBook}</p>
 
-				<h:form>
-					<fieldset>
-						<div class="campo">
-							<label for="nome">#{res.name}</label>
-							<h:inputText style="width: 95%"
-								value="#{livroMB.livro.nomeLivro}" />
-						</div>
-						<fieldset class="grupo">
-							<div class="campo">
+					<fieldset class="grupo">
+						<fieldset class="grupo"
+							style="width: 99%; margin: 0; margin-bottom: 20px;">
+							<div class="campo" style="width: 8em; margin: 0;">
 								<label for="snome">#{res.codIsbn}</label>
-								<h:inputText style="width: 23em"
-									value="#{livroMB.livro.codIsbn}" />
+								<h:inputText style="width: 7em" value="#{livroMB.livro.codIsbn}"
+									disabled="#{not empty livroMB.livro.codIsbn}" />
 							</div>
-							<div class="campo">
+							<div class="campo" style="width: calc(100% - 8em); margin: 0;">
+								<label for="nome">#{res.name}</label>
+								<h:inputText style="width: 100%"
+									value="#{livroMB.livro.nomeLivro}" />
+							</div>
+						</fieldset>
+
+						<fieldset class="grupo"
+							style="width: 99%; margin: 0; margin-bottom: 20px;">
+							<div class="campo"
+								style="width: 33%; margin: 0; padding-right: 5px;">
 								<label for="snome">#{res.qtdPage}</label>
-								<h:inputText style="width: 22em"
+								<h:inputText style="width: 100%;"
 									value="#{livroMB.livro.paginas}" />
 							</div>
-							<div class="campo">
+							<div class="campo"
+								style="width: 33%; margin: 0; padding-right: 5px;">
 								<label for="snome">#{res.edition}</label>
-								<h:inputText style="width: 23em" value="#{livroMB.livro.edicao}" />
+								<h:inputText style="width: 100%;"
+									value="#{livroMB.livro.edicao}" />
+							</div>
+							<div class="campo" style="width: 34%; margin: 0;">
+								<label for="snome">#{res.price}</label>
+								<h:inputText style="width: 100%;" value="#{livroMB.livro.preco}" />
 							</div>
 						</fieldset>
 					</fieldset>
 
-					<fieldset class="grupo">
-						<div class="campo">
+					<fieldset class="grupo"
+						style="width: 99%; margin: 0; margin-bottom: 20px;">
+						<div class="campo"
+							style="width: 33%; margin: 0; padding-right: 5px;">
 							<label for="estado">#{res.author}</label>
 							<h:selectOneMenu value="#{livroMB.livro.autorId}"
-								styleClass="width: 27em">
+								style="width: 100%;">
 								<f:selectItems value="#{autorMB.items}" var="a"
 									itemLabel="#{a.firstName}" itemValue="#{a.id}" />
 							</h:selectOneMenu>
 						</div>
-						<div class="campo">
+						<div class="campo"
+							style="width: 33%; margin: 0; padding-right: 5px;">
 							<label for="estado">#{res.genre}</label>
 
-							<h:selectOneMenu value="#{livroMB.livro.generoId}">
+							<h:selectOneMenu value="#{livroMB.livro.generoId}"
+								style="width: 100%;">
 								<f:selectItems value="#{generoMB.items}" var="g"
 									itemLabel="#{g.nome}" itemValue="#{g.id}" />
 							</h:selectOneMenu>
 						</div>
-						<div class="campo">
+						<div class="campo" style="width: 34%; margin: 0;">
 							<label for="estado">#{res.publisher}</label>
 							<h:selectOneMenu value="#{livroMB.livro.editoraId}"
-								styleClass="width: 27em">
+								style="width: 100%;">
 								<f:selectItems value="#{editoraMB.items}" var="e"
 									itemLabel="#{e.nome}" itemValue="#{e.id}" />
 							</h:selectOneMenu>
@@ -68,32 +84,47 @@
 					</fieldset>
 
 
-					<h:commandButton value="#{res.submit}" action="#{livroMB.cadastrarLivro}"
-						styleClass="botao" />
+					<h:commandButton rendered="#{empty livroMB.livro.codIsbn}"
+						value="#{res.submit}" action="#{livroMB.cadastrarLivro}"
+						styleClass="botao" style="float:right;" />
 
-				</h:form>
+					<h:commandButton rendered="#{not empty livroMB.livro.codIsbn}"
+						value="#{res.submit}" action="#{livroMB.cadastrarLivro}"
+						styleClass="botao" style="float:right;" />
+
 
 			</div>
 			<div>
-				<table style="width:100%;">
+				<table style="width: 100%;">
 					<tr>
 						<td>#</td>
 						<td>Livro</td>
 						<td>Preço</td>
 						<td>Ações</td>
 					</tr>
-					<ui:repeat var="l" value="#{livroMB.livros}">
-						<tr>
-							<td>#{l.id}</td>
-							<td>#{l.nomeLivro}</td>
-							<td>#{l.editoraId}</td>
-							<td>Editar | Excluir</td>
-						</tr>
-					</ui:repeat>
+						<ui:repeat var="l" value="#{livroMB.livros}">
+							<tr>
+								<td>#{l.id}</td>
+								<td>#{l.nomeLivro}</td>
+								<td>#{l.editoraId}</td>
+
+								<td><h:commandLink value="Editar"
+										action="#{livroMB.abrirCadastroEditar}">
+										<f:setPropertyActionListener value="#{l.id}"
+											target="#{livroMB.livro.id}" />
+									</h:commandLink> | <h:commandLink value="Excluir"
+										action="#{funcionarioMB.excluir}">
+										<f:setPropertyActionListener value="#{f.cpf}"
+											target="#{funcionarioMB.funcionario.cpf}" />
+									</h:commandLink></td>
+
+							</tr>
+						</ui:repeat>
 				</table>
 			</div>
 		</div>
 
+					</h:form>
 	</ui:define>
 </ui:composition>
 </html>
