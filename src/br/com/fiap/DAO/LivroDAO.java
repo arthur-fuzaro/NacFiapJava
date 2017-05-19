@@ -22,8 +22,8 @@ public class LivroDAO {
 		
 	}
 	public void inserirLivro(Livro l){
-		String sql = "INSERT INTO Livros (CodIsbn, QtdPaginas, Edicao, AutoresId, GenerosId, EditorasId, Nome_livro)"
-				+ " VALUES(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Livros (CodIsbn, QtdPaginas, Edicao, AutoresId, GenerosId, EditorasId, Nome_livro, Preco)"
+				+ " VALUES(?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -34,6 +34,7 @@ public class LivroDAO {
 			stmt.setInt(5, l.getGeneroId());
 			stmt.setInt(6, l.getEditoraId());
 			stmt.setString(7, l.getNomeLivro());
+			stmt.setDouble(8, l.getPreco());
 			
 					
 			if(stmt.executeUpdate()==1){
@@ -51,6 +52,7 @@ public class LivroDAO {
 	public ArrayList<Livro> listarLivros(){
 		ArrayList<Livro> livros = new ArrayList<Livro>();
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
+		Double preco;
 		String nome;
 		//(int id, int codIsbn, int paginas, int edicao, String nome, int autorId, int generoId, int editoraId)
 		String sql = "SELECT * FROM Livros";
@@ -66,6 +68,7 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
+				preco = rs.getDouble("Preco");
 				//livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
 				
 				Livro livro = new Livro();
@@ -77,6 +80,7 @@ public class LivroDAO {
 				livro.setNomeLivro(nome);
 				livro.setGeneroId(generoId);
 				livro.setEditoraId(editoraId);
+				livro.setPreco(preco);
 				livros.add(livro);
 				
 			}
@@ -107,7 +111,7 @@ public class LivroDAO {
 	
 	public void alterarLivro(Livro l, int livroId){
 		String sql = "UPDATE Livros SET "
-				+ "CodIsbn = ?, QtdPaginas = ?, Edicao = ?, AutoresId = ?, GenerosId = ?, EditorasId = ?, Nome_Livro = ?"
+				+ "CodIsbn = ?, QtdPaginas = ?, Edicao = ?, AutoresId = ?, GenerosId = ?, EditorasId = ?, Nome_Livro = ?, Preco = ?"
 				+ "WHERE LivroId = ?";
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -118,7 +122,8 @@ public class LivroDAO {
 			stmt.setInt(5, l.getGeneroId());
 			stmt.setInt(6, l.getEditoraId());
 			stmt.setString(7, l.getNomeLivro());
-			stmt.setInt(8, livroId);
+			stmt.setDouble(8, l.getPreco());
+			stmt.setInt(9, livroId);
 			if(stmt.executeUpdate()==1){
 				System.out.println("Alterado com sucesso");
 			}else{
@@ -135,6 +140,7 @@ public class LivroDAO {
 		Livro livro = null;
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
+		Double preco;
 		
 		String sql = "SELECT * FROM Livros WHERE LivroId = ?";
 		try{
@@ -150,6 +156,7 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
+				preco = rs.getDouble("Preco");
 				//livro = (new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
 				livro.setId(id);
 				livro.setCodIsbn(codIsbn);
@@ -159,6 +166,8 @@ public class LivroDAO {
 				livro.setNomeLivro(nome);
 				livro.setGeneroId(generoId);
 				livro.setEditoraId(editoraId);
+				livro.setPreco(preco);
+				
 				
 			}
 		}
@@ -172,6 +181,7 @@ public class LivroDAO {
 		ArrayList<Livro> livros = new ArrayList<Livro>();
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
+		Double preco;
 		
 		String sql = "SELECT * FROM Livros WHERE Nome_Livro  LIKE ?";
 		try{
@@ -187,6 +197,7 @@ public class LivroDAO {
 				generoId = rs.getInt("GenerosId");
 				editoraId = rs.getInt("EditorasId");
 				nome = rs.getString("Nome_Livro");
+				preco = rs.getDouble("Preco");
 				//livros.add(new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, editoraId));
 				Livro livro = new Livro();
 				livro.setId(id);
@@ -197,6 +208,7 @@ public class LivroDAO {
 				livro.setNomeLivro(nome);
 				livro.setGeneroId(generoId);
 				livro.setEditoraId(editoraId);
+				livro.setPreco(preco);
 				livros.add(livro);
 			}
 		}

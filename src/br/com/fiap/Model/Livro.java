@@ -3,20 +3,14 @@ package br.com.fiap.Model;
 public class Livro {
 
 	private int id;
-	
 	private int codIsbn;
-	
 	private int paginas;
-	
 	private int edicao;
-	
 	private String nomeLivro;
-	
 	private int autorId;
-	
 	private int generoId;
-	
 	private int editoraId;
+	private Double preco;
 
 	/*public Livro(int id, int codIsbn, int paginas, int edicao, String nomeLivro, int autorId, int generoId, int editoraId) {
 		super();
@@ -92,6 +86,14 @@ public class Livro {
 
 	public void setEditoraId(int editoraId) {
 		this.editoraId = editoraId;
+	}
+
+	public Double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 	
 }
