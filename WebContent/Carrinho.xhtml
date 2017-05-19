@@ -1,0 +1,52 @@
+<!-- COMENTARIO ADICIONADO -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="content">
+	
+	  <div class="cadastros container">
+         <div>        
+             <p class="titulo_Rosa">Carrinho <i class="fa fa-shopping-cart"></i></p>
+
+             <table class="carrinho_final">
+                 <tr>
+                     <th style="width: 15%;">Produto(s)</th>
+                     <th>Quantidade</th>
+                     <th>Entrega</th>
+                     <th>Valor Unitário</th>
+                     <th>Valor total</th>
+                 </tr>
+                 <tr>
+                     <td style="width: 15%;">Nome do produto</td>
+                     <td>
+                     	 <input type="number" name="qtd" min="1" max="5" />
+                     </td>
+                     <td>-</td>
+                     <td>R$184,50</td>
+                     <td>R$184,50</td>
+                 </tr>
+             </table>  
+             
+             <div class="container carrinho_c">
+             	<div class="cep">
+             		<p>Simule o prazo de entrega e o frete para seu CEP abaixo: </p>
+             	</div>
+             	<div class="produtos_total">
+             	sdsdfdsf
+             	</div>
+             </div>      
+                                                
+         </div>
+      </div>  	
+	
+	
+	</ui:define>	
+</ui:composition>
+</html>
