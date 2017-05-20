@@ -108,14 +108,20 @@
 								<td>#{l.nomeLivro}</td>
 								<td>R$ #{l.preco}</td>
 
-								<td><h:commandLink value="Editar"
+								<td><h:commandLink value=""
 										action="#{livroMB.abrirCadastroEditar}">
+										
+											<img src="img/edit_icon.png" alt="Editar" />
+										
 										<f:setPropertyActionListener value="#{l.id}"
 											target="#{livroMB.livro.id}" />
-									</h:commandLink> | <h:commandLink value="Excluir"
-										action="#{funcionarioMB.excluir}">
-										<f:setPropertyActionListener value="#{f.cpf}"
-											target="#{funcionarioMB.funcionario.cpf}" />
+									</h:commandLink> | <h:commandLink value=""
+										action="#{livroMB.excluirLivro}">
+										
+											<img src="img/remove_icon.png" alt="Remover" />
+										
+										<f:setPropertyActionListener value="#{l.id}"
+											target="#{livroMB.livro.id}" />
 									</h:commandLink></td>
 
 							</tr>

@@ -81,4 +81,17 @@ public class LivroMB {
 		}
 	}
 	
+	public String excluirLivro(){
+		try {
+			LivroDAO dao = new LivroDAO();
+			dao.removerLivro(livro.getId());
+			
+			return "Sucesso";
+		} catch (Exception e) {
+			mb.setErro("Ocorreu um erro ao tentar deletar o livro!");
+			return "erro";
+		}
+		
+	}
+	
 }
