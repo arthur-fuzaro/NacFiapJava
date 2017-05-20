@@ -10,43 +10,43 @@
 
 <ui:composition template="/WEB-INF/_template.xhtml">
 	<ui:define name="content">
-	
-	  <div class="cadastros container">
-         <div>        
-             <p class="titulo_Rosa">Carrinho <i class="fa fa-shopping-cart"></i></p>
 
-             <table class="carrinho_final">
-                 <tr>
-                     <th style="width: 15%;">Produto(s)</th>
-                     <th>Quantidade</th>
-                     <th>Entrega</th>
-                     <th>Valor Unitário</th>
-                     <th>Valor total</th>
-                 </tr>
-                 <tr>
-                     <td style="width: 15%;">Nome do produto</td>
-                     <td>
-                     	 <input type="number" name="qtd" min="1" max="5" />
-                     </td>
-                     <td>-</td>
-                     <td>R$184,50</td>
-                     <td>R$184,50</td>
-                 </tr>
-             </table>  
-             
-             <div class="container carrinho_c">
-             	<div class="cep">
-             		<p>Simule o prazo de entrega e o frete para seu CEP abaixo: </p>
-             	</div>
-             	<div class="produtos_total">
-             	sdsdfdsf
-             	</div>
-             </div>      
-                                                
-         </div>
-      </div>  	
-	
-	
-	</ui:define>	
+		<div class="cadastros container">
+			<div>
+				<p class="titulo_Rosa">
+					Carrinho <i class="fa fa-shopping-cart"></i>
+				</p>
+
+				<table class="carrinho_final">
+					<tr>
+						<th style="width: 15%;">Produto(s)</th>
+						<th>Quantidade</th>
+						<th>Entrega</th>
+						<th>Valor Unitário</th>
+						<th>Valor total</th>
+					</tr>
+					<ui:repeat var="l" value="#{carrinhoMB.carrinhoLivros}">
+						<tr style="background-color: #ccc;">
+							<td style="width: 15%;">#{l.nomeLivro}</td>
+							<td><h:inputText /></td>
+							<td>-</td>
+							<td>R$184,50</td>
+							<td>R$184,50</td>
+						</tr>
+					</ui:repeat>
+				</table>
+
+				<div class="container carrinho_c">
+					<div class="cep">
+						<p>Simule o prazo de entrega e o frete para seu CEP abaixo:</p>
+					</div>
+					<div class="produtos_total"></div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</ui:define>
 </ui:composition>
 </html>

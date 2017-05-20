@@ -45,7 +45,7 @@ public class LivroDAO {
 
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class LivroDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 		return livros;
 	}
@@ -103,7 +103,7 @@ public class LivroDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 		
 		
@@ -131,13 +131,13 @@ public class LivroDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 		
 	}
 	
-	public Livro pesquisarLivro(Integer livroId){
-		Livro livro = null;
+	public Livro pesquisarLivro(int livroId){
+		Livro livro = new Livro();
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
 		Double preco;
@@ -172,7 +172,7 @@ public class LivroDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 		return livro;
 	}
@@ -213,7 +213,7 @@ public class LivroDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Livros)");
 		}
 		return livros;
 	}
