@@ -13,6 +13,8 @@ public class AutorMB {
 	
 	private Autor autor;
 	
+	private List<Autor> items;
+	
 	public AutorMB(){
       autor = new Autor();
 	}
