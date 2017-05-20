@@ -1,6 +1,6 @@
 ## ADMIN
 
-Cadastro de Livros	(CRUD)
+> Cadastro de Livros	(CRUD)
 
 Cadastro de Editoras	(CRUD)
 
