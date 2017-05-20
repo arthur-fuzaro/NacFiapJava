@@ -9,28 +9,72 @@
 
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
-	
+
 		<div class="cadastros container">
-         <div>        
-             <p class="titulo_Rosa">#{res.registerGenre}</p>
+			<div>
+				<p style="text-align:center;color:green;">#{generoMB.sucesso}</p>
+				<p class="titulo_Rosa">#{res.registerGenre}</p>
 
-             <h:form>
-                <fieldset>
-                     
-                     <fieldset class="grupo">                        
-                        <div class="campo">
-                            <label for="nomeGenero">#{res.name}</label>
-                            <h:inputText value="#{generoMB.gen.nome}" style="width: 73em"/>
-                        </div>                       
-                     </fieldset>
-                    <h:commandButton styleClass="botao" value="#{res.submit}" action="#{generoMB.cadastrarGenero}"></h:commandButton>          
+				<h:form>
+					<fieldset>
 
-                </fieldset>
-            </h:form>             
-                                                
-         </div>
-      </div>  	
-	
-	</ui:define>	
+						<fieldset class="grupo">
+							<div class="campo" style="width: 100%;">
+								<label for="nomeGenero">#{res.name}</label>
+								<h:inputText value="#{generoMB.gen.nome}" style="width: 100%" />
+							</div>
+						</fieldset>
+						<h:commandButton styleClass="botao" rendered="#{empty generoMB.gen.nome}" value="#{res.submit}"
+							action="#{generoMB.cadastrarGenero}" style="float:right;"></h:commandButton>
+
+						<h:commandButton styleClass="botao" rendered="#{not empty generoMB.gen.nome}" value="#{res.edit}"
+							action="#{generoMB.editGenero}" style="float:right;"></h:commandButton>
+							
+
+					</fieldset>
+
+					<div>
+						<table style="width: 100%;">
+							<tr style="color:red;">
+								<td>Nome</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>Ações</td>
+							</tr>
+							<ui:repeat var="g" value="#{generoMB.listGeneros}">
+								<tr>
+									<td>#{g.nome}</td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+
+									<td><h:commandLink value=""
+											action="#{generoMB.abrirCadastroEditar}">
+
+											<img src="img/edit_icon.png" alt="#{res.edit2}" title="#{res.edit2}" />
+
+											<f:setPropertyActionListener value="#{g.id}"
+												target="#{generoMB.gen.id}" />
+										</h:commandLink> | <h:commandLink value="" action="#{generoMB.excluirGenero}">
+
+											<img src="img/remove_icon.png" alt="#{res.remove}" title="#{res.remove}" />
+
+											<f:setPropertyActionListener value="#{g.id}"
+												target="#{generoMB.gen.id}" />
+										</h:commandLink></td>
+
+								</tr>
+							</ui:repeat>
+						</table>
+					</div>
+				</h:form>
+
+			</div>
+		</div>
+
+	</ui:define>
 </ui:composition>
 </html>

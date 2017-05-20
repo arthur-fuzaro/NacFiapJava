@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import br.com.fiap.Connection.ConnectionClass;
 import br.com.fiap.Model.Editora;
+import br.com.fiap.Model.Genero;
 
 public class EditoraDAO {
 
@@ -40,7 +41,7 @@ public class EditoraDAO {
 
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Editora)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Editora)");
 		}
 	}
 	
@@ -80,5 +81,74 @@ public class EditoraDAO {
 		return Editoras;
 	}
 
+
+	public void removerEditora(int editoraId)
+	{
+		String sql = "DELETE FROM Editoras WHERE EditoraId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setInt(1, editoraId);
+			if(stmt.executeUpdate()==1)
+				System.out.println("Editora removido com sucesso");
+			else
+				System.out.println("Ocorreu um erro ao remover o editora");
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: " + ex.getMessage() + " (editora) ");
+		}
+	}
+
+	public void alterarEditora(Editora e, int editoraId)
+	{
+		String sql = "UPDATE Editoras SET Nome = ?, NomeFantasia = ?, Cnpj = ?, Endereco = ?  WHERE EditoraId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, e.getNome());
+			stmt.setString(2, e.getNomeFantasia());
+			stmt.setString(3, e.getCnpj());
+			stmt.setString(4, e.getEndereco());
+			stmt.setInt(5, editoraId);
+			if(stmt.executeUpdate()==1)
+				System.out.println("Editora alterado com sucesso");
+			else
+				System.out.println("Ocorreu um erro ao alterar o editora");
+
+		}	
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½oo: " + ex.getMessage() + " (editora)");
+		}
+	} 
+
+	public Editora pesquisarEditora(int editoraId)
+	{
+		Editora editora = new Editora();
+		String nome, nomeFantasia, Cnpj, endereco, email;
+		String sql = "SELECT * FROM Editoras WHERE EditoraId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, editoraId);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				nome = rs.getString("Nome");
+				nomeFantasia = rs.getString("nomeFantasia");
+				Cnpj = rs.getString("Cnpj");
+				endereco = rs.getString("Endereco");
+				email = rs.getString("email");
+				editora.setNome(nome);
+				editora.setNomeFantasia(nomeFantasia);
+				editora.setCnpj(Cnpj);
+				editora.setEmail(email);
+				editora.setEndereco(endereco);
+				editora.setId(editoraId);
+			}
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: " + ex.getMessage() + " (Editoras) ");
+		}
+
+		return editora;
+
+	}
 
 }

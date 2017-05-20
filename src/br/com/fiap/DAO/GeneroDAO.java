@@ -47,7 +47,7 @@ public class GeneroDAO {
 				Generos.add(genero);
 			}
 		} catch (SQLException ex) {
-			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Generos)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: " + ex.getMessage() + " (Generos)");
 		}
 		return Generos;
 	}
@@ -67,7 +67,7 @@ public class GeneroDAO {
 
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Genero)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Genero)");
 		}
 	}
 
@@ -84,7 +84,7 @@ public class GeneroDAO {
 				System.out.println("Ocorreu um erro ao remover o genero");
 		}
 		catch(SQLException ex){
-			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Genero) ");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: " + ex.getMessage() + " (Genero) ");
 		}
 	}
 
@@ -102,13 +102,13 @@ public class GeneroDAO {
 
 		}	
 		catch(SQLException ex){
-			System.out.println("Ocorreu um erro de execuçãoo: " + ex.getMessage() + " (Genero)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½oo: " + ex.getMessage() + " (Genero)");
 		}
 	} 
 
 	public Genero pesquisarGenero(int generoId)
 	{
-		Genero genero = null;
+		Genero genero = new Genero();
 		String nome;
 		String sql = "SELECT * FROM Generos WHERE generoId = ?";
 		try{
@@ -118,10 +118,11 @@ public class GeneroDAO {
 			if(rs.next()){
 				nome = rs.getString("Nome");
 				genero.setNome(nome);
+				genero.setId(generoId);
 			}
 		}
 		catch(SQLException ex){
-			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Generos) ");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: " + ex.getMessage() + " (Generos) ");
 		}
 
 		return genero;
