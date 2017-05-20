@@ -47,7 +47,7 @@ public class GeneroDAO {
 				Generos.add(genero);
 			}
 		} catch (SQLException ex) {
-			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Generos)");
+			System.out.println("Ocorreu um erro de execuÃ§Ã£o: " + ex.getMessage() + " (Generos)");
 		}
 		return Generos;
 	}
@@ -67,7 +67,67 @@ public class GeneroDAO {
 
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execu��o: "+ex.getMessage() + " (Genero)");
+			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Genero)");
 		}
 	}
+
+	public void removerGenero(int generoId)
+	{
+		String sql = "DELETE FROM Generos WHERE GeneroId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setInt(1, GeneroId);
+			if(stmt.executeUpdate()==1)
+				System.out.println("Genero removido com sucesso");
+			else
+				System.out.println("Ocorreu um erro ao remover o genero");
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Genero) ");
+		}
+	}
+
+	public void alterarGenero(Genero g, int generoId)
+	{
+		String sql = "UPDATE Generos SET Nome = ? WHERE GeneroId = ?";
+		try{
+			PreparedStatement stmt = conn.PreparedStatement(sql);
+			stmt.setString(1, g.getNome());
+			stmt.setInt(2, GeneroId);
+			if(stmt.executeUpdate()==1)
+				System.out.println("Genero alterado com sucesso");
+			else
+				System.out.println("Ocorreu um erro ao alterar o genero");
+
+		}	
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Genero)");
+		}
+	} 
+
+	public Genero pesquisarGenero(int generoId)
+	{
+		Genero genero = null;
+		String nome;
+		String sql = "SELECT * FROM Generos WHERE generoId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, GeneroId);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				nome = rs.getString("Nome");
+				genero.setNome(nome);
+			}
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Generos) ");
+		}
+
+		return genero;
+
+	}
+
+
+
 }
