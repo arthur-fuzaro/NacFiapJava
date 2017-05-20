@@ -109,7 +109,7 @@ public class LivroDAO {
 		
 	}
 	
-	public void alterarLivro(Livro l, Integer livroId){
+	public void alterarLivro(Livro l, int livroId){
 		String sql = "UPDATE Livros SET "
 				+ "CodIsbn = ?, QtdPaginas = ?, Edicao = ?, AutoresId = ?, GenerosId = ?, EditorasId = ?, Nome_Livro = ?, Preco = ?"
 				+ "WHERE LivroId = ?";
@@ -136,8 +136,8 @@ public class LivroDAO {
 		
 	}
 	
-	public Livro pesquisarLivro(Integer livroId){
-		Livro livro = null;
+	public Livro pesquisarLivro(int livroId){
+		Livro livro = new Livro();
 		int id, codIsbn, paginas, edicao, autorId, generoId, editoraId;
 		String nome;
 		Double preco;

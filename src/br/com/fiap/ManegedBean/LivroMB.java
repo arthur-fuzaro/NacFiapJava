@@ -55,15 +55,28 @@ public class LivroMB {
 	
 	public String abrirCadastroEditar(){
 
-		System.out.println("OSIDASOIDHASIUDHAOSIUDAHSD ----> " + livro.getNomeLivro());
+		
 		try{
 			LivroDAO dao = new LivroDAO();
 			livro = dao.pesquisarLivro(livro.getId());
-			System.out.println("OSIDASOIDHASIUDHAOSIUDAHSD ----> " + livro.getNomeLivro());
+			
 			return "Cadastro_livro";
 		}
 		catch(Exception e){
 			String erro = e.getMessage();
+			mb.setErro(erro);
+			return "erro";
+		}
+	}
+	
+	public String editarLivro(){
+		try {
+			LivroDAO l = new LivroDAO();
+			l.alterarLivro(livro, livro.getId());
+			livro = new Livro();
+			return "Cadastro_livro";
+		} catch (Exception e) {
+			mb.setErro(e.getMessage());
 			return "erro";
 		}
 	}

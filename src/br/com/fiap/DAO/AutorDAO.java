@@ -87,7 +87,7 @@ public class AutorDAO {
 				autor.setId(id);
 				Autores.add(autor);
 			}
-		} catch (SQLException ex) {
+		} catch (Exception ex) {
 			System.out.println("Ocorreu um erro de execução: " + ex.getMessage() + " (Autores)");
 		}
 		return Autores;
