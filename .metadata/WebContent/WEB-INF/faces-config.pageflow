@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14948915856800" configfile="/NAC_BibliotecaLivros/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14948915856800" configfile="/NacFIapJava/WebContent/WEB-INF/faces-config.xml"/>

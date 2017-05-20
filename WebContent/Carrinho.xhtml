@@ -28,14 +28,21 @@
 					<ui:repeat var="l" value="#{carrinhoMB.carrinhoLivros}">
 						<tr style="background-color: #ccc;">
 							<td style="width: 15%;">#{l.nomeLivro}</td>
-							<td><h:inputText /></td>
+							<td><h:inputText value="#{l.qtd}"/></td>
 							<td>-</td>
-							<td>R$184,50</td>
-							<td>R$184,50</td>
+							<td>#{l.preco}</td>
+							<td>#{l.totalValor}</td>
 						</tr>
 					</ui:repeat>
+					<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="color: red;">#{carrinhoMB.totalCarrinho}</td>
+					</tr>
 				</table>
-
+				<img src="img/refresh.ico" width="17px" height="18px" style="float:right;" />
 				<div class="container carrinho_c">
 					<div class="cep">
 						<p>Simule o prazo de entrega e o frete para seu CEP abaixo:</p>

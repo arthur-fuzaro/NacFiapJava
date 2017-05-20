@@ -11,6 +11,24 @@ public class Livro {
 	private Integer generoId;
 	private Integer editoraId;
 	private Double preco;
+	private Integer qtd;
+	private Double totalValor;
+
+	public Integer getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(Integer qtd) {
+		this.qtd = qtd;
+	}
+
+	public Double getTotalValor() {
+		return totalValor;
+	}
+
+	public void setTotalValor(Double totalValor) {
+		this.totalValor = totalValor;
+	}
 
 	public Integer getId() {
 		return id;

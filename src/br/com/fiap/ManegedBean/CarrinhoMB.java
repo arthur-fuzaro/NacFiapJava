@@ -16,6 +16,17 @@ public class CarrinhoMB {
 	private Livro livro;
 	private LivroDAO dao;
 	private List<Livro> carrinhoLivros = new ArrayList<Livro>();
+	private double totalCarrinho;
+	
+	
+
+	public double getTotalCarrinho() {
+		return totalCarrinho;
+	}
+
+	public void setTotalCarrinho(double totalCarrinho) {
+		this.totalCarrinho = totalCarrinho;
+	}
 
 	public CarrinhoMB() {
 		livro = new Livro();
