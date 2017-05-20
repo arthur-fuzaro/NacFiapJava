@@ -47,7 +47,7 @@ public class GeneroDAO {
 				Generos.add(genero);
 			}
 		} catch (SQLException ex) {
-			System.out.println("Ocorreu um erro de execuÃ§Ã£o: " + ex.getMessage() + " (Generos)");
+			System.out.println("Ocorreu um erro de execu��o: " + ex.getMessage() + " (Generos)");
 		}
 		return Generos;
 	}

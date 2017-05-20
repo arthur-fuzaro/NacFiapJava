@@ -16,6 +16,7 @@ public class LivroMB {
 	private Livro livro;
 	private GeralMB mb = new GeralMB();
 	private List<Livro> livros;
+	private String erro, sucesso;
 	
 	public Livro getLivro() {
 		return livro;
@@ -27,16 +28,19 @@ public class LivroMB {
 
 	public LivroMB(){
 		livro = new Livro();
+		setErro("");
+		setSucesso("");
 		//ListarLivros = new ArrayList<Livro>();
 
 	}
 	
 	public String cadastrarLivro(){
 		try{
-		LivroDAO dao = new LivroDAO();
-		dao.inserirLivro(livro);
-		mb.setSucesso("Livro cadastrado com sucesso");
-		return "Erro";
+			LivroDAO dao = new LivroDAO();
+			dao.inserirLivro(livro);
+			setSucesso("Livro cadastrado com sucesso");
+			livro = new Livro();
+			return "Cadastro_livro";
 		}
 		catch(Exception ex){
 			mb.setErro(ex.getMessage());
@@ -85,13 +89,38 @@ public class LivroMB {
 		try {
 			LivroDAO dao = new LivroDAO();
 			dao.removerLivro(livro.getId());
-			
-			return "Sucesso";
+			setSucesso("Livro deletado com sucesso");
+			setErro("");
+			return "Cadastrar_livro";
 		} catch (Exception e) {
 			mb.setErro("Ocorreu um erro ao tentar deletar o livro!");
+			setErro("Ocorreu um erro ao tentar deletar o livro!");
 			return "erro";
 		}
 		
 	}
+
+	public String getErro() {
+		String erro = this.erro;
+		setErro("");
+		return erro;
+	}
+
+	public void setErro(String erro) {
+		this.erro = erro;
+	}
+
+	public String getSucesso() {
+		String sucesso = this.sucesso;
+		setSucesso("");
+		return sucesso;
+	}
+
+	public void setSucesso(String sucesso) {
+		this.sucesso = sucesso;
+	}
+	
+	
+	
 	
 }
