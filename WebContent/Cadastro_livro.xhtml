@@ -98,14 +98,14 @@
 			<div>
 				<table style="width: 100%;">
 					<tr>
-						<td>#</td>
+						<td>ISBN</td>
 						<td>Livro</td>
 						<td>Preço</td>
 						<td>Ações</td>
 					</tr>
 						<ui:repeat var="l" value="#{livroMB.livros}">
 							<tr>
-								<td>#{l.id}</td>
+								<td>#{l.codIsbn}</td>
 								<td>#{l.nomeLivro}</td>
 								<td>R$ #{l.preco}</td>
 
