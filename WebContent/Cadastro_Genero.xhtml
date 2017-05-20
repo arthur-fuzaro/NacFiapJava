@@ -22,7 +22,6 @@
 							<div class="campo" style="width: 100%;">
 								<label for="nomeGenero">#{res.name}</label>
 								<h:inputText value="#{generoMB.gen.nome}" style="width: 100%" />
-								<h:inputText value="#{generoMB.gen.id}" />
 							</div>
 						</fieldset>
 						<h:commandButton styleClass="botao" rendered="#{empty generoMB.gen.nome}" value="#{res.submit}"
@@ -36,7 +35,7 @@
 
 					<div>
 						<table style="width: 100%;">
-							<tr>
+							<tr style="color:red;">
 								<td>Nome</td>
 								<td></td>
 								<td></td>
