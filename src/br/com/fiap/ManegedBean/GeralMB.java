@@ -45,5 +45,9 @@ public class GeralMB {
 		return "Cadastro_Usuario";
 	}
 	
+	public String abrirCarrinho(){
+		return "Carrinho";
+	}
+	
 	
 }

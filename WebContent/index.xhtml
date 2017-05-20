@@ -8,90 +8,78 @@
 	xmlns:p="http://primefaces.org/ui">
 <f:view locale="#{facesContext.externalContext.requestLocale}">
 
-<ui:composition template="/WEB-INF/_template.xhtml">
-	<ui:define name="content">
-	    
-	<div class="banner container">
-		<div class="title">
-			<h2>Guiroar</h2>
-			<h3>#{res.phrase}</h3>
-		</div>
-		<div class="buttons">
-		<h:form class="btn btn-cadastrar">			
-			<p:commandButton   icon="fa-arrow-circle-right">#{res.signup}		
+	<ui:composition template="/WEB-INF/_template.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<div class="banner container">
+					<div class="title">
+						<h2>Guiroar</h2>
+						<h3>#{res.phrase}</h3>
+					</div>
+					<div class="buttons">
+						<div class="btn btn-cadastrar">
+							<p:commandButton icon="fa-arrow-circle-right">#{res.signup}		
 			</p:commandButton>
-		</h:form>
-		<h:form class="btn btn-busca">			
-			<p:commandButton   icon="fa-search">#{res.advSearch}</p:commandButton>
-		</h:form>
-			
-		</div>
-	</div>
-	
-	
-		<div Class="servicos container">
-		<div Class="servico"> 
-			<h:form>
-				<h:commandLink action="Index">
-					<img src="img/banner-mini_beijo.jpg" alt="campanhas" />
-				</h:commandLink>
-			</h:form> 
-		</div>
-		
-		<div class="servico"> 
-			<h:form>
-				<h:commandLink action="Index">
-					<img src="img/1702_banner-mini_leia-mais-sobre.jpg" alt="Marketing Digital" />
-				</h:commandLink>
-			</h:form> 
-		</div>
-		<div class="servico"> 
-			<h:form>
-				<h:commandLink action="Index">
-					<img src="img/banner_mini_24102016_ler-faz-bem.jpg" alt="Marketing Digital" />
-				</h:commandLink>
-			</h:form> 
-		</div>
-	</div>
-	
-	<div class="produtos container">
-			<div id="main_block">				
-				<div id="items">
-					<div class="item">
-						<img src="img/item1.jpg" alt="" width="150" height="128" /><br />
-						<p> Fazendo meu filme 1</p> 
-						<span>R$99</span><a href="index2.html" class="view">Veja</a><a href="#" class="buy">Carrinho</a>
+						</div>
+						<div class="btn btn-busca">
+							<p:commandButton icon="fa-search">#{res.advSearch}</p:commandButton>
+						</div>
+
 					</div>
-					<div class="item">
-						<img src="img/item2.jpg" alt="" width="150" height="128" /><br />
-						<p> Fazendo meu filme 1</p> 
-						<span>R$150</span><a href="index2.html" class="view">Veja</a><a href="#" class="buy">Carrinho</a>
-					</div>
-					<div class="item">
-						<img src="img/item3.jpg" alt="" width="150" height="128" /><br />
-						<p> Fazendo meu filme 4</p> 
-						<span>R$250</span><a href="index2.html" class="view">Veja</a><a href="#" class="buy">Carrinho</a>
-					</div>	
-					<div class="item">
-						<img src="img/item1.jpg" alt="" width="150" height="128" /><br />
-						<p> Fazendo meu filme 1</p> 
-						<span>R$250</span><a href="index2.html" class="view">Veja</a><a href="#" class="buy">Carrinho</a>
-					</div>					
 				</div>
-			</div>		
-		</div>
-	
-	<div class="newsletter container">
-   		<h2>#{res.subscribe}</h2>
-   		<h3>#{res.news}</h3>
-   		<h:form>
-   			<input type="email" name="email" placeholder="seu email" />
-   			<button>#{res.resignupNews}</button>
-   		</h:form>
-	</div>
 
 
-	</ui:define>	
-</ui:composition>
+				<div Class="servicos container">
+					<div Class="servico">
+						<h:commandLink action="Index">
+							<img src="img/banner-mini_beijo.jpg" alt="campanhas" />
+						</h:commandLink>
+					</div>
+
+					<div class="servico">
+						<h:commandLink action="Index">
+							<img src="img/1702_banner-mini_leia-mais-sobre.jpg"
+								alt="Marketing Digital" />
+						</h:commandLink>
+					</div>
+					<div class="servico">
+						<h:commandLink action="Index">
+							<img src="img/banner_mini_24102016_ler-faz-bem.jpg"
+								alt="Marketing Digital" />
+						</h:commandLink>
+					</div>
+				</div>
+
+				<div class="produtos container">
+					<div id="main_block">
+						<div id="items">
+							<ui:repeat var="l" value="#{livroMB.livros}">
+								<div class="item">
+									<img src="img/livros/livro1.jpg" alt="" width="150"
+										height="128" /><br />
+									<p>#{l.nomeLivro}</p>
+									<span>R$#{l.preco}</span>
+									<h:commandLink styleClass="buy"
+										action="#{carrinhoMB.adcionarCarrinho}">
+										Carrinho
+										<f:setPropertyActionListener value="#{l.id}"
+											target="#{carrinhoMB.livro.id}" />
+									</h:commandLink>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+				</div>
+
+				<div class="newsletter container">
+					<h2>#{res.subscribe}</h2>
+					<h3>#{res.news}</h3>
+					<input type="email" name="email" placeholder="seu email" />
+					<button>#{res.resignupNews}</button>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </f:view>
 </html>

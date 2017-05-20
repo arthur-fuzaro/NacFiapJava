@@ -17,21 +17,15 @@
 <h:body>
 	
 		<div class="cabecalho container">
-		<h1 class="logo">
-			<h:form>
-				<h:commandLink action="Index">Meu site</h:commandLink>
-			</h:form>
-		</h1>
+		<h1 class="logo"></h1>
 		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
 		
-		<p class="mensagem_login"> Olá, Minha conta </p>
 		<h:form class="carrinho">			
-			<h:commandLink action="Index"><img src="img/cart.svg" alt="Carrinho" /> (0)</h:commandLink>
+			<h:commandLink action="#{geralMB.abrirCarrinho}"><img src="img/cart.svg" alt="Carrinho" /> (0)</h:commandLink>
 		</h:form>		
 		
 		<div class="menu">
-			<p:commandButton  Class="btn-close" action="Index" class="fa-times">
-					(0)</p:commandButton >
+			<p:commandButton  Class="btn-close" action="Index" class="fa-times"></p:commandButton >
 			
 			<ul>
 				<li>
@@ -40,8 +34,8 @@
 					</h:form>
 				</li>
 				<h:form>
-					<li><h:commandLink action="Index">Lista de Desejos</h:commandLink></li>
-					<li><h:commandLink action="Index">Sair</h:commandLink></li>
+					<li><h:commandLink action="Index">#{res.wishList}</h:commandLink></li>
+					<li><h:commandLink action="Index">#{res.exit}</h:commandLink></li>
 				</h:form>
 			</ul>
 		</div>
@@ -65,7 +59,7 @@
           </h:form>
           </div>
           <p class="copyright">
-            Copyright © Guiroar 2017. Todos os direitos reservados.
+            Copyright © Guiroar 2017.#{res.copyright}
 		  </p>
 	</div>  
 
