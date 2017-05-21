@@ -28,21 +28,21 @@
 							</tr>
 							<ui:repeat var="l" value="#{carrinhoMB.carrinho}">
 								<tr style="background-color: #ccc;">
-									<td style="width: 15%;">#{l.livro.nomeLivro}</td>
+									<td style="width: 15%;font-weight: bold;">#{l.livro.nomeLivro}</td>
 									<td><h:inputText value="#{l.quantidade}" id="quantidade"
 											required="true"
 											requiredMessage="Digite a quantidade de livros"
 											converterMessage="Quantidade deve ser um numero"
 											validatorMessage="Quantidade deve ser pelo menos 1">
 											<f:validateDoubleRange minimum="1" />
-										</h:inputText> <br></br> <h:message for="quantidade" style="color:red;" /></td>
+										</h:inputText> <br></br> <h:message class="titulo_Rosa" for="quantidade" style="" /></td>
 									<td>#{l.livro.preco}</td>
 
 									<td>#{l.valor}</td>
 									<td><h:commandLink value=""
 											action="#{carrinhoMB.atualizarCarrinho}">
 											<img src="img/trash.png" width="17px" height="18px"
-												style="float: right;" />
+												style="float: right;    margin-right: 9px" />
 											<f:setPropertyActionListener value="0"
 												target="#{l.quantidade}" />
 										</h:commandLink></td>
@@ -52,7 +52,7 @@
 							</ui:repeat>
 
 							<tr>
-								<td colspan="5" style="color: red; text-align: right;">
+								<td colspan="5" class="titulo_Rosa" style="text-align: right;">
 
 									Valor Total: R$#{carrinhoMB.totalCarrinho} &nbsp;&nbsp; <h:commandLink
 										value="" action="#{carrinhoMB.atualizarCarrinho}">
