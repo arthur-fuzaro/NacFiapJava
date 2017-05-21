@@ -34,12 +34,12 @@ as informações basica:
 Permitir adcionar e remover itens de uma lista de desejos. A partir da lista
 deve ser possivel adcionar o livro ao carrinho;
 
-Controle do que está no carrinho de compra, permitindo mudar a quantidade, 
-excluir algo do carrinho e recalcular o total da compra;
+> Controle do que está no carrinho de compra, permitindo mudar a quantidade, 
+> excluir algo do carrinho e recalcular o total da compra;
 
-Checkout(Finalização de compra) - ecolher entre dois tipos de fretes, com valores diferentes
-Apresentar o total que será cobrado do cliente. Entrar com um número de cartão de crédito
-hipotético e fanalizar compra;
+> Checkout(Finalização de compra) - ecolher entre dois tipos de fretes, com valores diferentes
+> Apresentar o total que será cobrado do cliente. Entrar com um número de cartão de crédito
+> hipotético e fanalizar compra; //Falta Validação
 
 ## Criterios importantes
 
