@@ -2,9 +2,12 @@ package br.com.fiap.ManegedBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.fiap.DAO.GeneroDAO;
 import br.com.fiap.DAO.LivroDAO;
@@ -20,6 +23,8 @@ public class GeneroMB {
 		private GeralMB mb;
 		private List<Genero> listGeneros;
 		private String erro, sucesso;
+		private ResourceBundle resource;
+		private FacesContext context;
 	
 		public String getErro() {
 			String erro = this.erro;
@@ -42,6 +47,8 @@ public class GeneroMB {
 		}
 
 		public GeneroMB(){
+			context = FacesContext.getCurrentInstance();
+			resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
 			gen = new Genero();
 			dao = new GeneroDAO();
 			mb = new GeralMB();
@@ -82,13 +89,15 @@ public class GeneroMB {
 		public String cadastrarGenero(){
 			try{
 				dao.inserirGenero(gen);
-				setSucesso("Livro Cadastrado com sucesso");
+				setSucesso(resource.getString("registered"));
 				setErro("");
+				gen = new Genero();
 				return "Cadastro_Genero";
 			}
 			catch(Exception ex){
-				mb.setErro(ex.getMessage());
-				return "Erro";
+				setErro(resource.getString("error2"));
+				setSucesso("");
+				return "Cadastro_Genero";
 			}
 		}
 
@@ -100,21 +109,19 @@ public class GeneroMB {
 			}
 			catch(Exception e){
 				String erro = e.getMessage();
-				mb.setErro(erro);
-				return "Erro";
+				return "Cadastro_genero";
 			}
 		}
 		
 		public String excluirGenero(){
 			try {
 				dao.removerGenero(gen.getId());
-				setSucesso("Livro deletado com sucesso");
+				setSucesso(resource.getString("deleted"));
 				setErro("");
-				return "Cadastrar_Genero";
+				return "Cadastro_Genero";
 			} catch (Exception e) {
-				mb.setErro("Ocorreu um erro ao tentar deletar o livro!");
-				setErro("Ocorreu um erro ao tentar deletar o livro!");
-				return "erro";
+				setErro(resource.getString("error2"));
+				return "Cadastro_Genero";
 			}
 			
 		}
@@ -123,12 +130,13 @@ public class GeneroMB {
 			try {
 				dao.alterarGenero(gen, gen.getId());
 				gen = new Genero();
-				setSucesso("Genero alterado com sucesso");
+				setSucesso(resource.getString("edited"));
 				setErro("");
 				return "Cadastro_Genero";
 			} catch (Exception e) {
-				mb.setErro(e.getMessage());
-				return "Erro";
+				setErro(resource.getString("error2"));
+				setSucesso("");
+				return "Cadastro_Genero";
 			}
 		}
 

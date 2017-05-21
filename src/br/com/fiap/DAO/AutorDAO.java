@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import br.com.fiap.Connection.ConnectionClass;
 import br.com.fiap.Model.Autor;
+import br.com.fiap.Model.Editora;
 
 public class AutorDAO {
 
@@ -38,7 +39,7 @@ public class AutorDAO {
 
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Autor)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Autor)");
 		}
 	}
 	
@@ -54,7 +55,7 @@ public class AutorDAO {
 			}
 		}
 		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Autor)");
+			System.out.println("Ocorreu um erro de execuï¿½ï¿½o: "+ex.getMessage() + " (Autor)");
 		}
 	}
 	
@@ -78,7 +79,7 @@ public class AutorDAO {
 			while (rs.next()) {
 				id = rs.getInt("AutorId");
 				nome = rs.getString("First_Name");
-				sobrenome = rs.getString("First_Name");
+				sobrenome = rs.getString("Last_name");
 				//Autores.add(new Autor(id, nome, sobrenome));
 				
 				Autor autor = new Autor();
@@ -93,4 +94,51 @@ public class AutorDAO {
 		return Autores;
 	}
 
+	
+	public void alterarAutor(Autor a, int autorId)
+	{
+		String sql = "UPDATE Autores SET First_name = ?, Last_name = ?  WHERE AutorId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, a.getFirstName());
+			stmt.setString(2, a.getLastName());
+			stmt.setInt(3, autorId);
+			if(stmt.executeUpdate()==1)
+				System.out.println("Autor alterado com sucesso");
+			else
+				System.out.println("Ocorreu um erro ao alterar o Autor");
+
+		}	
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execucao: " + ex.getMessage() + " (Autor)");
+		}
+	} 
+
+	public Autor pesquisarAutor(int autorId)
+	{
+		Autor autor = new Autor();
+		String first_name, last_name;
+		String sql = "SELECT * FROM Autores WHERE AutorId = ?";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, autorId);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				first_name = rs.getString("First_name");
+				last_name = rs.getString("Last_name");
+				autor.setFirstName(first_name);
+				autor.setLastName(last_name);
+				autor.setId(autorId);
+			}
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execucao: " + ex.getMessage() + " (Autor) ");
+		}
+
+		return autor;
+
+	}
+
+	
+	
 }
