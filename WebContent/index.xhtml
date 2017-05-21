@@ -60,12 +60,18 @@
 										height="128" /><br />
 									<p>#{l.nomeLivro}</p>
 									<span>R$#{l.preco}</span>
-									<h:commandLink styleClass="buy"
-										action="#{carrinhoMB.adcionarCarrinho}">
-										Carrinho
-										<f:setPropertyActionListener value="#{l.id}"
-											target="#{carrinhoMB.livro.id}" />
-									</h:commandLink>
+									<div class="conjunto_cart_heart">
+										<h:commandLink styleClass="add_desejo"
+											action="desejo">							
+											
+										</h:commandLink>
+										<h:commandLink styleClass="buy"
+											action="#{carrinhoMB.adcionarCarrinho}">
+											
+											<f:setPropertyActionListener value="#{l.id}"
+												target="#{carrinhoMB.livro.id}" />
+										</h:commandLink>
+									</div>	
 								</div>
 							</ui:repeat>
 						</div>
