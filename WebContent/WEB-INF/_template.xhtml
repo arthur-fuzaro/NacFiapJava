@@ -21,7 +21,7 @@
 		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
 		
 		<h:form class="carrinho">			
-			<h:commandLink action="#{geralMB.abrirCarrinho}"><img src="img/cart.svg" alt="Carrinho" /> (0)</h:commandLink>
+			<h:commandLink action="#{geralMB.abrirCarrinho}"><img src="img/cart.svg" alt="Carrinho" /> (#{carrinhoMB.quantCarrinho})</h:commandLink>
 		</h:form>		
 		
 		<div class="menu">

@@ -120,7 +120,11 @@ public class LivroMB {
 		this.sucesso = sucesso;
 	}
 	
-	
+	public String onload() { 
+	    // Do your stuff here.
+	    // ...
+	    return "index";
+	}
 	
 	
 }
