@@ -280,6 +280,17 @@ padding:0px;
 font-size:11px
 }
 
+/* login */
+.tela_login{
+	background-color:#f0f0f0;
+	position: relative;
+	width: 30%;
+	height: 270px;
+	box-shadow: 7px 7px 5px #888888;
+	margin: 80px 35%;
+	padding: 30px;
+}
+
 /* carrinho */
 .carrinho_final{
 	position: relative;

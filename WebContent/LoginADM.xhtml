@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">GUIROAR</ui:insert></title>
+
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style_cadastros.css" />
+	
+    
+</h:head>
+
+<h:body>
+
+	<div class="container">
+		<div class="tela_login">
+			<h1 class="logo"></h1>
+			
+			<fieldset class="grupo"	style="width: 99%; margin: 0; margin-bottom: 20px;">
+				<div class="campo" style="width: 100%; margin: 0;">
+					<label for="snome">#{res.user}</label>
+					<h:inputText style="width: 100%" value="" />
+					
+				
+					<label for="nome" style="margin-top:10px;">#{res.senha}</label>
+					<h:inputSecret style="width: 100%" value=""  />
+				</div>			
+									
+			</fieldset>
+			<h:commandButton class="botao" value="#{res.login}"
+							action="logar" style="float:right;"></h:commandButton>
+		
+	    </div> 
+
+	</div>
+
+</h:body>
+
+</html>
