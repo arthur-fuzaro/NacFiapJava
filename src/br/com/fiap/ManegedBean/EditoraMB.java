@@ -1,9 +1,14 @@
 package br.com.fiap.ManegedBean;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.view.facelets.FaceletContext;
+
+import com.sun.xml.internal.bind.CycleRecoverable.Context;
 
 import br.com.fiap.DAO.EditoraDAO;
 import br.com.fiap.Model.Editora;
@@ -15,9 +20,10 @@ public class EditoraMB {
 
 	private Editora editora;
 	private EditoraDAO dao = new EditoraDAO();
-	private GeralMB mb = new GeralMB();
 	private List<Editora> listaEditora;
 	private String erro, sucesso;
+	private ResourceBundle resource;
+	private FacesContext context;
 
 	public List<Editora> getListaEditora() {
 		listaEditora = dao.getTodasEditoras();
@@ -57,18 +63,23 @@ public class EditoraMB {
 	}
 	
 	public EditoraMB() {
+		context = FacesContext.getCurrentInstance();
+		resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
 		editora = new Editora();
 	}
 
 	public String cadastrarEditora(){
 		try{
 			dao.inserirEditora(editora);
-			mb.setSucesso("Editora cadastrado com sucesso");
-			return "Sucesso"; 
+			setSucesso(resource.getString("registered"));
+			setErro("");
+			editora = new Editora();
+			return "Cadastro_editora"; 
 		}
 		catch(Exception ex){
-			mb.setErro(ex.getMessage());
-			return "Erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "cadastro_editora";
 		}
 	}
 
@@ -85,21 +96,20 @@ public class EditoraMB {
 		}
 		catch(Exception e){
 			String erro = e.getMessage();
-			mb.setErro(erro);
-			return "Erro";
+			return "Cadastro_editora";
 		}
 	}
 	
 	public String excluirEditora(){
 		try {
 			dao.removerEditora(editora.getId());
-			setSucesso("Livro deletado com sucesso");
+			setSucesso(resource.getString("deleted"));
 			setErro("");
-			return "Cadastrar_editora";
+			return "Cadastro_editora";
 		} catch (Exception e) {
-			mb.setErro("Ocorreu um erro ao tentar deletar a editora!");
-			setErro("Ocorreu um erro ao tentar deletar a editora!");
-			return "erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "Cadastro_editora";
 		}
 		
 	}
@@ -108,12 +118,13 @@ public class EditoraMB {
 		try {
 			dao.alterarEditora(editora, editora.getId());
 			editora = new Editora();
-			setSucesso("Genero alterado com sucesso");
+			setSucesso(resource.getString("edited"));
 			setErro("");
 			return "Cadastro_editora";
 		} catch (Exception e) {
-			mb.setErro(e.getMessage());
-			return "Erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "Cadastro_editora";
 		}
 	}
 

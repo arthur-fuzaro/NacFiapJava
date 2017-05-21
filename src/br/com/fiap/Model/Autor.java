@@ -28,7 +28,7 @@ public class Autor {
 	}
 
 	public void setFirstName(String firstName) {
-		this.FirstName = firstName;
+		FirstName = firstName;
 	}
 
 	public String getLastName() {
@@ -38,5 +38,5 @@ public class Autor {
 	public void setLastName(String lastName) {
 		this.LastName = lastName;
 	}
-	
+
 }

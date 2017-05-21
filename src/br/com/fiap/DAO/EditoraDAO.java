@@ -30,8 +30,9 @@ public class EditoraDAO {
 			
 			stmt.setString(1, e.getNome());
 			stmt.setString(2, e.getNomeFantasia());
-			stmt.setString(3, e.getEndereco());
-			stmt.setString(4, e.getEmail());
+			stmt.setString(3, e.getCnpj());
+			stmt.setString(4, e.getEndereco());
+			stmt.setString(5, e.getEmail());
 					
 			if(stmt.executeUpdate()==1){
 				System.out.println("Inserido com sucesso");
