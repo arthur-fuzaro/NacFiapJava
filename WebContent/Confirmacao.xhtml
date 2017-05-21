@@ -16,66 +16,90 @@
 					<p class="titulo_Rosa">
 						Confirmacao do pedido <i class="fa fa-shopping-cart"></i>
 					</p>
-					
+
 					<h:panelGroup rendered="#{not empty carrinhoMB.carrinho}">
-					
-						<table style="float:right;border:2px solid #ccc;margin-left:10px;padding:15px;margin-top:15px;margin-right:10%;">
-							<tr>
-								<td style="text-align:center;" colspan="2">
-									<h1>Total do pedido:</h1><br></br>
-								</td>
-							</tr>
-							<tr>
-								<td>Valor dos livros: </td><td style="text-align:right;">R$ #{carrinhoMB.totalCarrinho}</td>	
-							</tr>
-							<tr>					
-								<td>Valor com frete: </td><td style="text-align:right;">R$ #{carrinhoMB.calculaFrete}</td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align:right;">
-									Atualizar frete
-								</td>
-							</tr>
-						</table>
-					
-						<fieldset class="grupo" style="width:50%;margin-left:10%;">
+
+						<fieldset class="grupo"
+							style="width: 50%; margin-left: 10%; float: left;">
 							<fieldset class="grupo"
 								style="width: 100%; margin: 0; margin-bottom: 20px;">
-								
-								<div class="campo" style="width: 70%; padding-right:5px; margin: 0;">
+
+								<div class="campo"
+									style="width: 70%; padding-right: 5px; margin: 0;">
 									<label for="nome">Nome impresso no cartão</label>
 									<h:inputText style="width: 100%"
 										value="#{livroMB.livro.nomeLivro}" />
 								</div>
 								<div class="campo" style="width: 30%; margin: 0;">
 									<label for="snome">Vencimento</label>
-									<h:inputText style="width: 100%"
-										value="#{carrinhoMB.livro.codIsbn}"
-										disabled="#{not empty livroMB.livro.codIsbn}" />
+									<h:inputText style="width: 100%" />
 								</div>
 							</fieldset>
 
 							<fieldset class="grupo"
 								style="width: 100%; margin: 0; margin-bottom: 20px;">
-								
+
 								<div class="campo"
 									style="width: 80%; margin: 0; padding-right: 5px;">
 									<label for="snome">Numero do cartão</label>
 									<h:inputText style="width: 100%;"
 										value="#{livroMB.livro.paginas}" />
 								</div>
-								
+
 								<div class="campo" style="width: 20%; margin: 0;">
 									<label for="snome">CVV</label>
-									<h:inputText style="width: 100%"
-										value="#{carrinhoMB.livro.codIsbn}"
-										disabled="#{not empty livroMB.livro.codIsbn}" />
+									<h:inputText style="width: 100%" />
 								</div>
-							
-							</fieldset>
-							
-						</fieldset>
 
+							</fieldset>
+
+							<fieldset class="grupo"
+								style="width: 100%; margin: 0; margin-bottom: 20px;">
+
+								<div class="campo" style="margin: 0; float: right; width: 40%">
+									<label for="snome">Tipo de frete:</label>
+									<h:selectOneMenu value="#{carrinhoMB.frete}" style="width:100%">
+										<f:selectItem itemValue="1" itemLabel="PAC - R$10.00" />
+										<f:selectItem itemValue="2" itemLabel="SEDEX - R$20.00" />
+
+									</h:selectOneMenu>
+								</div>
+
+
+							</fieldset>
+
+						</fieldset>
+						<div
+							style="float: right; margin-left: 10px; margin-top: 15px; margin-right: 10%; float: right;">
+							<table style="border: 2px solid #ccc; padding: 15px;">
+								<tr>
+									<td style="text-align: center;" colspan="2">
+										<h1>Total do pedido:</h1> <br></br>
+									</td>
+								</tr>
+								<tr>
+									<td>Valor dos livros:</td>
+									<td style="text-align: right;">R$
+										#{carrinhoMB.totalCarrinho}</td>
+								</tr>
+								<tr>
+									<td>Valor com frete:</td>
+									<td style="text-align: right;">R$
+										#{carrinhoMB.calculaFrete}</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align: right;"><br />
+										<h:commandLink
+										value="Atualizar Frete!" action="#{carrinhoMB.atualizarFrete}">
+
+									</h:commandLink> </td>
+								</tr>
+							</table>
+							<br></br>
+							<h:commandButton value="Confirmar compra"
+								action="#{carrinhoMB.finalizarCompra}" styleClass="botao"
+								style="float:right;" />
+						</div>
 					</h:panelGroup>
 				</div>
 			</div>

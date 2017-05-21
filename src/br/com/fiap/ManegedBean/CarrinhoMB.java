@@ -18,9 +18,9 @@ public class CarrinhoMB {
 
 	private Livro livro;
 	private LivroDAO dao;
-	//private List<Livro> carrinhoLivros = new ArrayList();
+	// private List<Livro> carrinhoLivros = new ArrayList();
 	private double totalCarrinho;
-	
+
 	private List<Carrinho> carrinho = new ArrayList<Carrinho>();
 
 	public double getTotalCarrinho() {
@@ -37,7 +37,7 @@ public class CarrinhoMB {
 	}
 
 	public List<Carrinho> getCarrinho() {
-		//carrinhoLivros.add(livro);
+		// carrinhoLivros.add(livro);
 		return carrinho;
 	}
 
@@ -52,7 +52,7 @@ public class CarrinhoMB {
 	public void setLivro(Livro livro) {
 		this.livro = livro;
 	}
-	
+
 	public String adcionarCarrinho() {
 		livro = dao.pesquisarLivro(livro.getId());
 		Carrinho carrinhoModal = new Carrinho();
@@ -63,45 +63,45 @@ public class CarrinhoMB {
 		totalCarrinho();
 		return "Carrinho";
 	}
-	
-	public int getQuantCarrinho(){
+
+	public int getQuantCarrinho() {
 		return carrinho.size();
 	}
-	
-	public List<String> getTotalValor(){
+
+	public List<String> getTotalValor() {
 		List<String> total = new ArrayList<String>();
-		
+
 		return total;
 	}
-	
-	public String atualizarCarrinho(){
-		
+
+	public String atualizarCarrinho() {
+
 		for (int i = 0; i < getQuantCarrinho(); i++) {
 			Carrinho carrinho2 = carrinho.get(i);
-			if(carrinho2.getQuantidade()==0){
+			if (carrinho2.getQuantidade() == 0) {
 				carrinho.remove(i);
-			}else{
+			} else {
 				carrinho2.setValor(carrinho2.getLivro().getPreco() * carrinho2.getQuantidade());
 			}
 		}
 		totalCarrinho();
-		
-		
-		
+
 		return "Carrinho";
 	}
-	
-	public void totalCarrinho(){
+
+	public void totalCarrinho() {
 		setTotalCarrinho(0);
 		for (Carrinho carrinho2 : carrinho) {
 			setTotalCarrinho(getTotalCarrinho() + carrinho2.getValor());
 		}
 	}
 	
-	public Double getCalculaFrete(){
+	private Integer frete = 1;
+	
+	Carrinho c = new Carrinho();
+	public Double getCalculaFrete() {
 		double valorFrete = 0;
-		Carrinho c = new Carrinho();
-		switch(c.getFrete()){
+		switch (c.getFrete()) {
 		case 1:
 			valorFrete = 10;
 			break;
@@ -109,7 +109,22 @@ public class CarrinhoMB {
 			valorFrete = 20;
 			break;
 		}
-		return valorFrete+getTotalCarrinho();
+		return valorFrete + getTotalCarrinho();
 	}
 	
+	public void atualizarFrete(){
+		c.setFrete(frete);
+	}
+
+	public Integer getFrete() {
+		return frete;
+	}
+
+	public void setFrete(Integer frete) {
+		this.frete = frete;
+	}
+	
+	public String confirmarPedido(){
+		return "Confirmacao";
+	}
 }
