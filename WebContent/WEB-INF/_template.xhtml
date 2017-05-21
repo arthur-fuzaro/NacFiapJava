@@ -4,11 +4,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title><ui:insert name="title">GUIROAR</ui:insert></title>
 
 	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/btn_buscar.css" />
 	<link rel="stylesheet" href="css/style_cadastros.css" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" />
     
@@ -17,7 +19,10 @@
 <h:body>
 	
 		<div class="cabecalho container">
-		<h1 class="logo"></h1>
+		<h:form>			
+			<h:commandLink  action="index" class="logo"></h:commandLink>
+		</h:form>
+		
 		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
 		
 		<h:form class="carrinho">			
@@ -25,16 +30,16 @@
 		</h:form>		
 		
 		<div class="menu">
-			<p:commandButton  Class="btn-close" action="Index" class="fa-times"></p:commandButton >
+			
 			
 			<ul>
-				<li>
-					<h:form id="demo-2">
-						<p:inputText type="search" placeholder="Search" /> 
-					</h:form>
-				</li>
+				
 				<h:form>
-					<li><h:commandLink action="Index">#{res.wishList}</h:commandLink></li>
+				<li>
+					<h:inputText type="search" class="search_input" name="search" p:watermark="Search" /> 
+					
+				</li>
+					<li><h:commandLink action="ListaDesejo">#{res.wishList}</h:commandLink></li>
 					<li><h:commandLink action="Index">#{res.exit}</h:commandLink></li>
 				</h:form>
 			</ul>

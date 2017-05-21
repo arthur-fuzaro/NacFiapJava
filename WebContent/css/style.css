@@ -194,20 +194,24 @@ width:100%;
 
 #items{
 float:left;
-padding:22px 0 0 0;
+padding: 0px 0px 0px 25px;
 width:100%;
 }
+
 .item{
-width:241px;
-height:265px;
-float:left;
-background-image:url(../img/item_bg.gif);
-background-position:top left;
-background-repeat:no-repeat;
-padding:0 12px 15px 0;
-display:inline;
-margin-left: 40px;
+    width: 241px;
+    height: 260px;
+    margin-top: 25px;
+    margin-left: 40px;
+    float: left;
+    /* background-image: url(../img/item_bg.gif); */
+    background-position: top left;
+    background-color: #fff;
+    box-shadow: 7px 7px 5px #cecece;
+    background-repeat: no-repeat;
+    padding: 0 12px 15px 0;
 }
+
 .item img{
 margin:26px 0 0 25px;
 }
@@ -315,6 +319,32 @@ font-size:11px
 	height: 200px;
 	background: #f0f0f0;
 }
+
+/* lista desejo */
+.lista_desejo{
+	position: relative;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+}
+.lista_desejo td{
+	position: relative;
+	padding: 5px;
+	margin: 0px;
+	color: #000;
+	border-bottom: 1px solid #cecece;
+	width: 7%;
+}
+
+.lista_desejo th{
+	position: relative;
+	font-weight: bold;
+	background: #ce2e3c;
+	padding: 5px;
+	margin: 0px;
+	color: #fff;	
+	width: 7%;
+}	
 
 /* telas de cadastro */
 .cadastros{

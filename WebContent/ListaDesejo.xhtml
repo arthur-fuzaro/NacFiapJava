@@ -1,0 +1,60 @@
+<!-- COMENTARIO ADICIONADO -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/_template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<div class="cadastros container">
+				<div>
+					<p class="titulo_Rosa">
+						Lista de Desejos <i class="fa fa-heart"></i>
+					</p>
+					<h:panelGroup style="width:100%;">
+						<table class="lista_desejo" style="width: 100% !important;">
+							<tr>
+								<th style="width: 50%;">Produto(s)</th>								
+								<th style="width: 20%;">Preço</th>
+								<th style="width: 5%;">Carrinho</th>								
+								<th style="width: 5%;">Apagar</th>
+							</tr>
+							<tr>
+								<td>Livro Fazendo meu Filme </td>
+								<td> R$ 300,50</td>
+								<td>
+									<h:commandLink value="" action="a">
+										<img src="img/cart.svg" width="17px" height="18px"
+												style="float: right; margin-right: 35px;" />
+									
+									</h:commandLink>
+								</td>
+								<td> <h:commandLink value="" action="a">
+										<img src="img/trash.png" width="17px" height="18px"
+												style="float: right;margin-right: 35px;" />
+									
+									</h:commandLink>
+								</td>
+							</tr>
+							<tr>
+								<td>Livro Fallen  </td>
+								<td> R$ 50,50</td>
+								<td><img src="img/cart.svg" width="17px" height="18px"
+												style="float: right; margin-right: 35px;" /></td>
+								<td> <img src="img/trash.png" width="17px" height="18px"
+												style="float: right; margin-right: 35px;" /></td>
+							</tr>
+						</table>
+					</h:panelGroup>		
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
