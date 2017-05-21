@@ -1,12 +1,15 @@
 package br.com.fiap.ManegedBean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.fiap.DAO.LivroDAO;
+import br.com.fiap.Model.Carrinho;
 import br.com.fiap.Model.Livro;
 
 @ManagedBean
@@ -15,10 +18,10 @@ public class CarrinhoMB {
 
 	private Livro livro;
 	private LivroDAO dao;
-	private List<Livro> carrinhoLivros = new ArrayList<Livro>();
+	// private List<Livro> carrinhoLivros = new ArrayList();
 	private double totalCarrinho;
-	
-	
+
+	private List<Carrinho> carrinho = new ArrayList<Carrinho>();
 
 	public double getTotalCarrinho() {
 		return totalCarrinho;
@@ -33,13 +36,13 @@ public class CarrinhoMB {
 		dao = new LivroDAO();
 	}
 
-	public List<Livro> getCarrinhoLivros() {
-		carrinhoLivros.add(livro);
-		return carrinhoLivros;
+	public List<Carrinho> getCarrinho() {
+		// carrinhoLivros.add(livro);
+		return carrinho;
 	}
 
-	public void setCarrinhoLivros(List<Livro> carrinhoLivros) {
-		this.carrinhoLivros = carrinhoLivros;
+	public void setCarrinho(List<Carrinho> carrinhoLivros) {
+		this.carrinho = carrinhoLivros;
 	}
 
 	public Livro getLivro() {
@@ -52,7 +55,76 @@ public class CarrinhoMB {
 
 	public String adcionarCarrinho() {
 		livro = dao.pesquisarLivro(livro.getId());
+		Carrinho carrinhoModal = new Carrinho();
+		carrinhoModal.setLivro(livro);
+		carrinhoModal.setQuantidade(1);
+		carrinhoModal.setValor(livro.getPreco());
+		carrinho.add(carrinhoModal);
+		totalCarrinho();
 		return "Carrinho";
 	}
 
+	public int getQuantCarrinho() {
+		return carrinho.size();
+	}
+
+	public List<String> getTotalValor() {
+		List<String> total = new ArrayList<String>();
+
+		return total;
+	}
+
+	public String atualizarCarrinho() {
+
+		for (int i = 0; i < getQuantCarrinho(); i++) {
+			Carrinho carrinho2 = carrinho.get(i);
+			if (carrinho2.getQuantidade() == 0) {
+				carrinho.remove(i);
+			} else {
+				carrinho2.setValor(carrinho2.getLivro().getPreco() * carrinho2.getQuantidade());
+			}
+		}
+		totalCarrinho();
+
+		return "Carrinho";
+	}
+
+	public void totalCarrinho() {
+		setTotalCarrinho(0);
+		for (Carrinho carrinho2 : carrinho) {
+			setTotalCarrinho(getTotalCarrinho() + carrinho2.getValor());
+		}
+	}
+	
+	private Integer frete = 1;
+	
+	Carrinho c = new Carrinho();
+	public Double getCalculaFrete() {
+		double valorFrete = 0;
+		switch (c.getFrete()) {
+		case 1:
+			valorFrete = 10;
+			break;
+		case 2:
+			valorFrete = 20;
+			break;
+		}
+		return valorFrete + getTotalCarrinho();
+	}
+	
+	public void atualizarFrete(){
+		c.setFrete(frete);
+	}
+
+	public Integer getFrete() {
+		return frete;
+	}
+
+	public void setFrete(Integer frete) {
+		this.frete = frete;
+	}
+	
+	public String confirmarPedido(){
+		return "Confirmacao";
+	}
 }
