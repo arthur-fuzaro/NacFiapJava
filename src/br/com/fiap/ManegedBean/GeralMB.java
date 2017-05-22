@@ -80,6 +80,18 @@ public class GeralMB {
 		this.listaDesejos = listaDesejos;
 	}
 	
+	public String abrirLoginAdmin(){
+		return "LoginADM";
+	}
+	
+	public String listaDesejo(){
+		return "ListaDesejo";
+	}
+	
+	public String abrirIndex(){
+		return "index";
+	}
+	
 	public String adicionarListaDeDesejos(){
 		LivroDAO dao = new LivroDAO();
 		livro = dao.pesquisarLivro(livro.getId());
