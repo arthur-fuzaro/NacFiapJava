@@ -61,17 +61,17 @@
 									<p>#{l.nomeLivro}</p>
 									<span>R$#{l.preco}</span>
 									<div class="conjunto_cart_heart">
-										<h:commandLink styleClass="add_desejo"
-											action="desejo">							
-											
+										<h:commandLink styleClass="add_desejo" action="#{geralMB.adicionarListaDeDesejos}">
+											<f:setPropertyActionListener value="#{l.id}"
+												target="#{geralMB.livro.id}" />
 										</h:commandLink>
 										<h:commandLink styleClass="buy"
 											action="#{carrinhoMB.adcionarCarrinho}">
-											
+
 											<f:setPropertyActionListener value="#{l.id}"
 												target="#{carrinhoMB.livro.id}" />
 										</h:commandLink>
-									</div>	
+									</div>
 								</div>
 							</ui:repeat>
 						</div>
