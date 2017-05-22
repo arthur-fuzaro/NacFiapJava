@@ -20,7 +20,6 @@ public class GeneroMB {
 		
 		private Genero gen;
 		private GeneroDAO dao;
-		private GeralMB mb;
 		private List<Genero> listGeneros;
 		private String erro, sucesso;
 		private ResourceBundle resource;
@@ -51,7 +50,6 @@ public class GeneroMB {
 			resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
 			gen = new Genero();
 			dao = new GeneroDAO();
-			mb = new GeralMB();
 		}
 			
 		public List<Genero> getListGeneros() {
@@ -109,7 +107,7 @@ public class GeneroMB {
 			}
 			catch(Exception e){
 				String erro = e.getMessage();
-				return "Cadastro_genero";
+				return "Cadastro_Genero";
 			}
 		}
 		
@@ -121,6 +119,7 @@ public class GeneroMB {
 				return "Cadastro_Genero";
 			} catch (Exception e) {
 				setErro(resource.getString("error2"));
+				setSucesso("");
 				return "Cadastro_Genero";
 			}
 			

@@ -79,7 +79,7 @@ public class EditoraMB {
 		catch(Exception ex){
 			setErro(resource.getString("error2"));
 			setSucesso("");
-			return "cadastro_editora";
+			return "Cadastro_editora";
 		}
 	}
 

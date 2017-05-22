@@ -1,4 +1,3 @@
-<!-- Teste Git -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,8 +9,9 @@
 
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
-		<h:form>
+		
 			<div class="cadastros container">
+			<h:form>
 				<div>
 					<p style="text-align: center; color: green;">#{autorMB.sucesso}</p>
 					<p style="text-align: center; color: green;">#{autorMB.erro}</p>
@@ -21,37 +21,44 @@
 					<fieldset>
 
 						<fieldset class="grupo">
-							<div class="campo">
+							<div class="campo"><h:inputHidden value="#{autorMB.autor.id}"/>
 								<label for="nomeAutor">#{res.firstName}</label>
 								<h:inputText style="width: 35em"
-									value="#{autorMB.autor.firstName}" />
+									value="#{autorMB.autor.firstName}"
+									id="nome" required="true" 
+									requiredMessage="#{res.emptyField}" />
+									<h:message for="nome" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo">
 								<label for="sobrenomeAutor">#{res.lastName}</label>
 								<h:inputText style="width: 35em"
-									value="#{autorMB.autor.lastName}" />
+									value="#{autorMB.autor.lastName}" 
+									id="nomeL" required="true" 
+									requiredMessage="#{res.emptyField}" />
+									<h:message for="nomeL" styleClass="titulo_Vermelho" />
 							</div>
 						</fieldset>
 												
 						<h:commandButton styleClass="botao"
-							rendered="#{empty autorMB.autor.firstName}" value="#{res.register}"
+							value="#{res.register}"
 							action="#{autorMB.cadastrarAutor}" style="float:right;"></h:commandButton>
 						
 						<h:commandButton styleClass="botao"
-							rendered="#{not empty autorMB.autor.firstName}" value="#{res.edit2}"
+							value="#{res.edit2}"
 							action="#{autorMB.editAutor}" style="float:right;"></h:commandButton>
 						
 						
 					</fieldset>
 				</div>
-
+				</h:form>
 				<div>
+				<h:form>
 					<table style="width: 100%;">
 						<tr style="color: red;">
-							<td>First_name</td>
-							<td>Last_name</td>
+							<td>#{res.firstName}</td>
+							<td>#{res.lastName}</td>
 							<td></td>
-							<td>Ações</td>
+							<td>#{res.actions}</td>
 						</tr>
 						<ui:repeat var="a" value="#{autorMB.listaAutor}">
 							<tr>
@@ -78,10 +85,11 @@
 
 						</ui:repeat>
 					</table>
+					</h:form>
 				</div>
 
 			</div>
-		</h:form>
+		
 	</ui:define>
 </ui:composition>
 </html>

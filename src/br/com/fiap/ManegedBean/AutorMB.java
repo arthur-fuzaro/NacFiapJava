@@ -31,6 +31,8 @@ public class AutorMB {
 	}
 
 	public String getErro() {
+		String erro = this.erro;
+		setErro("");
 		return erro;
 	}
 
@@ -39,6 +41,8 @@ public class AutorMB {
 	}
 
 	public String getSucesso() {
+		String sucesso = this.sucesso;
+		setSucesso("");
 		return sucesso;
 	}
 
@@ -107,7 +111,6 @@ public class AutorMB {
 	}
 	
 	public String editAutor(){
-		System.out.println("ENTROU AQUI POAR");
 		try {
 			dao.alterarAutor(autor, autor.getId());
 			autor = new Autor();

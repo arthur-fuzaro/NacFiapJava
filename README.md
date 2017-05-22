@@ -1,14 +1,14 @@
 ## ADMIN
 
-Cadastro de Livros	(CRUD)
+> Cadastro de Livros	(CRUD)
 
-Cadastro de Editoras	(CRUD)
+> Cadastro de Editoras	(CRUD)
 
-Cadastro de Atuores	(CRUD)
+> Cadastro de Atuores	(CRUD)
 
-Cadastro de Generos	(CRUD)
+> Cadastro de Generos	(CRUD)
 
-Controle de preço / oferta de livros
+> Controle de preço / oferta de livros
 
 ## AREA PUBLICA
 

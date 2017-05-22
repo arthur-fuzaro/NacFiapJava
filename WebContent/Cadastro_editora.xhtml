@@ -11,60 +11,81 @@
 	<ui:define name="content">
 
 		<div class="cadastros container">
-			<div>
-				<p style="text-align:center;color:green;">#{editoraMB.sucesso}</p>
-				<p style="text-align:center;color:green;">#{editoraMB.erro}</p>
-				<p class="titulo_Rosa">#{res.registerPublisher}</p>
+			<h:form>
+				<div>
+					<p style="text-align: center; color: green;">#{editoraMB.sucesso}</p>
+					<p style="text-align: center; color: green;">#{editoraMB.erro}</p>
+					<p class="titulo_Rosa">#{res.registerPublisher}</p>
 
-				<h:form>
 					<fieldset>
 						<div class="campo">
 							<label for="nomeEditora">#{res.name}</label>
-							<h:inputText style="width: 95%" value="#{editoraMB.editora.nome}" />
+							<h:inputText style="width: 95%" value="#{editoraMB.editora.nome}"
+								id="nome" required="true" requiredMessage="#{res.emptyField}" />
+							<h:message for="nome" styleClass="titulo_Vermelho" />
 						</div>
 						<fieldset class="grupo">
 							<div class="campo">
 								<label for="nomefantasia">#{res.nameF}</label>
 								<h:inputText style="width: 23em"
-									value="#{editoraMB.editora.nomeFantasia}" />
+									value="#{editoraMB.editora.nomeFantasia}" id="nomeF"
+									required="true" requiredMessage="#{res.emptyField}" />
+								<h:message for="nomeF" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo">
 								<label for="cnpj">#{res.cnpj}</label>
 								<h:inputText style="width: 22em"
-									value="#{editoraMB.editora.cnpj}" />
+									value="#{editoraMB.editora.cnpj}" id="cnpj" required="true"
+									requiredMessage="#{res.emptyField}"
+									converterMessage="#{res.onlyNumber}"
+									validatorMessage="#{res.lenght}">
+									<f:validateLength minimum="14" maximum="14" />
+									<f:validateDoubleRange minimum="1"	/>
+									</h:inputText>
+								<h:message for="cnpj" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo">
 								<label for="email">#{res.email}</label>
 								<h:inputText style="width: 23em"
-									value="#{editoraMB.editora.email}" />
+									value="#{editoraMB.editora.email}" 
+									id="email" required="true"
+									requiredMessage="#{res.emptyField}"/>									
+								<h:message for="email" styleClass="titulo_Vermelho" />
 							</div>
 						</fieldset>
 
 						<div class="campo">
 							<label for="endereco">#{res.address}</label>
 							<h:inputText style="width: 95%"
-								value="#{editoraMB.editora.endereco}" />
+								value="#{editoraMB.editora.endereco}" 
+									id="endereco" required="true"
+									requiredMessage="#{res.emptyField}"/>									
+								<h:message for="endereco" styleClass="titulo_Vermelho" />
 						</div>
 
 
 						<h:commandButton styleClass="botao"
-							rendered="#{empty editoraMB.editora.cnpj}" value="#{res.register}"
-							action="#{editoraMB.cadastrarEditora}" style="float:right;"></h:commandButton>
+							rendered="#{empty editoraMB.editora.cnpj}"
+							value="#{res.register}" action="#{editoraMB.cadastrarEditora}"
+							style="float:right;"></h:commandButton>
 
 						<h:commandButton styleClass="botao"
-							rendered="#{not empty editoraMB.editora.cnpj}" value="#{res.edit2}" 
-							action="#{editoraMB.editEditora}" style="float:right;"></h:commandButton>
+							rendered="#{not empty editoraMB.editora.cnpj}"
+							value="#{res.edit2}" action="#{editoraMB.editEditora}"
+							style="float:right;"></h:commandButton>
 
 					</fieldset>
-                
-                
-               <div>
-						<table style="width: 100%;">
+
+				</div>
+			</h:form>
+			<div>
+				<h:form>
+					<table style="width: 100%;">
 						<tr style="color: red;">
-							<td>Nome</td>
-							<td>Cnpj</td>
-							<td>Email</td>
-							<td>Ações</td>
+							<td>#{res.name}</td>
+							<td>#{res.cnpj}</td>
+							<td>#{res.email}</td>
+							<td>#{res.actions}</td>
 						</tr>
 						<ui:repeat var="e" value="#{editoraMB.listaEditora}">
 							<tr>
@@ -78,26 +99,20 @@
 											title="#{res.edit2}" />
 										<f:setPropertyActionListener value="#{e.id}"
 											target="#{editoraMB.editora.id}" />
-									</h:commandLink> 
-									
-									<h:commandLink value="" action="#{editoraMB.excluirEditora}">
+									</h:commandLink> <h:commandLink value="" action="#{editoraMB.excluirEditora}">
 										<img src="img/remove_icon.png" alt="#{res.remove}"
 											title="#{res.remove}" />
-											
+
 										<f:setPropertyActionListener value="#{e.id}"
 											target="#{editoraMB.editora.id}" />
-											
+
 									</h:commandLink></td>
 
 							</tr>
 						</ui:repeat>
 					</table>
+				</h:form>
 			</div>
-
-
-			</h:form>
-
-		</div>
 		</div>
 
 	</ui:define>

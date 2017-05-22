@@ -12,37 +12,44 @@
 
 		<div class="cadastros container">
 			<div>
-				<p style="text-align:center;color:green;">#{generoMB.sucesso}</p>
-				<p style="text-align:center;color:green;">#{generoMB.erro}</p>
-				<p class="titulo_Rosa">#{res.registerGenre}</p>
-
 				<h:form>
+					<p style="text-align: center; color: green;">#{generoMB.sucesso}</p>
+					<p style="text-align: center; color: green;">#{generoMB.erro}</p>
+					<p class="titulo_Rosa">#{res.registerGenre}</p>
+
+
 					<fieldset>
 
 						<fieldset class="grupo">
 							<div class="campo" style="width: 100%;">
 								<label for="nomeGenero">#{res.name}</label>
-								<h:inputText value="#{generoMB.gen.nome}" style="width: 100%" />
+								<h:inputText value="#{generoMB.gen.nome}" style="width: 100%"
+								id="name" required="true" requiredMessage="#{res.emptyField}" />
+								<h:message for="name" styleClass="titulo_Vermelho" />
+								
 							</div>
 						</fieldset>
-						<h:commandButton styleClass="botao" rendered="#{empty generoMB.gen.nome}" value="#{res.submit}"
+						<h:commandButton styleClass="botao"
+							rendered="#{empty generoMB.gen.nome}" value="#{res.submit}"
 							action="#{generoMB.cadastrarGenero}" style="float:right;"></h:commandButton>
 
-						<h:commandButton styleClass="botao" rendered="#{not empty generoMB.gen.nome}" value="#{res.edit}"
+						<h:commandButton styleClass="botao"
+							rendered="#{not empty generoMB.gen.nome}" value="#{res.edit}"
 							action="#{generoMB.editGenero}" style="float:right;"></h:commandButton>
-							
+
 
 					</fieldset>
-
+				</h:form>
+				<h:form>
 					<div>
 						<table style="width: 100%;">
-							<tr style="color:red;">
-								<td>Nome</td>
+							<tr style="color: red;">
+								<td>#{res.name}</td>
 								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
-								<td>Ações</td>
+								<td>#{res.actions}</td>
 							</tr>
 							<ui:repeat var="g" value="#{generoMB.listGeneros}">
 								<tr>
@@ -55,13 +62,15 @@
 									<td><h:commandLink value=""
 											action="#{generoMB.abrirCadastroEditar}">
 
-											<img src="img/edit_icon.png" alt="#{res.edit2}" title="#{res.edit2}" />
+											<img src="img/edit_icon.png" alt="#{res.edit2}"
+												title="#{res.edit2}" />
 
 											<f:setPropertyActionListener value="#{g.id}"
 												target="#{generoMB.gen.id}" />
 										</h:commandLink> | <h:commandLink value="" action="#{generoMB.excluirGenero}">
 
-											<img src="img/remove_icon.png" alt="#{res.remove}" title="#{res.remove}" />
+											<img src="img/remove_icon.png" alt="#{res.remove}"
+												title="#{res.remove}" />
 
 											<f:setPropertyActionListener value="#{g.id}"
 												target="#{generoMB.gen.id}" />

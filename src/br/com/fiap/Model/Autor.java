@@ -2,25 +2,18 @@ package br.com.fiap.Model;
 
 public class Autor {
 
-	private int Id;
+	private Integer Id;
 	
 	private String FirstName;
 	
 	private String LastName;
 
-	/*public Autor(int id, String firstName, String lastName) {
-		super();
-		this.Id = id;
-		this.FirstName = firstName;
-		this.LastName = lastName;
-	}*/
-
-	public int getId() {
+	public Integer getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
-		this.Id = id;
+	public void setId(Integer id) {
+		Id = id;
 	}
 
 	public String getFirstName() {

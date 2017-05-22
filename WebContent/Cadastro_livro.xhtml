@@ -10,24 +10,37 @@
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
 
-				<h:form>
+				
 		<div class="cadastros container">
+		<h:form>
 			<div>
 				<p style="text-align:center;color:green;">#{livroMB.sucesso}</p>
+				<p style="text-align:center;color:green;">#{livroMB.erro}</p>
 				<p class="titulo_Rosa">#{res.registerBook}</p>
-
+				
 					<fieldset class="grupo">
 						<fieldset class="grupo"
 							style="width: 99%; margin: 0; margin-bottom: 20px;">
 							<div class="campo" style="width: 8em; margin: 0;">
 								<label for="snome">#{res.codIsbn}</label>
 								<h:inputText style="width: 7em" value="#{livroMB.livro.codIsbn}"
-									disabled="#{not empty livroMB.livro.codIsbn}" />
+									disabled="#{not empty livroMB.livro.codIsbn}" 
+									id="codIsbn" 
+									required="true"
+									requiredMessage="#{res.emptyField}"
+									converterMessage="#{res.onlyNumber}"
+									validatorMessage="#{res.negative}">
+									<f:validateDoubleRange minimum="1" /></h:inputText>
+									<h:message for="codIsbn" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo" style="width: calc(100% - 8em); margin: 0;">
 								<label for="nome">#{res.name}</label>
 								<h:inputText style="width: 100%"
-									value="#{livroMB.livro.nomeLivro}" />
+									value="#{livroMB.livro.nomeLivro}"
+									id="nome" 
+									required="true"
+									requiredMessage="#{res.emptyField}"/> 
+									<h:message for="nome" styleClass="titulo_Vermelho" />
 							</div>
 						</fieldset>
 
@@ -37,17 +50,38 @@
 								style="width: 33%; margin: 0; padding-right: 5px;">
 								<label for="snome">#{res.qtdPage}</label>
 								<h:inputText style="width: 100%;"
-									value="#{livroMB.livro.paginas}" />
+									value="#{livroMB.livro.paginas}"
+									id="paginas" 
+									required="true"
+									requiredMessage="#{res.emptyField}"
+									converterMessage="#{res.onlyNumber}"
+									validatorMessage="#{res.negative}">
+									<f:validateDoubleRange minimum="1" /></h:inputText>
+									<h:message for="paginas" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo"
 								style="width: 33%; margin: 0; padding-right: 5px;">
 								<label for="snome">#{res.edition}</label>
 								<h:inputText style="width: 100%;"
-									value="#{livroMB.livro.edicao}" />
+									value="#{livroMB.livro.edicao}" 
+									id="edicao" 
+									required="true"
+									requiredMessage="#{res.emptyField}"
+									converterMessage="#{res.onlyNumber}"
+									validatorMessage="#{res.negative}">
+									<f:validateDoubleRange minimum="1" /></h:inputText>
+									<h:message for="edicao" styleClass="titulo_Vermelho" />
 							</div>
 							<div class="campo" style="width: 34%; margin: 0;">
 								<label for="snome">#{res.price}</label>
-								<h:inputText style="width: 100%;" value="#{livroMB.livro.preco}" />
+								<h:inputText style="width: 100%;" value="#{livroMB.livro.preco}"
+									id="preco" 
+									required="true"
+									requiredMessage="#{res.emptyField}"
+									converterMessage="#{res.onlyNumber}"
+									validatorMessage="#{res.negative2}">
+									<f:validateDoubleRange minimum="0" /></h:inputText>
+									<h:message for="preco" styleClass="titulo_Vermelho" />
 							</div>
 						</fieldset>
 					</fieldset>
@@ -94,14 +128,18 @@
 						styleClass="botao" style="float:right;" />
 
 
+
 			</div>
+			</h:form>
+			
 			<div>
+			<h:form>
 				<table style="width: 100%;">
 					<tr>
-						<td>ISBN</td>
-						<td>Livro</td>
-						<td>Preço</td>
-						<td>Ações</td>
+						<td>#{res.isbn}</td>
+						<td>#{res.name}</td>
+						<td>#{res.price}</td>
+						<td>#{res.acitions}</td>
 					</tr>
 						<ui:repeat var="l" value="#{livroMB.livros}">
 							<tr>
@@ -128,10 +166,11 @@
 							</tr>
 						</ui:repeat>
 				</table>
+				</h:form>
 			</div>
 		</div>
 
-					</h:form>
+					
 	</ui:define>
 </ui:composition>
 </html>
