@@ -16,7 +16,7 @@
 					<p class="titulo_Rosa">
 						Lista de Desejos <i class="fa fa-heart"></i>
 					</p>
-					<h:panelGroup style="width:100%;">
+					<h:panelGroup style="width:100%;" rendered="#{not empty geralMB.listaDesejos}">
 						<table class="lista_desejo" style="width: 100% !important;">
 							<tr>
 								<th style="width: 50%;">Produto(s)</th>								
@@ -24,31 +24,28 @@
 								<th style="width: 5%;">Carrinho</th>								
 								<th style="width: 5%;">Apagar</th>
 							</tr>
+							<ui:repeat var="l" value="#{geralMB.listaDesejos}">
 							<tr>
-								<td>Livro Fazendo meu Filme </td>
-								<td> R$ 300,50</td>
+								<td>#{l.nomeLivro}</td>
+								<td> R$ #{l.preco}</td>
 								<td>
-									<h:commandLink value="" action="a">
+									<h:commandLink value="" action="#{geralMB.adicionarCarrinho}">
 										<img src="img/cart.svg" width="17px" height="18px"
 												style="float: right; margin-right: 35px;" />
-									
+										<f:setPropertyActionListener value="#{l}"
+												target="#{geralMB.livro}" />
 									</h:commandLink>
 								</td>
-								<td> <h:commandLink value="" action="a">
+								<td> <h:commandLink value="" action="#{geralMB.removerListaDesejos}">
 										<img src="img/trash.png" width="17px" height="18px"
 												style="float: right;margin-right: 35px;" />
-									
+												<f:setPropertyActionListener value="#{l}"
+												target="#{geralMB.livro}" />
 									</h:commandLink>
 								</td>
 							</tr>
-							<tr>
-								<td>Livro Fallen  </td>
-								<td> R$ 50,50</td>
-								<td><img src="img/cart.svg" width="17px" height="18px"
-												style="float: right; margin-right: 35px;" /></td>
-								<td> <img src="img/trash.png" width="17px" height="18px"
-												style="float: right; margin-right: 35px;" /></td>
-							</tr>
+							</ui:repeat>
+							
 						</table>
 					</h:panelGroup>		
 				</div>

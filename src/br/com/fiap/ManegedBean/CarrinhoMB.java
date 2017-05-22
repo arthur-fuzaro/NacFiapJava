@@ -21,7 +21,7 @@ public class CarrinhoMB {
 	// private List<Livro> carrinhoLivros = new ArrayList();
 	private double totalCarrinho;
 
-	private List<Carrinho> carrinho = new ArrayList<Carrinho>();
+	private static List<Carrinho> carrinho = new ArrayList<Carrinho>();
 
 	public double getTotalCarrinho() {
 		return totalCarrinho;
