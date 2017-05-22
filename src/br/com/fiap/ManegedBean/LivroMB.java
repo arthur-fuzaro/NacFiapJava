@@ -2,9 +2,11 @@ package br.com.fiap.ManegedBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.fiap.DAO.LivroDAO;
 import br.com.fiap.Model.Livro;
@@ -14,9 +16,10 @@ import br.com.fiap.Model.Livro;
 public class LivroMB {
 	
 	private Livro livro;
-	private GeralMB mb = new GeralMB();
 	private List<Livro> livros;
 	private String erro, sucesso;
+	private ResourceBundle resource;
+	private FacesContext context;
 	
 	public Livro getLivro() {
 		return livro;
@@ -28,6 +31,8 @@ public class LivroMB {
 
 	public LivroMB(){
 		livro = new Livro();
+		context = FacesContext.getCurrentInstance();
+		resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
 		setErro("");
 		setSucesso("");
 		//ListarLivros = new ArrayList<Livro>();
@@ -38,13 +43,15 @@ public class LivroMB {
 		try{
 			LivroDAO dao = new LivroDAO();
 			dao.inserirLivro(livro);
-			setSucesso("Livro cadastrado com sucesso");
-			livro = new Livro();
+			setSucesso(resource.getString("registered"));
+			setErro("");
+			//livro = new Livro();
 			return "Cadastro_livro";
 		}
 		catch(Exception ex){
-			mb.setErro(ex.getMessage());
-			return "Erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "Cadastro_livro";
 		}
 	}
 	public List<Livro> getLivros(){
@@ -68,8 +75,7 @@ public class LivroMB {
 		}
 		catch(Exception e){
 			String erro = e.getMessage();
-			mb.setErro(erro);
-			return "erro";
+			return "Cadastro_livro";
 		}
 	}
 	
@@ -77,11 +83,14 @@ public class LivroMB {
 		try {
 			LivroDAO l = new LivroDAO();
 			l.alterarLivro(livro, livro.getId());
+			setSucesso(resource.getString("edited"));
+			setErro("");
 			livro = new Livro();
 			return "Cadastro_livro";
 		} catch (Exception e) {
-			mb.setErro(e.getMessage());
-			return "erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "Cadastro_livro";
 		}
 	}
 	
@@ -89,13 +98,13 @@ public class LivroMB {
 		try {
 			LivroDAO dao = new LivroDAO();
 			dao.removerLivro(livro.getId());
-			setSucesso("Livro deletado com sucesso");
+			setSucesso(resource.getString("deleted"));
 			setErro("");
-			return "Cadastrar_livro";
+			return "Cadastro_livro";
 		} catch (Exception e) {
-			mb.setErro("Ocorreu um erro ao tentar deletar o livro!");
-			setErro("Ocorreu um erro ao tentar deletar o livro!");
-			return "erro";
+			setErro(resource.getString("error2"));
+			setSucesso("");
+			return "Cadastro_livro";
 		}
 		
 	}
@@ -120,9 +129,7 @@ public class LivroMB {
 		this.sucesso = sucesso;
 	}
 	
-	public String onload() { 
-	    // Do your stuff here.
-	    // ...
+	public String onload(){
 	    return "index";
 	}
 	
