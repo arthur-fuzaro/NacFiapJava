@@ -7,9 +7,9 @@ public class Livro {
 	private Integer paginas;
 	private Integer edicao;
 	private String nomeLivro;
-	private Integer autorId;
-	private Integer generoId;
-	private Integer editoraId;
+	private String autor;
+	private String genero;
+	private String editora;
 	private Double preco;
 	private Integer qtd;
 	private Double totalValor;
@@ -86,30 +86,6 @@ public class Livro {
 		this.nomeLivro = nomeLivro;
 	}
 
-	public Integer getAutorId() {
-		return autorId;
-	}
-
-	public void setAutorId(Integer autorId) {
-		this.autorId = autorId;
-	}
-
-	public Integer getGeneroId() {
-		return generoId;
-	}
-
-	public void setGeneroId(Integer generoId) {
-		this.generoId = generoId;
-	}
-
-	public Integer getEditoraId() {
-		return editoraId;
-	}
-
-	public void setEditoraId(Integer editoraId) {
-		this.editoraId = editoraId;
-	}
-
 	public Double getPreco() {
 		return preco;
 	}
@@ -117,5 +93,30 @@ public class Livro {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getEditora() {
+		return editora;
+	}
+
+	public void setEditora(String editora) {
+		this.editora = editora;
+	}
+	
 	
 }

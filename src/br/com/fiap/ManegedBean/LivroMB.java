@@ -28,7 +28,7 @@ public class LivroMB {
 		livrosPesquisar = new ArrayList();
 		
 		LivroDAO l = new LivroDAO();
-		livrosPesquisar = l.pesquisarLivros(livro.getNomeLivro());
+		livrosPesquisar = l.pesquisarLivro(livro.getNomeLivro());
 		
 		return "Pesquisar";
 	}
@@ -65,7 +65,7 @@ public class LivroMB {
 			dao.inserirLivro(livro);
 			setSucesso(resource.getString("registered"));
 			setErro("");
-			//livro = new Livro();
+			livro = new Livro();
 			return "Cadastro_livro";
 		}
 		catch(Exception ex){

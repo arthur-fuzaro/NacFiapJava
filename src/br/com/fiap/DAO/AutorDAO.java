@@ -79,13 +79,13 @@ public class AutorDAO {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("AutorId");
-				nome = rs.getString("First_Name");
-				sobrenome = rs.getString("Last_name");
+				nome = rs.getString("First_Name") + " " +rs.getString("Last_name");
+				//sobrenome = rs.getString("Last_name");
 				//Autores.add(new Autor(id, nome, sobrenome));
 				
 				Autor autor = new Autor();
 				autor.setFirstName(nome);
-				autor.setLastName(sobrenome);
+				autor.setLastName("");
 				autor.setId(id);
 				Autores.add(autor);
 			}
