@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+
+	<ui:composition template="/WEB-INF/_template.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<div class="banner container">
+					<div class="title">
+						<h2>Guiroar</h2>
+						<h3>#{res.phrase}</h3>
+					</div>
+					<div class="buttons">
+						<div class="btn btn-cadastrar">
+							<p:commandButton icon="fa-arrow-circle-right">#{res.signup}	
+								
+			</p:commandButton>
+						</div>
+						<div class="btn btn-busca">
+							<p:commandButton icon="fa-search">#{res.advSearch}</p:commandButton>
+						</div>
+
+					</div>
+				</div>
+
+
+				<div Class="servicos container">
+					<div Class="servico">
+						<h:commandLink action="Index">
+							<img src="img/banner-mini_beijo.jpg" alt="campanhas" />
+						</h:commandLink>
+					</div>
+
+					<div class="servico">
+						<h:commandLink action="Index">
+							<img src="img/1702_banner-mini_leia-mais-sobre.jpg"
+								alt="Marketing Digital" />
+						</h:commandLink>
+					</div>
+					<div class="servico">
+						<h:commandLink action="Index">
+							<img src="img/banner_mini_24102016_ler-faz-bem.jpg"
+								alt="Marketing Digital" />
+						</h:commandLink>
+					</div>
+				</div>
+
+				<div class="produtos container">
+					<div id="main_block">
+						<div id="items">
+							<ui:repeat var="l" value="#{livroMB.livrosPesquisar}">
+								<div class="item">
+									<img src="img/livros/livro1.jpg" alt="" width="150"
+										height="128" /><br />
+									<p>#{l.nomeLivro}</p>
+									<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;#{l.descontoConta}</span> 
+									<div class="conjunto_cart_heart">
+										<h:commandLink styleClass="add_desejo" action="#{geralMB.adicionarListaDeDesejos}">
+											<f:setPropertyActionListener value="#{l.id}"
+												target="#{geralMB.livro.id}" />
+										</h:commandLink>
+										<h:commandLink styleClass="buy"
+											action="#{carrinhoMB.adcionarCarrinho}">
+
+											<f:setPropertyActionListener value="#{l.id}"
+												target="#{carrinhoMB.livro.id}" />
+										</h:commandLink>
+									</div>
+								</div>
+							</ui:repeat>
+						</div>
+					</div>
+				</div>
+
+				<div class="newsletter container">
+					<h2>#{res.subscribe}</h2>
+					<h3>#{res.news}</h3>
+					<input type="email" name="email" placeholder="seu email" />
+					<button>#{res.resignupNews}</button>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</f:view>
+</html>
