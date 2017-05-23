@@ -54,12 +54,12 @@
 				<div class="produtos container">
 					<div id="main_block">
 						<div id="items">
-							<ui:repeat var="l" value="#{livroMB.livros}">
+							<ui:repeat var="l" value="#{livroMB.livrosDescontos}">
 								<div class="item">
 									<img src="img/livros/livro1.jpg" alt="" width="150"
 										height="128" /><br />
 									<p>#{l.nomeLivro}</p>
-									<span>R$#{l.preco}</span>
+									<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;#{l.descontoConta}</span> 
 									<div class="conjunto_cart_heart">
 										<h:commandLink styleClass="add_desejo" action="#{geralMB.adicionarListaDeDesejos}">
 											<f:setPropertyActionListener value="#{l.id}"

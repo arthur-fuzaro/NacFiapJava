@@ -26,7 +26,7 @@
 		<p:commandButton icon="fa-bars" class="btn-menu" ></p:commandButton>
 		
 		<h:form class="carrinho">			
-			<h:commandLink action="#{geralMB.abrirCarrinho}"><img src="img/cart.svg" alt="Carrinho" /> (#{carrinhoMB.quantCarrinho})</h:commandLink>
+			<h:commandLink action="#{geralMB.abrirCarrinho}"><img src="img/cart.svg" alt="Carrinho" style=""/> (#{carrinhoMB.quantCarrinho})</h:commandLink>
 		</h:form>		
 		
 		<div class="menu">
@@ -36,8 +36,8 @@
 				
 				<h:form>
 				<li>
-					<h:inputText type="search" class="search_input" name="search" p:watermark="Search" /> 
-					
+					<h:inputText type="search" class="search_input" name="search" a:placeholder="Search" value="#{livroMB.livro.nomeLivro}"/> 
+					<h:commandButton value="lala" class="search_input_button" action="#{livroMB.pesquisarLivro}"></h:commandButton>
 				</li>
 					<li><h:commandLink action="#{geralMB.listaDesejo}">#{res.wishList}</h:commandLink></li>
 					<li><h:commandLink action="#{geralMB.abrirLoginAdmin}">#{res.admin}</h:commandLink></li>

@@ -13,6 +13,22 @@ public class Livro {
 	private Double preco;
 	private Integer qtd;
 	private Double totalValor;
+	private double desconto;
+
+	public double getDesconto() {
+		return desconto;
+	}	
+	
+	public double getDescontoConta() {
+		double preco = this.getPreco();
+		double desconto = this.desconto;
+		desconto = preco - ((desconto/100.0) * preco);
+		return desconto;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
 
 	public Integer getQtd() {
 		return qtd;

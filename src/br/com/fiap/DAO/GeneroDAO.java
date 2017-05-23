@@ -129,6 +129,31 @@ public class GeneroDAO {
 
 	}
 
+	public List<Genero> pesquisarGenero(String search)
+	{
+		Genero genero = new Genero();
+		List<Genero> generos = new ArrayList();
+		String nome;
+		String sql = "SELECT * FROM Generos WHERE UPPER(Nome) like UPPER(?)";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, search);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()){
+				nome = rs.getString("Nome");
+				genero.setNome(nome);
+				genero.setId(rs.getInt("generoId"));
+				generos.add(genero);
+			}
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execu��o: " + ex.getMessage() + " (Generos) ");
+		}
+
+		return generos;
+
+	}
+
 
 
 }
