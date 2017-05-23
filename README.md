@@ -8,16 +8,16 @@
 
 > Cadastro de Generos	(CRUD)
 
-> Controle de preço / oferta de livros
+Controle de preço / oferta de livros
 
 ## AREA PUBLICA
 
-Pagina inicial mostrando os produtos que estão em oferta:
-- Nome
-- Preço
-- Desconto
-- Preço atual
-- Link para adcionar ao Carrinho;
+> Pagina inicial mostrando os produtos que estão em oferta:
+> - Nome
+> - Preço
+> - Desconto
+> - Preço atual
+> - Link para adcionar ao Carrinho;
 	
 Busca de livros simples(uma palavra chave busca em autor, editora e nome);
 
@@ -31,8 +31,8 @@ as informações basica:
 - Desconto
 - Preço atual
 	
-Permitir adcionar e remover itens de uma lista de desejos. A partir da lista
-deve ser possivel adcionar o livro ao carrinho;
+> Permitir adcionar e remover itens de uma lista de desejos. A partir da lista
+> deve ser possivel adcionar o livro ao carrinho;
 
 > Controle do que está no carrinho de compra, permitindo mudar a quantidade, 
 > excluir algo do carrinho e recalcular o total da compra;
@@ -43,9 +43,9 @@ deve ser possivel adcionar o livro ao carrinho;
 
 ## Criterios importantes
 
-A aplicação deve ser intercionalizada;
+> A aplicação deve ser intercionalizada; //verificar sempre
 
-Validação do JSF sempre que fizer sentido;
+> Validação do JSF sempre que fizer sentido;
 
 Ao menos um método de validação JSF customizada onde vocês quiserem;
  
