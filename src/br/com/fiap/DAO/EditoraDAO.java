@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.fiap.Connection.ConnectionClass;
 import br.com.fiap.Model.Editora;
@@ -150,6 +151,39 @@ public class EditoraDAO {
 		}
 
 		return editora;
+
+	}
+	
+	public List<Editora> pesquisarEditora(String search)
+	{
+		Editora editora = new Editora();
+		List<Editora> editoras = new ArrayList();
+		String nome, nomeFantasia, Cnpj, endereco, email;
+		String sql = "SELECT * FROM Editoras WHERE UPPER(Nome) like UPPER(?)";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, "%" + search + "%");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()){
+				nome = rs.getString("Nome");
+				nomeFantasia = rs.getString("nomeFantasia");
+				Cnpj = rs.getString("Cnpj");
+				endereco = rs.getString("Endereco");
+				email = rs.getString("email");
+				editora.setNome(nome);
+				editora.setNomeFantasia(nomeFantasia);
+				editora.setCnpj(Cnpj);
+				editora.setEmail(email);
+				editora.setEndereco(endereco);
+				editora.setId(rs.getInt("EditoraId"));
+				editoras.add(editora);
+			}
+		}
+		catch(SQLException ex){
+			System.out.println("Ocorreu um erro de execu��o: " + ex.getMessage() + " (Editoras) ");
+		}
+
+		return editoras;
 
 	}
 

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.fiap.Connection.ConnectionClass;
 import br.com.fiap.Model.Autor;
@@ -138,7 +139,34 @@ public class AutorDAO {
 		return autor;
 
 	}
+	public List<Autor> pesquisarAutor(String autorNome)
+	{
+		List<Autor> autores = new ArrayList();
+		Autor autor = new Autor();
+		String first_name, last_name;
+		String sql = "SELECT * FROM Autores WHERE UPPER(First_name) LIKE UPPER(?) OR UPPER(Last_name) LIKE UPPER(?)";
+		try{
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, "%"+autorNome+"%");
+			stmt.setString(2, "%"+autorNome+"%");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()){
+				
+				first_name = rs.getString("First_name");
+				last_name = rs.getString("Last_name");
+				autor.setFirstName(first_name);
+				autor.setLastName(last_name);
+				autor.setId(rs.getInt("AutorId"));
+				autores.add(autor);
+			}
+		}
+		catch(Exception ex){
+			System.out.println("Ocorreu um erro de execucao: " + ex.getMessage() + " (Autor) ");
+		}
 
+		return autores;
+
+	}
 	
 	
 }

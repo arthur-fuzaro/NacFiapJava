@@ -56,6 +56,7 @@ public class CarrinhoMB {
 	public String adcionarCarrinho() {
 		livro = dao.pesquisarLivro(livro.getId());
 		Carrinho carrinhoModal = new Carrinho();
+		livro.setPreco(livro.getDescontoConta());
 		carrinhoModal.setLivro(livro);
 		carrinhoModal.setQuantidade(1);
 		carrinhoModal.setValor(livro.getPreco());

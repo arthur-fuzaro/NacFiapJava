@@ -17,10 +17,30 @@ public class LivroMB {
 	
 	private Livro livro;
 	private List<Livro> livros;
+	private List<Livro> livrosPesquisar;
+	private List<Livro> livrosDescontos;
 	private String erro, sucesso;
 	private ResourceBundle resource;
 	private FacesContext context;
 	
+	
+	public String pesquisarLivro(){
+		livrosPesquisar = new ArrayList();
+		
+		LivroDAO l = new LivroDAO();
+		livrosPesquisar = l.pesquisarLivros(livro.getNomeLivro());
+		
+		return "Pesquisar";
+	}
+	
+	public List<Livro> getLivrosPesquisar() {
+		return livrosPesquisar;
+	}
+
+	public void setLivrosPesquisar(List<Livro> livrosPesquisar) {
+		this.livrosPesquisar = livrosPesquisar;
+	}
+
 	public Livro getLivro() {
 		return livro;
 	}
@@ -57,6 +77,12 @@ public class LivroMB {
 	public List<Livro> getLivros(){
 		LivroDAO l = new LivroDAO();
 		livros = l.listarLivros();
+		return livros;
+	}
+	
+	public List<Livro> getLivrosDescontos(){
+		LivroDAO l = new LivroDAO();
+		livros = l.listarLivrosDesconto();
 		return livros;
 	}
 
