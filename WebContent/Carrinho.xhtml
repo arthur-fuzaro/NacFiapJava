@@ -7,78 +7,79 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
-<ui:composition template="/WEB-INF/_template.xhtml">
-	<ui:define name="content">
-		<h:form>
-			<div class="cadastros container">
-				<div>
-					<p class="titulo_Rosa">
-						Carrinho <i class="fa fa-shopping-cart"></i>
-					</p>
-					<h:panelGroup rendered="#{not empty carrinhoMB.carrinho}"
-						style="width:100%;">
-						<table class="carrinho_final" style="width: 100% !important;">
-							<tr>
-								<th style="width: 25%;">Produto(s)</th>
-								<th style="width: 25%;">Quantidade</th>
-								<th style="width: 25%;">Valor Unitário</th>
-								<th style="width: 25%;">Valor total</th>
-								<th style="width: 25%;">Apagar</th>
-							</tr>
-							<ui:repeat var="l" value="#{carrinhoMB.carrinho}">
-								<tr style="background-color: #ccc;">
-									<td style="width: 15%;font-weight: bold;">#{l.livro.nomeLivro}</td>
-									<td><h:inputText value="#{l.quantidade}" id="quantidade"
-											required="true"
-											requiredMessage="Digite a quantidade de livros"
-											converterMessage="Quantidade deve ser um numero"
-											validatorMessage="Quantidade deve ser pelo menos 1">
-											<f:validateDoubleRange minimum="1" />
-										</h:inputText> <br></br> <h:message class="titulo_Rosa" for="quantidade" style="" /></td>
-									<td>#{l.livro.preco}</td>
-
-									<td>#{l.valor}</td>
-									<td><h:commandLink value=""
-											action="#{carrinhoMB.atualizarCarrinho}">
-											<img src="img/trash.png" width="17px" height="18px"
-												style="float: right;    margin-right: 9px" />
-											<f:setPropertyActionListener value="0"
-												target="#{l.quantidade}" />
-										</h:commandLink></td>
-
-
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+	<ui:composition template="/WEB-INF/_template.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<div class="cadastros container">
+					<div>
+						<p class="titulo_Rosa">
+							#{res.cart}<i class="fa fa-shopping-cart"></i>
+						</p>
+						<h:panelGroup rendered="#{not empty carrinhoMB.carrinho}"
+							style="width:100%;">
+							<table class="carrinho_final" style="width: 100% !important;">
+								<tr>
+									<th style="width: 25%;">#{res.product}</th>
+									<th style="width: 25%;">#{res.qtd}</th>
+									<th style="width: 25%;">#{res.uValue}</th>
+									<th style="width: 25%;">#{res.totalValue}</th>
+									<th style="width: 25%;">#{res.erase}</th>
 								</tr>
-							</ui:repeat>
+								<ui:repeat var="l" value="#{carrinhoMB.carrinho}">
+									<tr style="background-color: #ccc;">
+										<td style="width: 15%; font-weight: bold;">#{l.livro.nomeLivro}</td>
+										<td><h:inputText value="#{l.quantidade}" id="quantidade"
+												required="true" requiredMessage="#{res.emptyField}"
+												converterMessage="#{res.onlyNumber}"
+												validatorMessage="#{res.negative}">
+												<f:validateDoubleRange minimum="1" />
+											</h:inputText> <br></br> <h:message class="titulo_Rosa" for="quantidade"
+												style="" /></td>
+										<td>#{l.livro.preco}</td>
 
-							<tr>
-								<td colspan="5" class="titulo_Rosa" style="text-align: right;">
-
-									Valor Total: R$#{carrinhoMB.totalCarrinho} &nbsp;&nbsp; <h:commandLink
-										value="" action="#{carrinhoMB.atualizarCarrinho}">
-
-										<img src="img/refresh.ico" width="17px" height="18px" alt="Atualizar valor do carrinho"/>
-									</h:commandLink> <br /> <br /> 
-									<h:commandButton
-										value="Finalizar compra" action="#{carrinhoMB.confirmarPedido}"
-										styleClass="botao" style="float:right;" />
-								</td>
-							</tr>
-						</table>
+										<td>#{l.valor}</td>
+										<td><h:commandLink value=""
+												action="#{carrinhoMB.atualizarCarrinho}">
+												<img src="img/trash.png" width="17px" height="18px"
+													style="float: right; margin-right: 9px" />
+												<f:setPropertyActionListener value="0"
+													target="#{l.quantidade}" />
+											</h:commandLink></td>
 
 
-					</h:panelGroup>
-					<h:panelGrid rendered="#{empty carrinhoMB.carrinho}"
-						style="width:100%;">
-						<div style="text-align: center; font-size: 40px; width: 100%;">
+									</tr>
+								</ui:repeat>
 
-							<center>Seu carrinho está vazio</center>
-						</div>
-					</h:panelGrid>
+								<tr>
+									<td colspan="5" class="titulo_Rosa" style="text-align: right;">
+
+										Valor Total: R$#{carrinhoMB.totalCarrinho} &nbsp;&nbsp; <h:commandLink
+											value="" action="#{carrinhoMB.atualizarCarrinho}">
+
+											<img src="img/refresh.ico" width="17px" height="18px"
+												alt="Atualizar valor do carrinho" />
+										</h:commandLink> <br /> <br /> <h:commandButton value="Finalizar compra"
+											action="#{carrinhoMB.confirmarPedido}" styleClass="botao"
+											style="float:right;" />
+									</td>
+								</tr>
+							</table>
+
+
+						</h:panelGroup>
+						<h:panelGrid rendered="#{empty carrinhoMB.carrinho}"
+							style="width:100%;">
+							<div style="text-align: center; font-size: 40px; width: 100%;">
+
+								<center>#{res.emptyCart}</center>
+							</div>
+						</h:panelGrid>
+					</div>
 				</div>
-			</div>
 
-		</h:form>
-	</ui:define>
-</ui:composition>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</f:view>
 </html>

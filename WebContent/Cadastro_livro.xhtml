@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
+<f:view locale="#{facesContext.externalContext.requestLocale}">
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
 
@@ -136,10 +136,10 @@
 			<h:form>
 				<table style="width: 100%;">
 					<tr>
-						<td>#{res.isbn}</td>
+						<td>#{res.codIsbn}</td>
 						<td>#{res.name}</td>
 						<td>#{res.price}</td>
-						<td>#{res.acitions}</td>
+						<td>#{res.actions}</td>
 					</tr>
 						<ui:repeat var="l" value="#{livroMB.livros}">
 							<tr>
@@ -150,14 +150,14 @@
 								<td><h:commandLink value=""
 										action="#{livroMB.abrirCadastroEditar}">
 										
-											<img src="img/edit_icon.png" alt="Editar" />
+											<img src="img/edit_icon.png" alt="#{res.edit2}" title="#{res.edit2}"/>
 										
 										<f:setPropertyActionListener value="#{l.id}"
 											target="#{livroMB.livro.id}" />
 									</h:commandLink> | <h:commandLink value=""
 										action="#{livroMB.excluirLivro}">
 										
-											<img src="img/remove_icon.png" alt="Remover" />
+											<img src="img/remove_icon.png" alt="#{res.remove}" title="#{res.remove}" />
 										
 										<f:setPropertyActionListener value="#{l.id}"
 											target="#{livroMB.livro.id}" />
@@ -173,4 +173,5 @@
 					
 	</ui:define>
 </ui:composition>
+</f:view>
 </html>

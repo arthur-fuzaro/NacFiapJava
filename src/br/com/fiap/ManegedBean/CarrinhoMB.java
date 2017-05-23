@@ -127,4 +127,8 @@ public class CarrinhoMB {
 	public String confirmarPedido(){
 		return "Confirmacao";
 	}
+	
+	public String finalizarCompra(){
+		return "Confirmacao";
+	}
 }

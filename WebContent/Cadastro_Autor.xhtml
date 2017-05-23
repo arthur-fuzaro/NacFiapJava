@@ -6,90 +6,86 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+	<ui:composition template="/WEB-INF/_templateADM.xhtml">
+		<ui:define name="content">
 
-<ui:composition template="/WEB-INF/_templateADM.xhtml">
-	<ui:define name="content">
-		
 			<div class="cadastros container">
-			<h:form>
-				<div>
-					<p style="text-align: center; color: green;">#{autorMB.sucesso}</p>
-					<p style="text-align: center; color: green;">#{autorMB.erro}</p>
-					<p class="titulo_Rosa">#{res.registerAuthor}</p>
+				<h:form>
+					<div>
+						<p style="text-align: center; color: green;">#{autorMB.sucesso}</p>
+						<p style="text-align: center; color: green;">#{autorMB.erro}</p>
+						<p class="titulo_Rosa">#{res.registerAuthor}</p>
 
 
-					<fieldset>
+						<fieldset>
 
-						<fieldset class="grupo">
-							<div class="campo"><h:inputHidden value="#{autorMB.autor.id}"/>
-								<label for="nomeAutor">#{res.firstName}</label>
-								<h:inputText style="width: 35em"
-									value="#{autorMB.autor.firstName}"
-									id="nome" required="true" 
-									requiredMessage="#{res.emptyField}" />
+							<fieldset class="grupo">
+								<div class="campo">
+									<h:inputHidden value="#{autorMB.autor.id}" />
+									<label for="nomeAutor">#{res.firstName}</label>
+									<h:inputText style="width: 35em"
+										value="#{autorMB.autor.firstName}" id="nome" required="true"
+										requiredMessage="#{res.emptyField}" />
 									<h:message for="nome" styleClass="titulo_Vermelho" />
-							</div>
-							<div class="campo">
-								<label for="sobrenomeAutor">#{res.lastName}</label>
-								<h:inputText style="width: 35em"
-									value="#{autorMB.autor.lastName}" 
-									id="nomeL" required="true" 
-									requiredMessage="#{res.emptyField}" />
+								</div>
+								<div class="campo">
+									<label for="sobrenomeAutor">#{res.lastName}</label>
+									<h:inputText style="width: 35em"
+										value="#{autorMB.autor.lastName}" id="nomeL" required="true"
+										requiredMessage="#{res.emptyField}" />
 									<h:message for="nomeL" styleClass="titulo_Vermelho" />
-							</div>
+								</div>
+							</fieldset>
+
+							<h:commandButton styleClass="botao" value="#{res.register}"
+								action="#{autorMB.cadastrarAutor}" style="float:right;"></h:commandButton>
+							<h:commandButton styleClass="botao" value="#{res.edit2}"
+								action="#{autorMB.editAutor}" style="float:right;"></h:commandButton>
+
 						</fieldset>
-												
-						<h:commandButton styleClass="botao"
-							value="#{res.register}"
-							action="#{autorMB.cadastrarAutor}" style="float:right;"></h:commandButton>
-						
-						<h:commandButton styleClass="botao"
-							value="#{res.edit2}"
-							action="#{autorMB.editAutor}" style="float:right;"></h:commandButton>
-						
-						
-					</fieldset>
-				</div>
+					</div>
 				</h:form>
 				<div>
-				<h:form>
-					<table style="width: 100%;">
-						<tr style="color: red;">
-							<td>#{res.firstName}</td>
-							<td>#{res.lastName}</td>
-							<td></td>
-							<td>#{res.actions}</td>
-						</tr>
-						<ui:repeat var="a" value="#{autorMB.listaAutor}">
-							<tr>
-								<td>#{a.firstName}</td>
-								<td>#{a.lastName}</td>
+					<h:form>
+						<table style="width: 100%;">
+							<tr style="color: red;">
+								<td>#{res.firstName}</td>
+								<td>#{res.lastName}</td>
 								<td></td>
-
-								<td><h:commandLink value=""
-										action="#{autorMB.abrirCadastroEditar}">
-										<img src="img/edit_icon.png" alt="#{res.edit2}"
-											title="#{res.edit2}" />
-										<f:setPropertyActionListener value="#{a.id}"
-											target="#{autorMB.autor.id}" />
-									</h:commandLink> <h:commandLink value="" action="#{autorMB.excluirAutor}">
-										<img src="img/remove_icon.png" alt="#{res.remove}"
-											title="#{res.remove}" />
-
-										<f:setPropertyActionListener value="#{a.id}"
-											target="#{autorMB.autor.id}" />
-
-									</h:commandLink></td>
-
+								<td>#{res.actions}</td>
 							</tr>
+							<ui:repeat var="a" value="#{autorMB.listaAutor}">
+								<tr>
+									<td>#{a.firstName}</td>
+									<td>#{a.lastName}</td>
+									<td></td>
 
-						</ui:repeat>
-					</table>
+									<td><h:commandLink value=""
+											action="#{autorMB.abrirCadastroEditar}">
+											<img src="img/edit_icon.png" alt="#{res.edit2}"
+												title="#{res.edit2}" />
+											<f:setPropertyActionListener value="#{a.id}"
+												target="#{autorMB.autor.id}" />
+										</h:commandLink> <h:commandLink value="" action="#{autorMB.excluirAutor}">
+											<img src="img/remove_icon.png" alt="#{res.remove}"
+												title="#{res.remove}" />
+
+											<f:setPropertyActionListener value="#{a.id}"
+												target="#{autorMB.autor.id}" />
+
+										</h:commandLink></td>
+
+								</tr>
+
+							</ui:repeat>
+						</table>
 					</h:form>
 				</div>
 
 			</div>
-		
-	</ui:define>
-</ui:composition>
+
+		</ui:define>
+	</ui:composition>
+</f:view>
 </html>
