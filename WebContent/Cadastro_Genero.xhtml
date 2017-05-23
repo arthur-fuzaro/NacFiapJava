@@ -30,11 +30,11 @@
 							</div>
 						</fieldset>
 						<h:commandButton styleClass="botao"
-							rendered="#{empty generoMB.gen.nome}" value="#{res.submit}"
+							rendered="#{empty generoMB.gen.nome}" value="#{res.register}"
 							action="#{generoMB.cadastrarGenero}" style="float:right;"></h:commandButton>
 
 						<h:commandButton styleClass="botao"
-							rendered="#{not empty generoMB.gen.nome}" value="#{res.edit}"
+							rendered="#{not empty generoMB.gen.nome}" value="#{res.edit2}"
 							action="#{generoMB.editGenero}" style="float:right;"></h:commandButton>
 
 

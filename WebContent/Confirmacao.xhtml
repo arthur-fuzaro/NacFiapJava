@@ -7,104 +7,130 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{facesContext.externalContext.requestLocale}">
+	<ui:composition template="/WEB-INF/_template.xhtml">
+		<ui:define name="content">
+			<h:form>
+				<div class="cadastros container">
+					<div>
+						<p class="titulo_Rosa">
+							#{res.order}<i class="fa fa-shopping-cart"></i>
+						</p>
 
-<ui:composition template="/WEB-INF/_template.xhtml">
-	<ui:define name="content">
-		<h:form>
-			<div class="cadastros container">
-				<div>
-					<p class="titulo_Rosa">
-						Confirmacao do pedido <i class="fa fa-shopping-cart"></i>
-					</p>
-
-					<h:panelGroup rendered="#{not empty carrinhoMB.carrinho}">
-
-						<fieldset class="grupo"
-							style="width: 50%; margin-left: 10%; float: left;">
-							<fieldset class="grupo"
-								style="width: 100%; margin: 0; margin-bottom: 20px;">
-
-								<div class="campo"
-									style="width: 70%; padding-right: 5px; margin: 0;">
-									<label for="nome">Nome impresso no cartão</label>
-									<h:inputText style="width: 100%"
-										value="#{livroMB.livro.nomeLivro}" />
-								</div>
-								<div class="campo" style="width: 30%; margin: 0;">
-									<label for="snome">Vencimento</label>
-									<h:inputText style="width: 100%" />
-								</div>
-							</fieldset>
+						<h:panelGroup rendered="#{not empty carrinhoMB.carrinho}">
 
 							<fieldset class="grupo"
-								style="width: 100%; margin: 0; margin-bottom: 20px;">
+								style="width: 50%; margin-left: 10%; float: left;">
+								<fieldset class="grupo"
+									style="width: 100%; margin: 0; margin-bottom: 20px;">
 
-								<div class="campo"
-									style="width: 80%; margin: 0; padding-right: 5px;">
-									<label for="snome">Numero do cartão</label>
-									<h:inputText style="width: 100%;"
-										value="#{livroMB.livro.paginas}" />
-								</div>
+									<div class="campo"
+										style="width: 70%; padding-right: 5px; margin: 0;">
+										<label for="nome">#{res.nameCard}</label>
+										<h:inputText style="width: 100%"
+										id="nome" 
+										required="true"
+										requiredMessage="#{res.emptyField}" />
+										<h:message for="nome" styleClass="titulo_Vermelho" />
+									</div>
+									<div class="campo" style="width: 30%; margin: 0;">
+										<label for="snome">#{res.due}</label>
+										<h:inputText style="width: 100%" 
+										id="due" 
+										required="true"
+										requiredMessage="#{res.emptyField}"
+										converterMessage="#{res.onlyNumbers}"/>
+										<h:message for="due" styleClass="titulo_Vermelho" />
+									</div>
+								</fieldset>
 
-								<div class="campo" style="width: 20%; margin: 0;">
-									<label for="snome">CVV</label>
-									<h:inputText style="width: 100%" />
-								</div>
+								<fieldset class="grupo"
+									style="width: 100%; margin: 0; margin-bottom: 20px;">
+
+									<div class="campo"
+										style="width: 80%; margin: 0; padding-right: 5px;">
+										<label for="snome">#{res.cardNumber}</label>
+										<h:inputText style="width: 100%;" 
+										id="card" 
+										required="true"
+										requiredMessage="#{res.emptyField}"
+										converterMessage="#{res.onlyNumbers}" >
+										</h:inputText>
+										<h:message for="card" styleClass="titulo_Vermelho" />
+									</div>
+
+									<div class="campo" style="width: 20%; margin: 0;">
+										<label for="snome">#{res.cvv}</label>
+										<h:inputText style="width: 100%" 
+										id="cvv" 
+										required="true"
+										requiredMessage="#{res.emptyField}" 
+										validatorMessage="#{res.lenght2}"
+										converterMessage="#{res.onlyNumbers}"
+										validator="#{GeralMB.validarPeriodo}" >
+										<f:validateLength minimum="3" />
+										</h:inputText>
+										<h:message for="cvv" styleClass="titulo_Vermelho" />
+									</div>
+
+								</fieldset>
+
+								<fieldset class="grupo"
+									style="width: 100%; margin: 0; margin-bottom: 20px;">
+
+									<div class="campo" style="margin: 0; float: right; width: 40%">
+										<label for="snome">#{res.freightType}</label>
+										<h:selectOneMenu value="#{carrinhoMB.frete}"
+											style="width:100%">
+											<f:selectItem itemValue="1" itemLabel="PAC - R$10.00" />
+											<f:selectItem itemValue="2" itemLabel="SEDEX - R$20.00" />
+
+										</h:selectOneMenu>
+									</div>
+
+
+								</fieldset>
 
 							</fieldset>
-
-							<fieldset class="grupo"
-								style="width: 100%; margin: 0; margin-bottom: 20px;">
-
-								<div class="campo" style="margin: 0; float: right; width: 40%">
-									<label for="snome">Tipo de frete:</label>
-									<h:selectOneMenu value="#{carrinhoMB.frete}" style="width:100%">
-										<f:selectItem itemValue="1" itemLabel="PAC - R$10.00" />
-										<f:selectItem itemValue="2" itemLabel="SEDEX - R$20.00" />
-
-									</h:selectOneMenu>
-								</div>
-
-
-							</fieldset>
-
-						</fieldset>
-						<div
-							style="float: right; margin-left: 10px; margin-top: 15px; margin-right: 10%; float: right;">
-							<table style="border: 2px solid #ccc; padding: 15px;">
-								<tr>
-									<td style="text-align: center;" colspan="2">
-										<h1>Total do pedido:</h1> <br></br>
-									</td>
-								</tr>
-								<tr>
-									<td>Valor dos livros:</td>
-									<td style="text-align: right;">R$
-										#{carrinhoMB.totalCarrinho}</td>
-								</tr>
-								<tr>
-									<td>Valor com frete:</td>
-									<td style="text-align: right;">R$
-										#{carrinhoMB.calculaFrete}</td>
-								</tr>
-								<tr>
-									<td colspan="2" style="text-align: right;"><br />
-										<h:commandLink
-										value="Atualizar Frete!" action="#{carrinhoMB.atualizarFrete}">
-
-									</h:commandLink> </td>
-								</tr>
-							</table>
-							<br></br>
-							<h:commandButton value="Confirmar compra"
-								action="#{carrinhoMB.finalizarCompra}" styleClass="botao"
-								style="float:right;" />
-						</div>
-					</h:panelGroup>
+							<div
+								style="float: right; margin-left: 10px; margin-top: 15px; margin-right: 10%; float: right;">
+								<table style="border: 2px solid #ccc; padding: 15px;">
+									<tr>
+										<td style="text-align: center;" colspan="2">
+											<h1>#{res.totalOrder}</h1> <br></br>
+										</td>
+									</tr>
+									<tr>
+										<td>#{res.valueBook}</td>
+										<td style="text-align: right;">R$
+											#{carrinhoMB.totalCarrinho}</td>
+									</tr>
+									<tr>
+										<td>#{res.freight}</td>
+										<td style="text-align: right;">R$
+											#{carrinhoMB.calculaFrete}</td>
+									</tr>
+									<tr>
+										<td colspan="2" style="text-align: right;"><br /> <h:commandLink
+												value="#{res.refreshFreight}!"
+												action="#{carrinhoMB.atualizarFrete}">
+												<img src="img/refresh.ico" width="17px" height="18px" alt="Atualizar valor"/>	
+											</h:commandLink></td>
+									</tr>
+								</table>
+								<br></br>
+								<h:commandButton value="#{res.checkout}"
+									action="#{carrinhoMB.finalizarCompra}" styleClass="botao"
+									style="float:right;">
+								
+								</h:commandButton>
+							</div>
+						</h:panelGroup>
+					</div>
 				</div>
-			</div>
 
-		</h:form>
-	</ui:define>
-</ui:composition>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</f:view>
 </html>
