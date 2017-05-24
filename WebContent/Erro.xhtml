@@ -5,6 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+	<f:view locale="#{facesContext.externalContext.requestLocale}">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>#{res.error}</title>
@@ -27,4 +28,5 @@
 	</ui:define>	
 </ui:composition>
 </h:body>
+	</f:view>
 </html>
