@@ -10,6 +10,7 @@
 <title>#{res.success}</title>
 </h:head>
 <h:body>
+	<f:view locale="#{facesContext.externalContext.requestLocale}">
 <ui:composition template="/WEB-INF/_templateADM.xhtml">
 	<ui:define name="content">
 	
@@ -26,5 +27,6 @@
 	
 	</ui:define>	
 </ui:composition>
+		</f:view>
 </h:body>
 </html>
