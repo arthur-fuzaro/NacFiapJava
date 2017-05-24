@@ -36,7 +36,7 @@
 				
 				<h:form>
 				<li>
-					<h:inputText type="search" class="search_input" name="search" a:placeholder="Search" value="#{livroMB.livro.nomeLivro}"/> 
+					<h:inputText type="search" class="search_input" name="search" a:placeholder="#{res.search}" value="#{livroMB.livro.nomeLivro}"/> 
 					<h:commandButton value="lala" class="search_input_button" action="#{livroMB.pesquisarLivro}"></h:commandButton>
 				</li>
 					<li><h:commandLink action="#{geralMB.listaDesejo}">#{res.wishList}</h:commandLink></li>

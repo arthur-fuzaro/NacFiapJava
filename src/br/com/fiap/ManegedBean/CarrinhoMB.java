@@ -19,7 +19,7 @@ public class CarrinhoMB {
 	private Livro livro;
 	private LivroDAO dao;
 	// private List<Livro> carrinhoLivros = new ArrayList();
-	private double totalCarrinho;
+	private static double totalCarrinho;
 
 	private static List<Carrinho> carrinho = new ArrayList<Carrinho>();
 

@@ -15,113 +15,43 @@
          <div>        
              <p class="titulo_Rosa">Busca Avançada <i class="fa fa-search"></i></p>
 
-             <form action="#" method="post">
+             <h:form>
                 <fieldset>
                      
                      <fieldset class="grupo">
-                        <div class="campo">                           
-                            <select name="estado" style="width: 19em" id="estado">
-                                <option value="">Todos os campos</option>
-                                <option value="Titulo">Título</option>
-                                <option value="Autor">Autor</option>
-                                <option value="Assunto">Assunto</option>
-                                <option value="Editora">Editora</option>
-                                <option value="Serie">Serie</option>
-                                <option value="Idioma">Idioma</option>
-                            </select>
-                        </div>
-                        <div class="campo">
-                            <input type="text" id="x" name="x" style="width: 45em" value="" />
-                        </div>
-                        <div class="campo">                           
-                            <select name="estado" style="width: 5em" id="estado">
-                                <option value="e">e</option>
-                                <option value="ou">ou</option>
-                                <option value="nao">e não</option>                                
-                            </select>
-                        </div>                       
-                     </fieldset>
-                     <fieldset class="grupo">
-                        <div class="campo">                           
-                            <select name="estado" style="width: 19em" id="estado">
-                                <option value="">Todos os campos</option>
-                                <option value="Titulo">Título</option>
-                                <option value="Autor">Autor</option>
-                                <option value="Assunto">Assunto</option>
-                                <option value="Editora">Editora</option>
-                                <option value="Serie">Serie</option>
-                                <option value="Idioma">Idioma</option>
-                            </select>
-                        </div>
-                        <div class="campo">
-                            <input type="text" id="x" name="x" style="width: 45em" value="" />
-                        </div>
-                        <div class="campo">                           
-                            <select name="estado" style="width: 5em" id="estado">
-                                <option value="e">e</option>
-                                <option value="ou">ou</option>
-                                <option value="nao">e não</option>                                
-                            </select>
-                        </div>                       
-                     </fieldset>
-                     <fieldset class="grupo">
-                        <div class="campo">                           
-                            <select name="estado" style="width: 19em" id="estado">
-                                <option value="">Todos os campos</option>
-                                <option value="Titulo">Título</option>
-                                <option value="Autor">Autor</option>
-                                <option value="Assunto">Assunto</option>
-                                <option value="Editora">Editora</option>
-                                <option value="Serie">Serie</option>
-                                <option value="Idioma">Idioma</option>
-                            </select>
-                        </div>
-                        <div class="campo">
-                            <input type="text" id="x" name="x" style="width: 45em" value="" />
-                        </div>
-                        <div class="campo">                           
-                            <select name="estado" style="width: 5em" id="estado">
-                                <option value="e">e</option>
-                                <option value="ou">ou</option>
-                                <option value="nao">e não</option>                                
-                            </select>
-                        </div>                       
-                     </fieldset>
-
-                     <fieldset class="grupo">                        
-                        <div class="campo">
-                            <label for="ano">Ano </label>
-                            <input type="text" id="ano" name="ano" style="width: 21em" value="" />
-                        </div> 
-                        <div class="campo">
-                            <label for="ordenando">Ordenar por</label>
-                            <select name="estado" style="width: 24em" id="estado">
-                                <option value="">--</option>
-                                <option value="Relevancia">Relevância</option>
-                                <option value="Titulo">Título de A-Z</option>
-                                <option value="popular">Mais popular</option>
-                            </select>
-                        </div> 
-                        <div class="campo">
-                            <label for="regiao">Região</label>
-                            <select name="estado" style="width: 24em" id="estado">
-                                <option value="">--</option>
-                                <option value="regiaoCentro">Centro</option>
-                                <option value="regiaoNorte">Norte</option>
-                                <option value="regiaoSul">Sul</option>
-                                <option value="regiaoLeste">Leste</option>
-                                <option value="regiaoOeste">Oeste</option>
-                            </select>
-                        </div>                      
-                        
-                     </fieldset>
-                                   
-                                      
-                              
-                    <button class="botao" type="submit" name="submit">Buscar</button>
+                        <fieldset class="grupo"
+							style="width: 100%; margin: 0; margin-bottom: 20px;">
+							<div class="campo"
+								style="width: 100%; margin: 0; padding-right: 5px; margin-bottom:10px;">
+								<label for="snome">#{res.name}</label>
+								<h:inputText style="width: 100%;" value="#{pesquisarMB.livro.nomeLivro}"></h:inputText>
+							</div>
+							<div class="campo"
+								style="width: 100%; margin: 0; padding-right: 5px; margin-bottom:10px;">
+								<label for="snome">#{res.publisher}</label>
+								<h:inputText style="width: 100%;" value="#{pesquisarMB.editora.nome}"></h:inputText>
+							</div>	
+							<div class="campo"
+								style="width: 100%; margin: 0; padding-right: 5px; margin-bottom:10px;">
+								<label for="snome">Genero</label>
+								<h:inputText style="width: 100%;" value="#{pesquisarMB.genero.nome}"></h:inputText>
+							</div>	
+							<div class="campo"
+								style="width: 50%; margin: 0; padding-right: 5px; margin-bottom:10px;">
+								<label for="snome">Autor nome</label>
+								<h:inputText style="width: 100%;" value="#{pesquisarMB.autor.firstName}"></h:inputText>
+							</div>				
+							<div class="campo"
+								style="width: 50%; margin: 0; padding-right: 5px; margin-bottom:10px;">
+								<label for="snome">Sobrenome</label>
+								<h:inputText style="width: 100%;" value="#{pesquisarMB.autor.lastName}"></h:inputText>
+							</div>				
+						</fieldset>
+					</fieldset>
+                    <h:commandButton value="#{res.search}" action="#{pesquisarMB.pesquisar}" styleClass="botao"></h:commandButton>
              
                 </fieldset>
-            </form>             
+            </h:form>             
                                                 
          </div>
       </div>  	

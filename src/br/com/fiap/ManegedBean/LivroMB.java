@@ -17,7 +17,7 @@ public class LivroMB {
 	
 	private Livro livro;
 	private List<Livro> livros;
-	private List<Livro> livrosPesquisar;
+	private static List<Livro> livrosPesquisar = new ArrayList();
 	private List<Livro> livrosDescontos;
 	private String erro, sucesso;
 	private ResourceBundle resource;
@@ -25,10 +25,9 @@ public class LivroMB {
 	
 	
 	public String pesquisarLivro(){
-		livrosPesquisar = new ArrayList();
 		
 		LivroDAO l = new LivroDAO();
-		livrosPesquisar = l.pesquisarLivros(livro.getNomeLivro());
+		livrosPesquisar = l.pesquisarLivro(livro.getNomeLivro());
 		
 		return "Pesquisar";
 	}
@@ -50,6 +49,7 @@ public class LivroMB {
 	}
 
 	public LivroMB(){
+		
 		livro = new Livro();
 		context = FacesContext.getCurrentInstance();
 		resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
@@ -65,7 +65,7 @@ public class LivroMB {
 			dao.inserirLivro(livro);
 			setSucesso(resource.getString("registered"));
 			setErro("");
-			//livro = new Livro();
+			livro = new Livro();
 			return "Cadastro_livro";
 		}
 		catch(Exception ex){

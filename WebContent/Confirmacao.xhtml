@@ -27,19 +27,16 @@
 									<div class="campo"
 										style="width: 70%; padding-right: 5px; margin: 0;">
 										<label for="nome">#{res.nameCard}</label>
-										<h:inputText style="width: 100%"
-										id="nome" 
-										required="true"
-										requiredMessage="#{res.emptyField}" />
+										<h:inputText style="width: 100%" id="nome" required="true"
+											requiredMessage="#{res.emptyField}" />
 										<h:message for="nome" styleClass="titulo_Vermelho" />
 									</div>
 									<div class="campo" style="width: 30%; margin: 0;">
 										<label for="snome">#{res.due}</label>
-										<h:inputText style="width: 100%" 
-										id="due" 
-										required="true"
-										requiredMessage="#{res.emptyField}"
-										converterMessage="#{res.onlyNumbers}"/>
+										<h:inputText style="width: 100%" id="due" required="true"
+											requiredMessage="#{res.emptyField}">
+											<f:convertDateTime pattern="mm/yy" />
+										</h:inputText>
 										<h:message for="due" styleClass="titulo_Vermelho" />
 									</div>
 								</fieldset>
@@ -50,25 +47,21 @@
 									<div class="campo"
 										style="width: 80%; margin: 0; padding-right: 5px;">
 										<label for="snome">#{res.cardNumber}</label>
-										<h:inputText style="width: 100%;" 
-										id="card" 
-										required="true"
-										requiredMessage="#{res.emptyField}"
-										converterMessage="#{res.onlyNumbers}" >
+										<h:inputText style="width: 100%;" id="card" required="true"
+											requiredMessage="#{res.emptyField}"
+											converterMessage="#{res.onlyNumbers}">
 										</h:inputText>
 										<h:message for="card" styleClass="titulo_Vermelho" />
 									</div>
 
 									<div class="campo" style="width: 20%; margin: 0;">
 										<label for="snome">#{res.cvv}</label>
-										<h:inputText style="width: 100%" 
-										id="cvv" 
-										required="true"
-										requiredMessage="#{res.emptyField}" 
-										validatorMessage="#{res.lenght2}"
-										converterMessage="#{res.onlyNumbers}"
-										validator="#{GeralMB.validarPeriodo}" >
-										<f:validateLength minimum="3" />
+										<h:inputText style="width: 100%" id="cvv" required="true"
+											requiredMessage="#{res.emptyField}"
+											validatorMessage="#{res.lenght2}"
+											converterMessage="#{res.onlyNumbers}">
+											<f:validateLength minimum="3" />
+											<f:convertNumber integerOnly="true" />
 										</h:inputText>
 										<h:message for="cvv" styleClass="titulo_Vermelho" />
 									</div>
@@ -102,19 +95,26 @@
 									</tr>
 									<tr>
 										<td>#{res.valueBook}</td>
-										<td style="text-align: right;">R$
-											#{carrinhoMB.totalCarrinho}</td>
+										<td style="text-align: right;"><h:outputText value="#{carrinhoMB.totalCarrinho}">
+												<f:convertNumber type="number" groupingUsed="true"
+													minFractionDigits="2" pattern="R$#0.00" maxFractionDigits="2"/>
+											</h:outputText></td>
 									</tr>
 									<tr>
 										<td>#{res.freight}</td>
-										<td style="text-align: right;">R$
-											#{carrinhoMB.calculaFrete}</td>
+										<td style="text-align: right;">
+											<h:outputText value="#{carrinhoMB.calculaFrete}">
+												<f:convertNumber type="number" groupingUsed="true"
+													minFractionDigits="2" pattern="R$#0.00" maxFractionDigits="2"/>
+											</h:outputText>
+										</td>
 									</tr>
 									<tr>
 										<td colspan="2" style="text-align: right;"><br /> <h:commandLink
 												value="#{res.refreshFreight}!"
 												action="#{carrinhoMB.atualizarFrete}">
-												<img src="img/refresh.ico" width="17px" height="18px" alt="Atualizar valor"/>	
+												<img src="img/refresh.ico" width="17px" height="18px"
+													alt="Atualizar valor" />
 											</h:commandLink></td>
 									</tr>
 								</table>
@@ -122,7 +122,7 @@
 								<h:commandButton value="#{res.checkout}"
 									action="#{carrinhoMB.finalizarCompra}" styleClass="botao"
 									style="float:right;">
-								
+
 								</h:commandButton>
 							</div>
 						</h:panelGroup>

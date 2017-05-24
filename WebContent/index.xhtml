@@ -59,7 +59,9 @@
 									<img src="img/livros/livro1.jpg" alt="" width="150"
 										height="128" /><br />
 									<p>#{l.nomeLivro}</p>
-									<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;#{l.descontoConta}</span> 
+									<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;R$#{l.descontoConta}
+										
+										<b style="font-size:11px;">(#{l.desconto}%)</b></span> 
 									<div class="conjunto_cart_heart">
 										<h:commandLink styleClass="add_desejo" action="#{geralMB.adicionarListaDeDesejos}">
 											<f:setPropertyActionListener value="#{l.id}"
