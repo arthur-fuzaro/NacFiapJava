@@ -8,7 +8,7 @@
 
 > Cadastro de Generos	(CRUD)
 
-Controle de preço / oferta de livros
+> Controle de preço / oferta de livros
 
 ## AREA PUBLICA
 
@@ -19,17 +19,17 @@ Controle de preço / oferta de livros
 > - Preço atual
 > - Link para adcionar ao Carrinho;
 	
-Busca de livros simples(uma palavra chave busca em autor, editora e nome);
+> Busca de livros simples(uma palavra chave busca em autor, editora e nome);
 
-Busca de livros avançada(buscar por mais de um campo ao mesmo tempo, ex:
-Livros de suspense do autor jõao da silva);
+> Busca de livros avançada(buscar por mais de um campo ao mesmo tempo, ex:
+> Livros de suspense do autor jõao da silva);
 
-Sempre que Mostrar os livros, colocar o link para adcionar ao carrinho com
-as informações basica:
-- Nome
-- Preço Orignal
-- Desconto
-- Preço atual
+> Sempre que Mostrar os livros, colocar o link para adcionar ao carrinho com
+> as informações basica:
+> - Nome
+> - Preço Orignal
+> - Desconto
+> - Preço atual
 	
 > Permitir adcionar e remover itens de uma lista de desejos. A partir da lista
 > deve ser possivel adcionar o livro ao carrinho;
@@ -49,5 +49,19 @@ as informações basica:
 
 Ao menos um método de validação JSF customizada onde vocês quiserem;
  
+##Pontos restantes
+
+Busca avançada
+
+Validações conferir - onlyNumber principalmente
+
+Verificar internacionalização
+
+Validação customizada da data do cartão
+
+Botar o f:view em todas as paginas
+
+admin login
+
 
 
