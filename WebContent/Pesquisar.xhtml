@@ -11,55 +11,28 @@
 	<ui:composition template="/WEB-INF/_template.xhtml">
 		<ui:define name="content">
 			<h:form>
-				<div class="banner container">
-					<div class="title">
-						<h2>Guiroar</h2>
-						<h3>#{res.phrase}</h3>
-					</div>
-					<div class="buttons">
-						<div class="btn btn-cadastrar">
-							<p:commandButton icon="fa-arrow-circle-right">#{res.signup}	
-								
-			</p:commandButton>
-						</div>
-						<div class="btn btn-busca">
-							<p:commandButton icon="fa-search">#{res.advSearch}</p:commandButton>
-						</div>
-
-					</div>
-				</div>
-
-
-				<div Class="servicos container">
-					<div Class="servico">
-						<h:commandLink action="Index">
-							<img src="img/banner-mini_beijo.jpg" alt="campanhas" />
-						</h:commandLink>
-					</div>
-
-					<div class="servico">
-						<h:commandLink action="Index">
-							<img src="img/1702_banner-mini_leia-mais-sobre.jpg"
-								alt="Marketing Digital" />
-						</h:commandLink>
-					</div>
-					<div class="servico">
-						<h:commandLink action="Index">
-							<img src="img/banner_mini_24102016_ler-faz-bem.jpg"
-								alt="Marketing Digital" />
-						</h:commandLink>
-					</div>
-				</div>
-
-				<div class="produtos container">
+				
+				<div class="cadastos container"  style="background-color: #ccc;">
 					<div id="main_block">
+							<p class="titulo_Rosa" style="text-align:left; font-size:30px;">
+							#{res.searchLabel}<i class="fa fa-shopping-cart"></i>
+						</p>
+						
+				<h:panelGroup rendered="#{not empty livroMB.livrosPesquisar}">
 						<div id="items">
 							<ui:repeat var="l" value="#{livroMB.livrosPesquisar}">
 								<div class="item">
 									<img src="img/livros/livro1.jpg" alt="" width="150"
 										height="128" /><br />
 									<p>#{l.nomeLivro}</p>
-									<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;#{l.descontoConta}</span> 
+									<h:panelGroup rendered="#{l.desconto > 0.0}" >
+										<span style="width:100%;margin-left:-10px;"><strike>R$#{l.preco}</strike> &nbsp;#{l.descontoConta}
+										
+										<b style="font-size:11px;">(#{l.desconto}%)</b></span> 
+									</h:panelGroup>
+									<h:panelGroup rendered="#{l.desconto == 0.0}" >
+										<span style="width:100%;margin-left:-10px;">R$#{l.preco}</span> 
+									</h:panelGroup>
 									<div class="conjunto_cart_heart">
 										<h:commandLink styleClass="add_desejo" action="#{geralMB.adicionarListaDeDesejos}">
 											<f:setPropertyActionListener value="#{l.id}"
@@ -75,6 +48,13 @@
 								</div>
 							</ui:repeat>
 						</div>
+						
+				</h:panelGroup>
+				<h:panelGroup rendered="#{empty livroMB.livrosPesquisar}">
+					<h1 style="font-size:30px;">NADA ENCONTRADO</h1>
+				</h:panelGroup>
+						
+						
 					</div>
 				</div>
 

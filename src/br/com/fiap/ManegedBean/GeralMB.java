@@ -123,4 +123,9 @@ public class GeralMB {
 		return "ListaDesejos";
 	}
 	
+	public String validarPeriodo(){
+		
+		return "Sucesso";
+	}
+	
 }

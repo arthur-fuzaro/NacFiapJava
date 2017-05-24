@@ -17,7 +17,7 @@ public class LivroMB {
 	
 	private Livro livro;
 	private List<Livro> livros;
-	private List<Livro> livrosPesquisar;
+	private static List<Livro> livrosPesquisar = new ArrayList();
 	private List<Livro> livrosDescontos;
 	private String erro, sucesso;
 	private ResourceBundle resource;
@@ -25,7 +25,6 @@ public class LivroMB {
 	
 	
 	public String pesquisarLivro(){
-		livrosPesquisar = new ArrayList();
 		
 		LivroDAO l = new LivroDAO();
 		livrosPesquisar = l.pesquisarLivro(livro.getNomeLivro());
@@ -50,6 +49,7 @@ public class LivroMB {
 	}
 
 	public LivroMB(){
+		
 		livro = new Livro();
 		context = FacesContext.getCurrentInstance();
 		resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());

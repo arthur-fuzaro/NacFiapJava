@@ -186,9 +186,9 @@ public class LivroDAO {
 		return livro;
 	}
 	
-	public List<Livro> pesquisarLivro(String search){
-		Livro livro = new Livro();
-		List<Livro> livros = new ArrayList();
+public List<Livro> pesquisarLivro(String search){
+		
+		List<Livro> livros = new ArrayList<Livro>();
 		
 		String sql = "SELECT * FROM Livros WHERE UPPER(Nome_Livro) like UPPER(?) OR UPPER(Autor) like UPPER(?) OR UPPER(Genero) like UPPER(?) OR UPPER(Editora) like UPPER(?)";
 		try{
@@ -197,10 +197,10 @@ public class LivroDAO {
 			stmt.setString(2, "%"+search+"%");
 			stmt.setString(3, "%"+search+"%");
 			stmt.setString(4, "%"+search+"%");
-			
+			System.out.println(""+stmt);
 			ResultSet rs = stmt.executeQuery();			
 			while(rs.next()){
-				//livro = (new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, Editora));
+				Livro livro = new Livro();
 				livro.setId(rs.getInt("LivroId"));
 				livro.setCodIsbn(rs.getInt("CodIsbn"));
 				livro.setPaginas(rs.getInt("QtdPaginas"));
@@ -219,35 +219,39 @@ public class LivroDAO {
 		}
 		return livros;
 	}
+public List<Livro> pesquisarLivro(String nome, String autor, String autor2, String genero, String editora){
 	
-	public List<Livro> pesquisarLivro(String search, int livroId){
-		Livro livro = new Livro();
-		List<Livro> livros = new ArrayList();
-		String sql = "SELECT * FROM Livros WHERE " + search + " = ?";
-		try{
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, livroId);
-			ResultSet rs = stmt.executeQuery();			
-			if(rs.next()){
-				//livro = (new Livro(id, codIsbn, paginas, edicao, nome, autorId, generoId, Editora));
-				livro.setId(rs.getInt("LivroId"));
-				livro.setCodIsbn(rs.getInt("CodIsbn"));
-				livro.setPaginas(rs.getInt("QtdPaginas"));
-				livro.setAutor(rs.getString("Autor"));
-				livro.setEdicao(rs.getInt("Edicao"));
-				livro.setNomeLivro(rs.getString("Nome_Livro"));
-				livro.setGenero(rs.getString("Genero"));
-				livro.setEditora(rs.getString("Editora"));
-				livro.setDesconto(rs.getDouble("Desconto"));
-				livro.setPreco(rs.getDouble("Preco"));
-				livros.add(livro);
-			}
+	List<Livro> livros = new ArrayList<Livro>();
+	
+	String sql = "SELECT * FROM Livros WHERE UPPER(Nome_Livro) like UPPER(?) and (UPPER(Autor)  like UPPER(?) OR UPPER(Autor)  like UPPER(?))  and UPPER(Genero) like UPPER(?) and UPPER(Editora) like UPPER(?)";
+	try{
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, "%"+nome+"%");
+		stmt.setString(2, "%"+autor+"%");
+		stmt.setString(3, "%"+autor2+"%");
+		stmt.setString(4, "%"+genero+"%");
+		stmt.setString(5, "%"+editora+"%");
+		ResultSet rs = stmt.executeQuery();			
+		while(rs.next()){
+			Livro livro = new Livro();
+			livro.setId(rs.getInt("LivroId"));
+			livro.setCodIsbn(rs.getInt("CodIsbn"));
+			livro.setPaginas(rs.getInt("QtdPaginas"));
+			livro.setAutor(rs.getString("Autor"));
+			livro.setEdicao(rs.getInt("Edicao"));
+			livro.setNomeLivro(rs.getString("Nome_Livro"));
+			livro.setGenero(rs.getString("Genero"));
+			livro.setEditora(rs.getString("Editora"));
+			livro.setDesconto(rs.getDouble("Desconto"));
+			livro.setPreco(rs.getDouble("Preco"));
+			livros.add(livro);
 		}
-		catch(SQLException ex){ 
-			System.out.println("Ocorreu um erro de execução: "+ex.getMessage() + " (Livros)");
-		}
-		return livros;
 	}
-	
+	catch(Exception ex){ 
+		System.out.println("Ocorreu um erro de execução Pesquisar Livro: "+ex.getMessage() + " (Livros)");
+	}
+	return livros;
+}
+
 
 }

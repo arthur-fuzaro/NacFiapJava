@@ -15,7 +15,7 @@
 </h:head>
 
 <h:body>
-
+	<h:form>
 	<div class="container">
 		<div class="tela_login">
 			<h1 class="logo"></h1>
@@ -23,21 +23,23 @@
 			<fieldset class="grupo"	style="width: 99%; margin: 0; margin-bottom: 20px;">
 				<div class="campo" style="width: 100%; margin: 0;">
 					<label for="snome">#{res.user}</label>
-					<h:inputText style="width: 100%" value="" />
+					<h:inputText style="width: 100%" value="#{adminMB.admin.user}" />
 					
 				
 					<label for="nome" style="margin-top:10px;">#{res.senha}</label>
-					<h:inputSecret style="width: 100%" value=""  />
+					<h:inputSecret style="width: 100%" value="#{adminMB.admin.pass}"  />
 				</div>			
 									
 			</fieldset>
 			<h:commandButton class="botao" value="#{res.login}"
-							action="logar" style="float:right;"></h:commandButton>
+							action="#{adminMB.login}" style="float:right;"></h:commandButton>
+							
+				<p style="text-align:center;color:green;">#{adminMB.erro}</p>
 		
 	    </div> 
 
 	</div>
-
+</h:form>
 </h:body>
 
 </html>

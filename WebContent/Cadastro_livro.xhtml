@@ -89,8 +89,8 @@
 									id="desconto" 
 									required="true"
 									requiredMessage="#{res.emptyField}"
-									converterMessage="#{res.onlyNumber}"
-									validatorMessage="#{res.negative2}">
+									converterMessage="#{res.onlyNumbers}"
+									validatorMessage="#{res.validatorDiscount}">
 									<f:validateDoubleRange minimum="0" maximum="100"/></h:inputText>
 									<h:message for="desconto" styleClass="titulo_Vermelho" />
 							</div>
