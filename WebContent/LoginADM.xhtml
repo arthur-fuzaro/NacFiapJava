@@ -5,6 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+	<f:view locale="#{facesContext.externalContext.requestLocale}">
 <h:head>
 	<title><ui:insert name="title">GUIROAR</ui:insert></title>
 
@@ -41,5 +42,5 @@
 	</div>
 </h:form>
 </h:body>
-
+	</f:view>
 </html>
