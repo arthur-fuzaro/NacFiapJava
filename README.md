@@ -49,7 +49,7 @@
 
 Ao menos um método de validação JSF customizada onde vocês quiserem;
  
-##Pontos restantes
+## Pontos restantes
 
 Busca avançada
 
