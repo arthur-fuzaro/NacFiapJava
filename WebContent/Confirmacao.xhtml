@@ -34,11 +34,16 @@
 									<div class="campo" style="width: 30%; margin: 0;">
 										<label for="snome">#{res.due}</label>
 										<h:inputText style="width: 100%" id="due" required="true"
-											requiredMessage="#{res.emptyField}">
-											<f:convertDateTime pattern="mm/yy" />
+											requiredMessage="#{res.emptyField}"
+											converterMessage="#{res.dataConverterError}"
+											validator="#{carrinhoMB.validarData}"
+											>
+											<f:convertDateTime pattern="mm/YY"  />
+											<f:validateLength minimum="5" />
 										</h:inputText>
 										<h:message for="due" styleClass="titulo_Vermelho" />
 									</div>
+									
 								</fieldset>
 
 								<fieldset class="grupo"

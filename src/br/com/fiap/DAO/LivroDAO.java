@@ -26,8 +26,8 @@ public class LivroDAO {
 		
 	}
 	public void inserirLivro(Livro l){
-		String sql = "INSERT INTO Livros (CodIsbn, QtdPaginas, Edicao, Autor, Genero, Editora, Nome_livro, Preco)"
-				+ " VALUES(?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO Livros (CodIsbn, QtdPaginas, Edicao, Autor, Genero, Editora, Nome_livro, Preco, Desconto)"
+				+ " VALUES(?,?,?,?,?,?,?,?,?)";
 		try{
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -39,6 +39,7 @@ public class LivroDAO {
 			stmt.setString(6, l.getEditora());
 			stmt.setString(7, l.getNomeLivro());
 			stmt.setDouble(8, l.getPreco());
+			stmt.setDouble(9, l.getDesconto());
 			if(stmt.executeUpdate()==1){
 				System.out.println("Inserido com sucesso");
 			}else{

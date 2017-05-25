@@ -1,7 +1,10 @@
 package br.com.fiap.ManegedBean;
 
+import java.util.ResourceBundle;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.fiap.DAO.AdminDAO;
 import br.com.fiap.Model.Admin;
@@ -12,9 +15,24 @@ public class AdminMB {
 	
 	private static Admin admin;
 	private String erro;
+	private String sucesso;
+	private ResourceBundle resource;
+	private FacesContext context;
 	
+	public String getSucesso() {
+		String aux = this.sucesso;
+		setSucesso("");
+		return aux;
+	}
+
+	public void setSucesso(String sucesso) {
+		this.sucesso = sucesso;
+	}
+
 	public String getErro() {
-		return erro;
+		String aux = this.erro;
+		setErro("");
+		return aux;
 	}
 
 	public void setErro(String erro) {
@@ -23,6 +41,8 @@ public class AdminMB {
 
 	public AdminMB(){
 		admin = new Admin();
+		context = FacesContext.getCurrentInstance();
+		resource = ResourceBundle.getBundle("language", context.getViewRoot().getLocale());
 	}
 
 	public Admin getAdmin() {
@@ -35,15 +55,27 @@ public class AdminMB {
 	
 	public String login(){
 		AdminDAO a = new AdminDAO();
-		if(a.validarLogin(admin)) {
+		admin = a.validarLogin(admin);
+		if(admin != null) {
 			return "admin"; 
 		}else {
-			setErro("Login ou senha invalidos");
+			setErro(resource.getString("invalidLogin"));
+			admin = new Admin();
 			return "LoginADM";
 		}
 		
 		
 		
+	}
+	
+	public String sairAdmin(){
+		admin = new Admin();
+		setSucesso(resource.getString("logout"));
+		return "LoginADM";
+	}
+	
+	public String getSair(){
+		return "LoginADM";
 	}
 	
 }
