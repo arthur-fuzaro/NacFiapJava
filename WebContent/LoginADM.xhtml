@@ -18,24 +18,33 @@
 <h:body>
 	<h:form>
 	<div class="container">
-		<div class="tela_login">
+	
+				<p style="text-align:center;color:green;">#{adminMB.sucesso}</p>
+		<div class="tela_login" style="max-height: 310px;">
+		
 			<h1 class="logo"></h1>
 			
 			<fieldset class="grupo"	style="width: 99%; margin: 0; margin-bottom: 20px;">
+			
+							
 				<div class="campo" style="width: 100%; margin: 0;">
 					<label for="snome">#{res.user}</label>
-					<h:inputText style="width: 100%" value="#{adminMB.admin.user}" />
+					<h:inputText style="width: 100%" value="#{adminMB.admin.user}"  id="user" required="true"
+										requiredMessage="#{res.emptyField}" />
+									<h:message for="user" styleClass="titulo_Vermelho" />
 					
 				
 					<label for="nome" style="margin-top:10px;">#{res.senha}</label>
-					<h:inputSecret style="width: 100%" value="#{adminMB.admin.pass}"  />
+					<h:inputSecret style="width: 100%" value="#{adminMB.admin.pass}"   id="pass" required="true"
+										requiredMessage="#{res.emptyField}" />
+									<h:message for="pass" styleClass="titulo_Vermelho" />
 				</div>			
 									
 			</fieldset>
 			<h:commandButton class="botao" value="#{res.login}"
 							action="#{adminMB.login}" style="float:right;"></h:commandButton>
 							
-				<p style="text-align:center;color:green;">#{adminMB.erro}</p>
+				<p style="text-align:center;color:red;">#{adminMB.erro}</p>
 		
 	    </div> 
 
